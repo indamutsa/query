@@ -2390,3 +2390,73 @@ info: Feb-04-2022 13:22:46: 	[04/Feb/2022:13:22:46 +0000] 'GET /store/workspace?
 warn: Feb-04-2022 13:23:05: 	The project specified is not found!
 info: Feb-04-2022 13:23:05: 	[04/Feb/2022:13:23:05 +0000] 'GET /store/artifact/metamodel?id=61fd0fff6814c8473a9f6f36 HTTP/1.1' 404 37 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 5.498 ms
 
+info: Feb-04-2022 14:50:44: 	Listening on port 3201...
+info: Feb-04-2022 14:50:44: 	Connected to database --> mdeforge ...
+info: Feb-04-2022 13:51:21: 	[04/Feb/2022:13:51:21 +0000] 'GET /store/api-docs/ HTTP/1.1' 200 3102 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 7.176 ms
+
+info: Feb-04-2022 13:51:21: 	[04/Feb/2022:13:51:21 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 200 143858 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 2.528 ms
+
+info: Feb-04-2022 13:51:21: 	[04/Feb/2022:13:51:21 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 200 1086481 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 2.874 ms
+
+info: Feb-04-2022 13:51:21: 	[04/Feb/2022:13:51:21 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 200 59814 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 3.871 ms
+
+info: Feb-04-2022 13:51:21: 	[04/Feb/2022:13:51:21 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 200 324275 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 5.603 ms
+
+info: Feb-04-2022 13:51:23: 	[04/Feb/2022:13:51:23 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 200 628 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.781 ms
+
+info: Feb-04-2022 13:51:41: 	[04/Feb/2022:13:51:41 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 4.226 ms
+
+info: Feb-04-2022 13:51:48: 	Workspaces retrieved successfully!
+info: Feb-04-2022 13:51:48: 	[04/Feb/2022:13:51:48 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 571 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 11.514 ms
+
+info: Feb-04-2022 13:52:04: 	[04/Feb/2022:13:52:04 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 4.691 ms
+
+info: Feb-04-2022 13:52:06: 	[04/Feb/2022:13:52:06 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.317 ms
+
+info: Feb-04-2022 13:52:10: 	[04/Feb/2022:13:52:10 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.114 ms
+
+warn: Feb-04-2022 13:52:23: 	The project specified is not found!
+info: Feb-04-2022 13:52:23: 	[04/Feb/2022:13:52:23 +0000] 'GET /store/artifact/metamodel?id=61fd0fff6814c8473a9f6f36 HTTP/1.1' 404 37 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 10.142 ms
+
+info: Feb-04-2022 13:53:29: 	[04/Feb/2022:13:53:29 +0000] 'GET /store/api-docs/ HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 3.080 ms
+
+info: Feb-04-2022 13:53:29: 	[04/Feb/2022:13:53:29 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 6.298 ms
+
+info: Feb-04-2022 13:53:29: 	[04/Feb/2022:13:53:29 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 2.742 ms
+
+info: Feb-04-2022 13:53:29: 	[04/Feb/2022:13:53:29 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 3.707 ms
+
+info: Feb-04-2022 13:53:29: 	[04/Feb/2022:13:53:29 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 9.942 ms
+
+info: Feb-04-2022 13:53:32: 	[04/Feb/2022:13:53:32 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 3.181 ms
+
+info: Feb-04-2022 13:53:45: 	[04/Feb/2022:13:53:45 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.184 ms
+
+info: Feb-04-2022 14:57:36: 	Listening on port 3201...
+info: Feb-04-2022 14:57:36: 	Connected to database --> mdeforge ...
+info: Feb-04-2022 14:58:02: 	[04/Feb/2022:13:58:02 +0000] 'GET /store/api-docs/ HTTP/1.1' 200 3102 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 18.427 ms
+
+info: Feb-04-2022 14:58:02: 	[04/Feb/2022:13:58:02 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 200 59863 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 4.718 ms
+
+info: Feb-04-2022 14:58:02: 	[04/Feb/2022:13:58:02 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 200 143858 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 27.366 ms
+
+info: Feb-04-2022 14:58:02: 	[04/Feb/2022:13:58:02 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 200 324275 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 36.832 ms
+
+info: Feb-04-2022 14:58:02: 	[04/Feb/2022:13:58:02 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 200 1086481 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 45.413 ms
+
+info: Feb-04-2022 14:58:07: 	[04/Feb/2022:13:58:07 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 200 628 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 11.614 ms
+
+info: Feb-04-2022 13:58:35: 	[04/Feb/2022:13:58:35 +0000] 'GET /store/artifact/project?projectId=61fd0fff6814c8473a9f6f36 HTTP/1.1' 404 161 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 8.512 ms
+
+warn: Feb-04-2022 15:04:58: 	The project specified is not found!
+info: Feb-04-2022 15:04:58: 	[04/Feb/2022:14:04:58 +0000] 'GET /store/artifact/project?projectId=61fd0fff6814c8473a9f6f36 HTTP/1.1' 404 37 '- PostmanRuntime/7.26.8' - 16.635 ms
+
+info: Feb-04-2022 15:06:20: 	Metamodels retrieved successfully!
+info: Feb-04-2022 15:06:20: 	[04/Feb/2022:14:06:20 +0000] 'GET /store/artifact/project?projectId=61fd21a78414c16f386450c8 HTTP/1.1' 200 64 '- PostmanRuntime/7.26.8' - 22.918 ms
+
+info: Feb-04-2022 15:07:38: 	Metamodel uploaded successfully!
+info: Feb-04-2022 15:07:38: 	[04/Feb/2022:14:07:38 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 2925 '- PostmanRuntime/7.26.8' - 161.716 ms
+
+info: Feb-04-2022 15:10:41: 	Model uploaded successfully!
+info: Feb-04-2022 15:10:41: 	[04/Feb/2022:14:10:41 +0000] 'POST /store/artifact/model HTTP/1.1' 200 699 '- PostmanRuntime/7.26.8' - 184.935 ms
+
