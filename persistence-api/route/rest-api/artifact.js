@@ -223,17 +223,17 @@ const uploadMetamodel = async (req) => {
 // 2. Get all metamodel by the project
 /**
  * @swagger
- * /store/artifact/metamodel:
+ * /store/artifact/project:
  *  get:
- *      summary: Returns the list of metamodel owned by the project
+ *      summary: Returns the list of metamodels owned by the project
  *      tags: [Metamodel]
  *      parameters:
  *          - in: query
- *            name: id
+ *            name: projectId
  *            schema:
  *              type: string
  *            required: true
- *            description: The metamodel id
+ *            description: The project id
  *      responses:
  *          200:
  *              description: The user was retrieved successfully!
@@ -261,7 +261,7 @@ const uploadMetamodel = async (req) => {
  *          500:
  *              description: An error occurred on the server, check the logs
  */
-router.get("/metamodel", async (req, res) => {
+router.get("/project", async (req, res) => {
   const project = await Project.findById(req.query.projectId);
 
   if (project) {

@@ -2333,3 +2333,60 @@ info: Feb-04-2022 13:01:34: 	[04/Feb/2022:13:01:34 +0000] 'GET /store/api-docs/f
 info: Feb-04-2022 13:01:54: 	Workspaces retrieved successfully!
 info: Feb-04-2022 13:01:54: 	[04/Feb/2022:13:01:54 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 571 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 32.640 ms
 
+info: Feb-04-2022 13:18:54: 	[04/Feb/2022:13:18:54 +0000] 'GET /store/api-docs/ HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 26.070 ms
+
+info: Feb-04-2022 13:18:55: 	[04/Feb/2022:13:18:55 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 10.943 ms
+
+info: Feb-04-2022 13:18:55: 	[04/Feb/2022:13:18:55 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 6.800 ms
+
+info: Feb-04-2022 13:18:55: 	[04/Feb/2022:13:18:55 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 3.421 ms
+
+info: Feb-04-2022 13:18:55: 	[04/Feb/2022:13:18:55 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 17.101 ms
+
+info: Feb-04-2022 13:18:57: 	[04/Feb/2022:13:18:57 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.494 ms
+
+warn: Feb-04-2022 13:19:13: 	The project specified is not found!
+info: Feb-04-2022 13:19:13: 	[04/Feb/2022:13:19:13 +0000] 'GET /store/artifact/metamodel?id=61fbe8e34824d6d3a8ea40b9 HTTP/1.1' 404 37 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 16.893 ms
+
+info: Feb-04-2022 13:19:55: 	Workspaces retrieved successfully!
+info: Feb-04-2022 13:19:55: 	[04/Feb/2022:13:19:55 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 19.827 ms
+
+warn: Feb-04-2022 13:20:24: 	The project specified is not found!
+info: Feb-04-2022 13:20:24: 	[04/Feb/2022:13:20:24 +0000] 'GET /store/artifact/metamodel?id=61fd0fff6814c8473a9f6f36 HTTP/1.1' 404 37 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 5.623 ms
+
+info: Feb-04-2022 13:20:35: 	[04/Feb/2022:13:20:35 +0000] 'GET /store/api-docs/ HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.528 ms
+
+info: Feb-04-2022 13:20:35: 	[04/Feb/2022:13:20:35 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.793 ms
+
+info: Feb-04-2022 13:20:35: 	[04/Feb/2022:13:20:35 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 7.011 ms
+
+info: Feb-04-2022 13:20:35: 	[04/Feb/2022:13:20:35 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.674 ms
+
+info: Feb-04-2022 13:20:35: 	[04/Feb/2022:13:20:35 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 9.711 ms
+
+info: Feb-04-2022 13:20:38: 	[04/Feb/2022:13:20:38 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.114 ms
+
+info: Feb-04-2022 13:21:23: 	Metamodel uploaded successfully!
+info: Feb-04-2022 13:21:23: 	[04/Feb/2022:13:21:23 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 2901 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 187.589 ms
+
+info: Feb-04-2022 13:21:32: 	[04/Feb/2022:13:21:32 +0000] 'GET /store/api-docs/ HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.365 ms
+
+info: Feb-04-2022 13:21:33: 	[04/Feb/2022:13:21:33 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.088 ms
+
+info: Feb-04-2022 13:21:33: 	[04/Feb/2022:13:21:33 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.047 ms
+
+info: Feb-04-2022 13:21:33: 	[04/Feb/2022:13:21:33 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.776 ms
+
+info: Feb-04-2022 13:21:33: 	[04/Feb/2022:13:21:33 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 2.223 ms
+
+info: Feb-04-2022 13:21:35: 	[04/Feb/2022:13:21:35 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 0.985 ms
+
+warn: Feb-04-2022 13:21:46: 	The project specified is not found!
+info: Feb-04-2022 13:21:46: 	[04/Feb/2022:13:21:46 +0000] 'GET /store/artifact/metamodel?id=61fd0fff6814c8473a9f6f36 HTTP/1.1' 404 37 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 4.608 ms
+
+info: Feb-04-2022 13:22:46: 	Workspaces retrieved successfully!
+info: Feb-04-2022 13:22:46: 	[04/Feb/2022:13:22:46 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 12.505 ms
+
+warn: Feb-04-2022 13:23:05: 	The project specified is not found!
+info: Feb-04-2022 13:23:05: 	[04/Feb/2022:13:23:05 +0000] 'GET /store/artifact/metamodel?id=61fd0fff6814c8473a9f6f36 HTTP/1.1' 404 37 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 5.498 ms
+
