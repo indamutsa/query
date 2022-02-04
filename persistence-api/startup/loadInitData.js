@@ -54,6 +54,18 @@ const saveDefaultProject = async (workspace) => {
       description: "Default Project",
     });
     const savedProject = await project.save();
+    await Workspace.findByIdAndUpdate(
+      workspace._id,
+      {
+        $push: {
+          projects: newProject._id,
+        },
+      },
+      {
+        new: true, //To return the updated value
+      }
+    );
+
     // console.log(savedProject);
   } catch (error) {
     console.log(error);

@@ -2272,3 +2272,39 @@ info: Feb-03-2022 16:49:06: 	Listening on port 3200...
 info: Feb-03-2022 16:49:09: 	Connected to database --> mdeforge ...
 info: Feb-04-2022 09:21:58: 	Listening on port 3200...
 info: Feb-04-2022 09:21:58: 	Connected to database --> mdeforge ...
+info: Feb-04-2022 10:38:38: 	Listening on port 3200...
+info: Feb-04-2022 10:38:38: 	Connected to database --> mdeforge ...
+info: Feb-04-2022 10:43:22: 	[04/Feb/2022:10:43:22 +0000] 'GET /store/api-docs/ HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 31.086 ms
+
+info: Feb-04-2022 10:43:22: 	[04/Feb/2022:10:43:22 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 4.922 ms
+
+info: Feb-04-2022 10:43:22: 	[04/Feb/2022:10:43:22 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 9.453 ms
+
+info: Feb-04-2022 10:43:22: 	[04/Feb/2022:10:43:22 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 200 324275 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 16.126 ms
+
+info: Feb-04-2022 10:43:22: 	[04/Feb/2022:10:43:22 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 200 1086481 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 16.770 ms
+
+info: Feb-04-2022 11:27:31: 	[04/Feb/2022:11:27:31 +0000] 'GET /store/user HTTP/1.1' 404 29 '- PostmanRuntime/7.26.8' - 27.451 ms
+
+info: Feb-04-2022 11:28:07: 	[04/Feb/2022:11:28:07 +0000] 'GET /store/api-docs/ HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 4.918 ms
+
+info: Feb-04-2022 11:28:08: 	[04/Feb/2022:11:28:08 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.647 ms
+
+info: Feb-04-2022 11:28:08: 	[04/Feb/2022:11:28:08 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 5.569 ms
+
+info: Feb-04-2022 11:28:08: 	[04/Feb/2022:11:28:08 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 5.843 ms
+
+info: Feb-04-2022 11:28:08: 	[04/Feb/2022:11:28:08 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 3.219 ms
+
+info: Feb-04-2022 11:36:49: 	User retrieved successfully!
+info: Feb-04-2022 11:36:49: 	[04/Feb/2022:11:36:49 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 23.991 ms
+
+info: Feb-04-2022 11:37:06: 	Workspace was created successfully!
+info: Feb-04-2022 11:37:06: 	[04/Feb/2022:11:37:06 +0000] 'POST /store/workspace HTTP/1.1' 200 317 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 41.234 ms
+
+info: Feb-04-2022 11:37:35: 	Project was created successfully!
+info: Feb-04-2022 11:37:35: 	[04/Feb/2022:11:37:35 +0000] 'POST /store/project HTTP/1.1' 200 310 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 77.020 ms
+
+info: Feb-04-2022 11:38:16: 	Metamodel uploaded successfully!
+info: Feb-04-2022 11:38:16: 	[04/Feb/2022:11:38:16 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 2898 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 306.998 ms
+
