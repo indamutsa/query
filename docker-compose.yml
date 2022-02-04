@@ -78,8 +78,8 @@ services:
     container_name: filebeat
     image: indamutsa/filebeat:v1.0
     volumes:
-      - "$HOME/Project/school-projects/mdeforge/advanced-query-mechanisms/elastic-bundle/test-filebeat:/logs"
-      - "$HOME/Project/school-projects/mdeforge/advanced-query-mechanisms/elastic-bundle/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "./elastic-bundle/test-filebeat:/logs"
+      - "./elastic-bundle/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
       - "/var/lib/docker/containers:/usr/share/filebeat/dockerlogs:ro"
       - "/var/run/docker.sock:/var/run/docker.sock"
 
@@ -187,7 +187,7 @@ services:
     #   context: ./monstache
     #   dockerfile: ./Dockerfile
     volumes:
-      - "$HOME/Project/school-projects/mdeforge/advanced-query-mechanisms/mongo-bundle/monstache/monstache.config.toml:/app/monstache.config.toml"
+      - "./mongo-bundle/monstache/monstache.config.toml:/app/monstache.config.toml"
       - mongo-rs0-1
       - elasticsearch
     ports:
