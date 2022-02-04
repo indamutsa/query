@@ -2316,3 +2316,20 @@ info: Feb-04-2022 13:51:51: 	Listening on port 3201...
 info: Feb-04-2022 13:51:51: 	Connected to database --> mdeforge ...
 info: Feb-04-2022 13:52:55: 	Listening on port 3201...
 info: Feb-04-2022 13:52:55: 	Connected to database --> mdeforge ...
+info: Feb-04-2022 13:01:13: 	Listening on port 3200...
+info: Feb-04-2022 13:01:16: 	Connected to database --> mdeforge ...
+info: Feb-04-2022 13:01:28: 	[04/Feb/2022:13:01:28 +0000] 'GET /store/api-docs/ HTTP/1.1' 200 3102 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 30.749 ms
+
+info: Feb-04-2022 13:01:28: 	[04/Feb/2022:13:01:28 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 200 143858 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 13.559 ms
+
+info: Feb-04-2022 13:01:28: 	[04/Feb/2022:13:01:28 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 200 59814 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 2.204 ms
+
+info: Feb-04-2022 13:01:28: 	[04/Feb/2022:13:01:28 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 200 324275 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 13.019 ms
+
+info: Feb-04-2022 13:01:28: 	[04/Feb/2022:13:01:28 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 200 1086481 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 8.072 ms
+
+info: Feb-04-2022 13:01:34: 	[04/Feb/2022:13:01:34 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 200 628 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 1.429 ms
+
+info: Feb-04-2022 13:01:54: 	Workspaces retrieved successfully!
+info: Feb-04-2022 13:01:54: 	[04/Feb/2022:13:01:54 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 571 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36' - 32.640 ms
+

@@ -53,4 +53,4 @@ echo 'Spinning the cluster ...'
 echo '####################################################'
 
 docker-compose down -v --remove-orphans
-docker-compose up --force-recreate --build
+docker-compose up -d --force-recreate --build
