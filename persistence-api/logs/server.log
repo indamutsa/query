@@ -2460,3 +2460,7 @@ info: Feb-04-2022 15:07:38: 	[04/Feb/2022:14:07:38 +0000] 'POST /store/artifact/
 info: Feb-04-2022 15:10:41: 	Model uploaded successfully!
 info: Feb-04-2022 15:10:41: 	[04/Feb/2022:14:10:41 +0000] 'POST /store/artifact/model HTTP/1.1' 200 699 '- PostmanRuntime/7.26.8' - 184.935 ms
 
+info: Feb-04-2022 15:13:44: 	[04/Feb/2022:14:13:44 +0000] 'POST /api/artifact/dsl HTTP/1.1' 404 156 '- PostmanRuntime/7.26.8' - 2.994 ms
+
+info: Feb-04-2022 15:13:57: 	[04/Feb/2022:14:13:57 +0000] 'POST /store/artifact/dsl HTTP/1.1' 500 105 '- PostmanRuntime/7.26.8' - 21.523 ms
+
