@@ -58,7 +58,7 @@ const saveDefaultProject = async (workspace) => {
       workspace._id,
       {
         $push: {
-          projects: newProject._id,
+          projects: savedProject._id,
         },
       },
       {
