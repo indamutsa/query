@@ -54,6 +54,7 @@ const saveDefaultProject = async (workspace) => {
       description: "Default Project",
     });
     const savedProject = await project.save();
+
     await Workspace.findByIdAndUpdate(
       workspace._id,
       {
