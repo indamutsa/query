@@ -314,7 +314,7 @@ services:
   setup-rs:
     container_name: setup-rs
     build:
-      context: ./mongo_bundle/sharded
+      context: ./mongo-bundle/sharded
     depends_on:
       - "mongos1"
     networks:
