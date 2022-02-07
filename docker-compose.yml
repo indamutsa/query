@@ -311,7 +311,7 @@ services:
       - "27017"
 
   # A shortlived container for starting the cluster
-  setup-rs1:
+  setup-rs:
     container_name: setup-rs
     build:
       context: ./sharded
