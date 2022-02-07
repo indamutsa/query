@@ -294,7 +294,7 @@ services:
     expose:
       - "27017"
     volumes:
-      - ./addShards.js:/home/app/addShards.js
+      - ./mongo-bundle/sharded/addShards.js:/home/app/addShards.js
 
   mongos2:
     container_name: mongos2
