@@ -1,10 +1,10 @@
 # connection settings
 
 # connect to MongoDB using the following URL
-# mongo-url = "mongodb://mongo-rs0-1,mongo-rs0-2,mongo-rs0-3"
+# mongodb://mongo-rs0-1,mongo-rs0-2,mongo-rs0-1?replicaSet=rs0
 
 mongo-url = "mongodb://mongos1:27017"
-# mongo-config-url = "mongodb://mongocfg1:27017,mongocfg2:27017,mongocfg3:27017"
+mongo-config-url = "mongodb://mongocfg1:27017,mongocfg2:27017,mongocfg3:27017?replicaset=mongors1conf"
 
 
 # connect to the Elasticsearch REST API at the following node URLs

@@ -27,9 +27,9 @@ const dslSchema = new mongoose.Schema({
       ref: "Transformation",
     },
   ],
-  content: {
-    type: String,
-  },
+  // content: {
+  //   type: String,
+  // },
 });
 
 // Create the model

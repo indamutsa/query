@@ -13,7 +13,7 @@ const { deleteFile, uploadFile, readFile } = require("../utilities");
 // var fs = require("fs");
 
 router.get("/test", async (req, res) => {
-  let data = await readFile("metamodel");
+  // let data = await readFile("metamodel");
   res.status(200).json({ message: "Hello world " });
 });
 
@@ -165,6 +165,7 @@ const uploadMetamodel = async (req) => {
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
         comment: req.body?.comment,
+        content: data.content,
       };
       // Save the artifact
       const newArtifact = await Artifact(artifact);
@@ -176,7 +177,6 @@ const uploadMetamodel = async (req) => {
         type: fileExt,
         artifact: savedArtifact._id,
         // involvedOperations: ,
-        content: data.content,
         ePackage: {
           name: data.name,
           nsURI: data.nsURI,
@@ -610,6 +610,7 @@ const uploadModel = async (req, res) => {
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
         comment: req.body?.comment,
+        content: data.content,
       };
 
       // Save the artifact
@@ -623,7 +624,6 @@ const uploadModel = async (req, res) => {
         project: metamodel.project,
         type: fileExt,
         artifact: savedArtifact._id,
-        content: data.content,
       };
 
       const newModel = await Model(model);
@@ -1097,6 +1097,7 @@ const uploadScript = async (req, res) => {
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
         comment: req.body?.comment,
+        content: data.content,
       };
 
       // Save the artifact
@@ -1109,7 +1110,6 @@ const uploadScript = async (req, res) => {
         project: req.data ? req.data.project : req.body.project,
         type: fileExt,
         artifact: savedArtifact._id,
-        content: data.content,
       };
 
       const newDsl = await Dsl(dsl);

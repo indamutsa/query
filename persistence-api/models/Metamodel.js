@@ -36,9 +36,9 @@ const metamodelSchema = new Schema({
       ref: "Transformation",
     },
   ],
-  content: {
-    type: String,
-  },
+  // content: {
+  //   type: String,
+  // },
   // Internal properties
   ePackage: {
     name: {
