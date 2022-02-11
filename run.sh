@@ -8,7 +8,20 @@
 #  - remove containers
 #  - remove images
 #  - remove volumes
-#
+
+echo '####################################################'
+echo 'Removing data...'
+echo '####################################################'
+#  Remove data
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/data1/*
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/data2/*
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/data3/*
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/data4/*
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/data5/*
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/data6/*
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/config1/*
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/config2/*
+sudo rm -rf mongo-bundle/sharded/mongo_cluster/config3/*
 
 # stop all running containers
 echo '####################################################'
@@ -54,5 +67,5 @@ echo '####################################################'
 
 docker-compose down -v --remove-orphans
 docker-compose up -d --build --force-recreate
-sleep 45 | echo sleeping --- Connecting the shards to the mongos router ---------
-docker exec -it mongos1 bash -c "cat /home/app/addShards.js  | mongo "
+# sleep 45 | echo sleeping --- Connecting the shards to the mongos router ---------
+# docker exec -it mongos1 bash -c "cat /home/app/addShards.js  | mongo "

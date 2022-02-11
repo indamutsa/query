@@ -3,8 +3,8 @@
 # connect to MongoDB using the following URL
 # mongo-url = "mongodb://mongo-rs0-1,mongo-rs0-2,mongo-rs0-3"
 
-mongo-url = "mongodb://mongos1, mongos2"
-mongo-config-url = "mongodb://mongocfg1:27017,mongocfg2:27017,mongocfg3:27017"
+mongo-url = "mongodb://mongos1:27017"
+# mongo-config-url = "mongodb://mongocfg1:27017,mongocfg2:27017,mongocfg3:27017"
 
 
 # connect to the Elasticsearch REST API at the following node URLs
@@ -14,7 +14,7 @@ elasticsearch-urls = ["http://elasticsearch:9200"]
 
 # if you need to seed an index from a collection and not just listen and sync changes events
 # you can copy entire collections or views from MongoDB to Elasticsearch
-# direct-read-namespaces = ["test.kittens"]
+# direct-read-namespaces = ["testDb.kittens"]
 direct-read-namespaces = ["mdeforge.users","mdeforge.workspaces","mdeforge.projects","mdeforge.dsls","mdeforge.models","mdeforge.metamodels", "mdeforge.artifacts","mdeforge.server_logs"]
 
 
@@ -25,6 +25,8 @@ direct-read-namespaces = ["mdeforge.users","mdeforge.workspaces","mdeforge.proje
 # in this case you usually don't need regexes in your config to filter collections unless you target the deployment.
 # to listen to an entire db use only the database name.  For a deployment use an empty string.
 change-stream-namespaces = ["mdeforge"]
+# change-stream-namespaces = ["testDb"]
+
 
 # additional settings
 

@@ -97,17 +97,33 @@ services:
     build:
       context: ./persistence-api
     # image: indamutsa/persistence-api:v1.0
-    command: node index.js
+    command: bash -c "sleep 130 && npm run server"
     ports:
       - "3200:3200"
-    restart: unless-stopped
+    restart: always
     volumes:
-      - ./persistence-api:/usr/src/app
+      - ./persistence-api:/app
       - /usr/src/app/node_modules
     depends_on:
       - "setup-rs"
     networks:
       - search-engine
+
+  # web:
+  #   container_name: web
+  #   build:
+  #     context: ./mongo-bundle/sharded/web-app
+  #   command: bash -c "sleep 120 && node index.js"
+  #   ports:
+  #     - "3110:3000"
+  #   restart: always
+  #   volumes:
+  #     - ./web-app:/app
+  #     - /usr/src/app/node_modules
+  #   depends_on:
+  #     - setup-rs
+  #   networks:
+  #     - search-engine
 
   adminmongo:
     container_name: adminmongo
@@ -150,171 +166,170 @@ services:
   # Shard 1
   mongors1n1:
     container_name: mongors1n1
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --shardsvr --replSet mongors1 --dbpath /data/db --port 27017
     ports:
       - 27018:27017
     expose:
       - "27017"
-    networks:
-      - search-engine
     environment:
       TERM: xterm
     volumes:
-      - /mongo_cluster/data1:/data/db
+      - ./mongo-bundle/sharded/mongo_cluster/data1:/data/db
+    networks:
+      - search-engine
 
   mongors1n2:
     container_name: mongors1n2
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --shardsvr --replSet mongors1 --dbpath /data/db --port 27017
     ports:
       - 27027:27017
-    networks:
-      - search-engine
     expose:
       - "27017"
     environment:
       TERM: xterm
     volumes:
-      - /mongo_cluster/data2:/data/db
+      - ./mongo-bundle/sharded/mongo_cluster/data2:/data/db
+    networks:
+      - search-engine
 
   mongors1n3:
     container_name: mongors1n3
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --shardsvr --replSet mongors1 --dbpath /data/db --port 27017
     ports:
       - 27037:27017
-    networks:
-      - search-engine
     expose:
       - "27017"
     environment:
       TERM: xterm
     volumes:
-      - /mongo_cluster/data3:/data/db
+      - ./mongo-bundle/sharded/mongo_cluster/data3:/data/db
+    networks:
+      - search-engine
 
   # Shard 2
   mongors2n1:
     container_name: mongors2n1
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --shardsvr --replSet mongors2 --dbpath /data/db --port 27017
     ports:
       - 27047:27017
-    networks:
-      - search-engine
     expose:
       - "27017"
     environment:
       TERM: xterm
     volumes:
-      - /mongo_cluster/data4:/data/db
+      - ./mongo-bundle/sharded/mongo_cluster/data4:/data/db
+    networks:
+      - search-engine
 
   mongors2n2:
     container_name: mongors2n2
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --shardsvr --replSet mongors2 --dbpath /data/db --port 27017
     ports:
       - 27057:27017
-    networks:
-      - search-engine
     expose:
       - "27017"
     environment:
       TERM: xterm
     volumes:
-      - /mongo_cluster/data5:/data/db
+      - ./mongo-bundle/sharded/mongo_cluster/data5:/data/db
+    networks:
+      - search-engine
 
   mongors2n3:
     container_name: mongors2n3
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --shardsvr --replSet mongors2 --dbpath /data/db --port 27017
     ports:
       - 27067:27017
-    networks:
-      - search-engine
     expose:
       - "27017"
     environment:
       TERM: xterm
     volumes:
-      - /mongo_cluster/data6:/data/db
+      - ./mongo-bundle/sharded/mongo_cluster/data6:/data/db
+    networks:
+      - search-engine
 
   # Configuration server
   mongocfg1:
     container_name: mongocfg1
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --configsvr --replSet mongors1conf --dbpath /data/db --port 27017
     environment:
       TERM: xterm
     expose:
       - "27017"
+    volumes:
+      - ./mongo-bundle/sharded/mongo_cluster/config1:/data/db
     networks:
       - search-engine
-    volumes:
-      - /mongo_cluster/config1:/data/db
 
   mongocfg2:
     container_name: mongocfg2
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --configsvr --replSet mongors1conf --dbpath /data/db --port 27017
     environment:
       TERM: xterm
     expose:
       - "27017"
+    volumes:
+      - ./mongo-bundle/sharded/mongo_cluster/config2:/data/db
     networks:
       - search-engine
-    volumes:
-      - /mongo_cluster/config2:/data/db
 
   mongocfg3:
     container_name: mongocfg3
-    image: mongo:5.0.6
+    image: mongo:4.2
     command: mongod --configsvr --replSet mongors1conf --dbpath /data/db --port 27017
     environment:
       TERM: xterm
     expose:
       - "27017"
+    volumes:
+      - ./mongo-bundle/sharded/mongo_cluster/config3:/data/db
     networks:
       - search-engine
-    volumes:
-      - /mongo_cluster/config3:/data/db
 
   # The router
   mongos1:
     container_name: mongos1
-    image: mongo:5.0.6
+    image: mongo:4.2
     depends_on:
       - mongocfg1
       - mongocfg2
-    command: mongos --configdb mongors1conf/mongocfg1:27017,mongocfg2:27017,mongocfg3:27017 --port 27017
+    command: mongos --configdb mongors1conf/mongocfg1:27017,mongocfg2:27017,mongocfg3:27017 --port 27017 --bind_ip_all
     ports:
       - 27019:27017
-    networks:
-      - search-engine
     expose:
       - "27017"
     volumes:
-      - ./mongo-bundle/sharded/addShards.js:/home/app/addShards.js
+      - ./setup/addShards.js:/home/app/addShards.js
+    networks:
+      - search-engine
 
   mongos2:
     container_name: mongos2
-    image: mongo:5.0.6
+    image: mongo:4.2
     depends_on:
       - mongocfg1
       - mongocfg2
-    command: mongos --configdb mongors1conf/mongocfg1:27017,mongocfg2:27017,mongocfg3:27017 --port 27017
+    command: mongos --configdb mongors1conf/mongocfg1:27017,mongocfg2:27017,mongocfg3:27017 --port 27017 --bind_ip_all
     ports:
       - 27020:27017
-    networks:
-      - search-engine
     expose:
       - "27017"
+    networks:
+      - search-engine
 
   # A shortlived container for starting the cluster
   setup-rs:
     container_name: setup-rs
-    build:
-      context: ./mongo-bundle/sharded
+    build: ./setup
     depends_on:
       - "mongos1"
     networks:
@@ -332,61 +347,3 @@ networks:
 
 volumes:
   elasticsearch:
-
-  # web:
-  #   container_name: web
-  #   image: indamutsa/sample-node-app:v1.0
-  #   command: node index.js
-  #   ports:
-  #     - "3200:3000"
-  #   volumes:
-  #     - ./mongo-bundle/web-app:/usr/src/app
-  #     - /usr/src/app/node_modules
-  #   depends_on:
-  #     - "setup-rs"
-  #   networks:
-  #     - search-engine
-
-  # mongo-rs0-1:
-  #   container_name: mongo-rs0-1
-  #   image: indamutsa/mongo-start:v1.0
-  #   ports:
-  #     - "30000:27017"
-  #   volumes:
-  #     - ./mongo-bundle/mongo-rs0-1/data:/data/db
-  #   depends_on:
-  #     - "mongo-rs0-2"
-  #     - "mongo-rs0-3"
-  #   networks:
-  #     - search-engine
-
-  # mongo-rs0-2:
-  #   container_name: mongo-rs0-2
-  #   image: "mongo:4.0"
-  #   command: --replSet rs0 --smallfiles --oplogSize 128
-  #   ports:
-  #     - "30001:27017"
-  #   volumes:
-  #     - ./mongo-bundle/mongo-rs0-2/data:/data/db
-  #   networks:
-  #     - search-engine
-
-  # mongo-rs0-3:
-  #   container_name: mongo-rs0-3
-  #   image: "mongo:4.0"
-  #   command: --replSet rs0 --smallfiles --oplogSize 128
-  #   ports:
-  #     - "30002:27017"
-  #   volumes:
-  #     - ./mongo-bundle/mongo-rs0-3/data:/data/db
-  #   networks:
-  #     - search-engine
-
-  # # A shortlived container for starting the cluster
-  # setup-rs:
-  #   container_name: setup-rs
-  #   image: indamutsa/setup-rs:v1.0
-  #   depends_on:
-  #     - "mongo-rs0-1"
-  #   networks:
-  #     - search-engine

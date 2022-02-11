@@ -60,7 +60,7 @@ async function runServer() {
 
   init_app(app);
   validate();
-  loadInitData();
+  // loadInitData();
 
   await server.start();
   server.applyMiddleware({ app });
