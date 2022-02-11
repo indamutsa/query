@@ -31,7 +31,8 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3200",
+        // url: "http://localhost:3200",
+        // url: "http://34.67.33.7:3200",
       },
     ],
   },
