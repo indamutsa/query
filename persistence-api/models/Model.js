@@ -6,8 +6,8 @@ const modelSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 50,
+    // minlength: 2,
+    // maxlength: 50,
   },
   metamodel: {
     type: mongoose.Schema.Types.ObjectId,

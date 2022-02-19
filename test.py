@@ -1,9 +1,9 @@
 import requests
 import os
 
-
-path = "/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/instances_xmi_ecore/"
-url = "http://localhost:3200/store/" #"http://34.67.33.7:3200/store/"
+path = '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ecore_memorec/'
+# path = "/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/instances_xmi_ecore/"
+url = "http://34.67.33.7:3200/store/" #"http://localhost:3200/store/" 
 
 # Change the directory
 os.chdir(path)
@@ -40,11 +40,11 @@ project_d = response.json()
 
 def iloveLissette(filename):
     ## Uploading the metamodel
-    uri = url + "artifact/model"
-    # uri = url + "artifact/metamodel"
+    # uri = url + "artifact/model"
+    uri = url + "artifact/metamodel"
 
-    payload={'description': 'We are trying to save the model using the api','metamodel': '6210ad90f04b35d882db7741'}
-    # payload={'description': 'We are trying to save the metamodel using the api','project': '61fd21a78414c16f386450c8'}
+    # payload={'description': 'We are trying to save the model using the api','metamodel': '6210ba1415637c0013b2610c'}
+    payload={'description': 'We are trying to save the metamodel using the api','project': '6210b80015637c0013b260f6'}
 
     files=[('file',(filename,open(path + filename,'rb'),'application/octet-stream'))]
     headers = {}
@@ -59,7 +59,7 @@ def iloveLissette(filename):
 for f in os.listdir():
     #  print(f)
     # Check whether file is in text format or not
-    if f.endswith(".xmi"):
+    if f.endswith(".ecore"):
         # file_path = f"{path}/{f}"
         data = iloveLissette(f)
         print("worked...", f)

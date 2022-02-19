@@ -9,8 +9,8 @@ const metamodelSchema = new Schema({
   name: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 50,
+    // minlength: 2,
+    // maxlength: 50,
   },
   project: {
     type: Schema.Types.ObjectId,

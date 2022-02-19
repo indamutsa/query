@@ -12,8 +12,8 @@ const artifactSchema = new mongoose.Schema(
     storageUrl: {
       type: String,
       required: true,
-      minlength: 5,
-      maxlength: 200,
+      // minlength: 5,
+      // maxlength: 200,
     },
     size: {
       type: Number,
