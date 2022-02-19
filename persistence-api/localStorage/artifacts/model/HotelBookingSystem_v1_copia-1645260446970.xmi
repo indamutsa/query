@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="HostelBookingSystem">
+  <classes name="Hostel">
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="telephone"
+        attrType="EInt"/>
+    <attributes
+        attrName="site"
+        attrType="EString"/>
+    <methods
+        name="newRoom"
+        returnType="EInt"/>
+    <methods
+        name="newService"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Service">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="description"
+        attrType="EString"/>
+    <attributes
+        attrName="price"
+        attrType="EFloat"/>
+  </classes>
+  <classes name="Room">
+    <attributes
+        attrName="floor"
+        attrType="EInt"/>
+    <attributes
+        attrName="door"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Customer">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="lastname"
+        attrType="EString"/>
+    <attributes
+        attrName="email"
+        attrType="EString"/>
+    <methods
+        name="newCustomer"
+        returnType="EInt"/>
+    <methods
+        name="modifyCustomer"
+        returnType="EInt"/>
+  </classes>
+</oopl:Program>

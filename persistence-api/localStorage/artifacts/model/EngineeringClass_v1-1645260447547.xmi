@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="EngineeringClass">
+  <classes name="Course">
+    <attributes
+        attrName="code"
+        attrType="EString"/>
+    <attributes
+        attrName="description"
+        attrType="EString"/>
+    <attributes
+        attrName="title"
+        attrType="EString"/>
+    <attributes
+        attrName="classRoom"
+        attrType="EString"/>
+    <attributes
+        attrName="dateHour"
+        attrType="EDate"/>
+    <attributes
+        attrName="duration"
+        attrType="EInt"/>
+    <methods
+        name="createCourse"
+        returnType="EString"/>
+    <methods
+        name="modifyCourse"
+        returnType="EString"/>
+    <methods
+        name="deleteCourse"
+        returnType="EString"/>
+  </classes>
+  <classes name="Student">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="lastname"
+        attrType="EString"/>
+    <attributes
+        attrName="mobile"
+        attrType="EInt"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="email"
+        attrType="EString"/>
+    <attributes
+        attrName="dayOfBirth"
+        attrType="EDate"/>
+  </classes>
+  <classes name="Project">
+    <attributes
+        attrName="task"
+        attrType="EString"/>
+    <attributes
+        attrName="day"
+        attrType="EString"/>
+    <attributes
+        attrName="maxSize"
+        attrType="EInt"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+  </classes>
+  <classes name="LabRoom">
+    <attributes
+        attrName="location"
+        attrType="EString"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+  </classes>
+</oopl:Program>

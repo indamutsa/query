@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="ScapeRoom">
+  <classes name="Game">
+    <attributes
+        attrName="name"
+        attrType="Estring"/>
+    <attributes
+        attrName="introduction"
+        attrType="EString"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+  </classes>
+  <classes name="User">
+    <attributes
+        attrName="initial_life"
+        attrType="EInt"/>
+    <attributes
+        attrName="life_limit"
+        attrType="EInt"/>
+    <attributes
+        attrName="name"
+        attrType="Estring"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Room">
+    <attributes
+        attrName="inicial"
+        attrType="EBoolean"/>
+    <attributes
+        attrName="title"
+        attrType="EString"/>
+    <attributes
+        attrName="indoors"
+        attrType="EString"/>
+  </classes>
+  <classes name="Character">
+    <attributes
+        attrName="name"
+        attrType="Estring"/>
+    <attributes
+        attrName="answer"
+        attrType="EString"/>
+    <attributes
+        attrName="createCharacter"
+        attrType="EInt"/>
+    <attributes
+        attrName="editCharacter"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Door">
+    <attributes
+        attrName="name"
+        attrType="EStrin"/>
+  </classes>
+</oopl:Program>

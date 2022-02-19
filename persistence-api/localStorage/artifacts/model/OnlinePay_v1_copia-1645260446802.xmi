@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="OnlinePay">
+  <classes name="Customer">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="active"
+        attrType="EBoolean"/>
+  </classes>
+  <classes name="Order"/>
+  <classes name="Payment">
+    <attributes
+        attrName="amount"
+        attrType="EFloat"/>
+  </classes>
+  <classes name="Product">
+    <attributes
+        attrName="description"
+        attrType="EString"/>
+  </classes>
+  <classes name="OrderInformation">
+    <attributes
+        attrName="taxStatus"
+        attrType="EString"/>
+  </classes>
+  <classes name="Credit">
+    <attributes
+        attrName="number"
+        attrType="EString"/>
+  </classes>
+  <classes name="Cash"/>
+  <classes name="Checkout">
+    <attributes
+        attrName="bankID"
+        attrType="EString"/>
+  </classes>
+  <classes name="WireTransfer">
+    <attributes
+        attrName="bankID"
+        attrType="EString"/>
+  </classes>
+</oopl:Program>

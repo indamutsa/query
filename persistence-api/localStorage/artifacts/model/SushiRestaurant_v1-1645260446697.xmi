@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="SuchiRestaurant">
+  <classes name="RestaurantSystem">
+    <attributes
+        attrName="name"
+        attrType="Estring"/>
+    <attributes
+        attrName="profit"
+        attrType="EDouble"/>
+    <methods
+        name="checkout"
+        returnType="EInt"/>
+    <methods
+        name="reserveSeat"
+        returnType="EInt"/>
+  </classes>
+  <classes name="ConveyorBelt">
+    <attributes
+        attrName="capacity"
+        attrType="EInt"/>
+    <attributes
+        attrName="freeSpots"
+        attrType="Eint"/>
+    <methods
+        name="addSushi"
+        returnType="EInt"/>
+    <methods
+        name="removeSushi"
+        returnType="EInt"/>
+    <methods
+        name="boughtSushi"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Chef">
+    <attributes
+        attrName="id"
+        attrType="Eint"/>
+    <attributes
+        attrName="name"
+        attrType="Estring"/>
+    <attributes
+        attrName="mobile"
+        attrType="Eint"/>
+    <methods
+        name="newChef"
+        returnType="EInt"/>
+    <methods
+        name="editChef"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Sushi">
+    <attributes
+        attrName="id"
+        attrType="Eint"/>
+    <attributes
+        attrName="description"
+        attrType="EString"/>
+    <attributes
+        attrName="price"
+        attrType="EDouble"/>
+    <methods
+        name="createSushi"
+        returnType="EInt"/>
+    <methods
+        name="deleteSushi"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Client">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="name"
+        attrType="Estring"/>
+    <attributes
+        attrName="regularClient"
+        attrType="EBoolean"/>
+  </classes>
+  <classes name="BeltSegment"/>
+</oopl:Program>

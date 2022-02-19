@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="AnimalRescue">
+  <classes name="Animal"
+      isAbstract="true">
+    <attributes
+        attrName="age"
+        attrType="EInt"/>
+    <attributes
+        attrName="sex"
+        attrType="EString"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Oviparous"
+      superClasses="//@classes.0">
+    <methods
+        name="LayEggs"
+        returnType="EBoolean"/>
+  </classes>
+  <classes name="Mammal"
+      superClasses="//@classes.0">
+    <methods
+        name="Nurse"
+        returnType="EBoolean"/>
+  </classes>
+  <classes name="Flamingo"
+      superClasses="//@classes.1">
+    <attributes
+        attrName="wingsColor"
+        attrType="EString"/>
+  </classes>
+  <classes name="Allygator"
+      superClasses="//@classes.1">
+    <attributes
+        attrName="weight"
+        attrType="EInt"/>
+    <attributes
+        attrName="height"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Whale"
+      superClasses="//@classes.2">
+    <attributes
+        attrName="size_ft"
+        attrType="EInt"/>
+    <attributes
+        attrName="female"
+        attrType="EBoolean"/>
+    <attributes
+        attrName="wild"
+        attrType="EBoolean"/>
+  </classes>
+  <classes name="Whale"
+      superClasses="//@classes.2">
+    <attributes
+        attrName="wild"
+        attrType="EBoolean"/>
+  </classes>
+  <classes name="AnimalRescueCenter">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="number_animals"
+        attrType="EInt"/>
+    <attributes
+        attrName="capacity"
+        attrType="EInt"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="city"
+        attrType="EString"/>
+    <attributes
+        attrName="state"
+        attrType="EString"/>
+    <attributes
+        attrName="zipcode"
+        attrType="EInt"/>
+    <methods
+        name="addAnimal"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Food">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="description"
+        attrType="EString"/>
+    <attributes
+        attrName="vendor"
+        attrType="EString"/>
+    <attributes
+        attrName="units"
+        attrType="EInt"/>
+  </classes>
+</oopl:Program>

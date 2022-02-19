@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="ComputerGame">
+  <classes name="Player">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="inRound"
+        attrType="EBoolean"/>
+    <attributes
+        attrName="hand"
+        attrType="EString"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+  </classes>
+  <classes name="HumanPlayer"
+      superClasses="//@classes.0">
+    <attributes
+        attrName="money"
+        attrType="EInt"/>
+    <attributes
+        attrName="currentBet"
+        attrType="EInt"/>
+  </classes>
+  <classes name="ComputerPlayer"
+      superClasses="//@classes.0">
+    <attributes
+        attrName="difficulty"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Card">
+    <attributes
+        attrName="rank"
+        attrType="EInt"/>
+    <attributes
+        attrName="suit"
+        attrType="EInt"/>
+    <attributes
+        attrName="faceUp"
+        attrType="EBoolean"/>
+  </classes>
+  <classes name="Deck">
+    <attributes
+        attrName="cards"
+        attrType="EString"/>
+  </classes>
+</oopl:Program>

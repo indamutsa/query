@@ -59,10 +59,10 @@ const upload = (dest) => {
  *                  format: binary
  *              metamodel:
  *                  type: string
- *                  description: The id of the metamodel
+ *                  description: The id of the model
  *              description:
  *                  type: string
- *                  description: "File upload of metamodel"
+ *                  description: "File upload of model"
  *      Dsl:
  *          type: object
  *          required:
@@ -77,7 +77,7 @@ const upload = (dest) => {
  *                  description: "The id of the project"
  *              description:
  *                  type: string
- *                  description: "File upload of metamodel"
+ *                  description: "File upload of Dsl"
  *  parameters:
  *      idParam:
  *          in: path
@@ -85,7 +85,7 @@ const upload = (dest) => {
  *          schema:
  *              type: string
  *          required: true
- *          description: The metamodel id
+ *          description: The model file id
  */
 
 /**
@@ -129,7 +129,7 @@ const upload = (dest) => {
  *                                      "accessControl": "PUBLIC"
  *                                      "_id": "618cc6e0a0fb8184fa45967e"
  *                                      "type": "METAMODEL"
- *                                      "storageUrl": "http://localhost:5662/localStorage/artifacts/metamodel/DB-1636615904675.ecore"
+ *                                      "storageUrl": "http://base_url/files/metamodel/DB-1636615904675.ecore"
  *                                      "size": 2241
  *                                      "description": "We are trying to save the metamodel"
  *                                      "createdAt": "2021-11-11T07:31:44.693Z"
@@ -143,11 +143,21 @@ router.post(
   "/metamodel",
   upload("metamodel").single("file"),
   async (req, res) => {
-    const data = await uploadMetamodel(req);
+    const p_id = req.data ? req.data.project : req.body.project;
+    if (p_id) {
+      const data = await uploadMetamodel(req);
 
-    return res
-      .status(data.code)
-      .json({ message: data.message, data: data.metamodelData });
+      return res
+        .status(data.code)
+        .json({ message: data.message, data: data.metamodelData });
+    } else {
+      await deleteFile(
+        "./localStorage/artifacts/metamodel/" + req.file.filename
+      );
+
+      logger.error("Missing project id");
+      return { code: 500, message: "Missing project id" };
+    }
   }
 );
 
@@ -160,7 +170,10 @@ const uploadMetamodel = async (req) => {
       let data = await readFile("metamodel", req.file.path);
       let artifact = {
         type: "METAMODEL",
-        storageUrl: "http://localhost:5662/" + req.file.path,
+        storageUrl:
+          `http://${req.headers.host}/` +
+          "files/metamodel/" +
+          req.file.filename,
         size: req.file.size,
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
@@ -186,6 +199,12 @@ const uploadMetamodel = async (req) => {
       };
       const newMetamodel = await Metamodel(metamodel);
       const savedMetaModel = await newMetamodel.save();
+
+      if (!savedMetaModel) {
+        await savedArtifact.delete();
+        return;
+      }
+
       if (req.data) {
         await Metamodel.findByIdAndUpdate(
           savedMetaModel._id,
@@ -374,7 +393,7 @@ router.get("/metamodel/:id", async (req, res) => {
  *                                      "_id": "618ce5eef407bd284d39acf3"
  *                                      "type": "METAMODEL"
  *                                      "size": 2241
- *                                      "storageUrl": "http://localhost:5662/localStorage/artifacts/metamodel/DB-1636623854264.ecore"
+ *                                      "storageUrl": "http://base_url/files/metamodel/DB-1636623854264.ecore"
  *                                      "description": "We are updating the metamodel ..."
  *                                      "createdAt": "2021-11-11T09:44:14.289Z"
  *                                      "updatedAt": "2021-11-11T09:44:14.289Z"
@@ -423,7 +442,10 @@ router.put("/metamodel/:id", async (req, res) => {
                 project: req.body.project,
                 type: "METAMODEL",
                 size: req.file.size,
-                storageUrl: "http://localhost:5662/" + req.file.path,
+                storageUrl:
+                  `http://${req.headers.host}/` +
+                  "files/metamodel/" +
+                  req.file.filename,
                 description: req.data
                   ? req.data.description
                   : req.body.description,
@@ -432,7 +454,8 @@ router.put("/metamodel/:id", async (req, res) => {
               };
 
               await deleteFile(
-                "." + artifactFile.storageUrl.split("http://localhost:5662")[1]
+                "." +
+                  artifactFile.storageUrl.split(`http://${req.headers.host}`)[1]
               ).then(async () => {
                 await artifactFile.delete();
               });
@@ -444,7 +467,7 @@ router.put("/metamodel/:id", async (req, res) => {
               const savedArtifact = await newArtifact.save();
 
               data.artifact = savedArtifact._id.toString();
-              data.storageUrl = "http://localhost:5662/" + req.file.path;
+              data.storageUrl = `http://${req.headers.host}/` + req.file.path;
               data.name = req.file.filename;
             } else {
               logger.warn("Metamodel extension not supported!");
@@ -516,7 +539,7 @@ router.delete("/metamodel/:id", async (req, res) => {
 
     try {
       await deleteFile(
-        "." + artifact.storageUrl.split("http://localhost:5662")[1]
+        "." + artifact.storageUrl.split(`http://${req.headers.host}`)[1]
       );
       await artifact.delete();
       await metamodel.delete();
@@ -570,7 +593,7 @@ router.delete("/metamodel/:id", async (req, res) => {
  *                                      "accessControl": "PUBLIC"
  *                                      "_id": "618cc6e0a0fb8184fa45967e"
  *                                      "type": "MODEL"
- *                                      "storageUrl": "http://localhost:5662/localStorage/artifacts/model/model-1636630514575.xmi"
+ *                                      "storageUrl": "http://base_url/files/model/model-1636630514575.xmi"
  *                                      "size": 2241
  *                                      "description": "WE ARE SAVING THE MODEL"
  *                                      "createdAt": "2021-11-11T07:31:44.693Z"
@@ -581,11 +604,17 @@ router.delete("/metamodel/:id", async (req, res) => {
  *              description: An error occurred on the server, check the logs!
  */
 router.post("/model", upload("model").single("file"), async (req, res) => {
-  const data = await uploadModel(req);
+  const m_id = req.body.metamodel;
+  if (m_id) {
+    const data = await uploadModel(req);
 
-  return res
-    .status(data.code)
-    .json({ message: data.message, data: data.modelData });
+    return res
+      .status(data.code)
+      .json({ message: data.message, data: data.modelData });
+  } else {
+    logger.error("Missing metamodel id");
+    return { code: 500, message: "Missing metamodel id" };
+  }
 });
 
 const uploadModel = async (req, res) => {
@@ -605,7 +634,8 @@ const uploadModel = async (req, res) => {
 
       let artifact = {
         type: "MODEL",
-        storageUrl: "http://localhost:5662/" + req.file.path,
+        storageUrl:
+          `http://${req.headers.host}/` + "files/model/" + req.file.filename,
         size: req.file.size,
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
@@ -628,6 +658,11 @@ const uploadModel = async (req, res) => {
 
       const newModel = await Model(model);
       const savedModel = await newModel.save();
+
+      if (!savedModel) {
+        await savedArtifact.delete();
+        return;
+      }
 
       // We also update the metamodel the model conforms to
       await Metamodel.findByIdAndUpdate(
@@ -823,7 +858,7 @@ router.get("/model/:id", async (req, res) => {
  *                                      "_id": "618ce5eef407bd284d39acf3"
  *                                      "type": "MODEL"
  *                                      "size": 0
- *                                      "storageUrl": "http://localhost:5662/localStorage/artifacts/model/hello-1636635909628.xmi"
+ *                                      "storageUrl": "http://base_url/files/model/hello-1636635909628.xmi"
  *                                      "description": "We are updating the model ..."
  *                                      "createdAt": "2021-11-11T09:44:14.289Z"
  *                                      "updatedAt": "2021-11-11T09:44:14.289Z"
@@ -875,7 +910,10 @@ router.put("/model/:id", async (req, res) => {
                 project: req.body.project,
                 type: "MODEL",
                 size: req.file.size,
-                storageUrl: "http://localhost:5662/" + req.file.path,
+                storageUrl:
+                  `http://${req.headers.host}/` +
+                  "files/model/" +
+                  req.file.filename,
                 description: req.data
                   ? req.data.description
                   : req.body.description,
@@ -884,7 +922,8 @@ router.put("/model/:id", async (req, res) => {
               };
 
               await deleteFile(
-                "." + artifactFile.storageUrl.split("http://localhost:5662")[1]
+                "." +
+                  artifactFile.storageUrl.split(`http://${req.headers.host}`)[1]
               ).then(async () => {
                 await artifactFile.delete();
               });
@@ -894,7 +933,7 @@ router.put("/model/:id", async (req, res) => {
               const savedArtifact = await newArtifact.save();
 
               data.artifact = savedArtifact._id.toString();
-              data.storageUrl = "http://localhost:5662/" + req.file.path;
+              data.storageUrl = `http://${req.headers.host}/` + req.file.path;
               data.name = req.file.filename;
               data.metamodel = req.body.metamodel;
             } else {
@@ -997,7 +1036,7 @@ router.delete("/model/:id", async (req, res) => {
 
     try {
       await deleteFile(
-        "." + artifact.storageUrl.split("http://localhost:5662")[1]
+        "." + artifact.storageUrl.split(`http://${req.headers.host}`)[1]
       );
 
       await Metamodel.updateOne(
@@ -1035,7 +1074,7 @@ router.delete("/model/:id", async (req, res) => {
 // 1.1 Save dsl
 /**
  * @swagger
- * /store/artifact/dsl:
+ * /store/artifact/script:
  *  post:
  *      summary: Save a dsl
  *      tags: [Dsl]
@@ -1055,14 +1094,14 @@ router.delete("/model/:id", async (req, res) => {
  *                              "message": "Dsl was uploaded successfully!"
  *                              "dslData":
  *                                  "_id": "618cc6e0a0fb8184fa45967f"
- *                                  "name": "DB-1636615904675.ecore"
+ *                                  "name": "Demo-1636636781627.eol"
  *                                  "project": "6172ab789ece0da287693c17"
  *                                  "type": "EOL"
  *                                  "artifact":
  *                                      "accessControl": "PUBLIC"
  *                                      "_id": "618d186db3254e64247b44a9"
  *                                      "type": "DSL"
- *                                      "storageUrl":  "http://localhost:5662/localStorage/artifacts/script/Demo-1636636781627.eol"
+ *                                      "storageUrl":  "http://${req.headers.host}/localStorage/artifacts/script/Demo-1636636781627.eol"
  *                                      "size": 249
  *                                      "description": "WE ARE SAVING THE DSL"
  *                                      "createdAt": "2021-11-11T07:31:44.693Z"
@@ -1072,12 +1111,18 @@ router.delete("/model/:id", async (req, res) => {
  *          500:
  *              description: An error occurred on the server, check the logs!
  */
-router.post("/dsl", async (req, res) => {
-  const data = await uploadScript(req);
+router.post("/script", upload("script").single("file"), async (req, res) => {
+  const p_id = req.data ? req.data.project : req.body.project;
+  if (p_id) {
+    const data = await uploadScript(req);
 
-  return res
-    .status(data.code)
-    .json({ message: data.message, data: data.dslData });
+    return res
+      .status(data.code)
+      .json({ message: data.message, data: data.dslData });
+  } else {
+    logger.error("Missing project id");
+    return { code: 500, message: "Missing project id" };
+  }
 });
 
 const uploadScript = async (req, res) => {
@@ -1092,7 +1137,8 @@ const uploadScript = async (req, res) => {
 
       let artifact = {
         type: "DSL",
-        storageUrl: "http://localhost:5662/" + req.file.path,
+        storageUrl:
+          `http://${req.headers.host}/` + "files/script/" + req.file.filename,
         size: req.file.size,
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
@@ -1114,6 +1160,11 @@ const uploadScript = async (req, res) => {
 
       const newDsl = await Dsl(dsl);
       const savedDsl = await newDsl.save();
+
+      if (!savedDsl) {
+        await savedArtifact.delete();
+        return;
+      }
 
       if (req.data)
         await Dsl.findByIdAndUpdate(
@@ -1160,7 +1211,7 @@ const uploadScript = async (req, res) => {
 // 2. Get all dsls by the project
 /**
  * @swagger
- * /store/artifact/dsl:
+ * /store/artifact/script:
  *  get:
  *      summary: Returns the list of dsl owned by the project
  *      tags: [Dsl]
@@ -1190,7 +1241,7 @@ const uploadScript = async (req, res) => {
  *          500:
  *              description: An error occurred on the server, check the logs
  */
-router.get("/dsl", async (req, res) => {
+router.get("/script", async (req, res) => {
   const project = await Project.findById(req.query.projectId);
 
   if (project) {
@@ -1211,7 +1262,7 @@ router.get("/dsl", async (req, res) => {
 // 3. Get dsl by id
 /**
  * @swagger
- * /store/artifact/dsl/{id}:
+ * /store/artifact/script/{id}:
  *  get:
  *      summary: Returns the dsl by id
  *      tags: [Dsl]
@@ -1244,7 +1295,7 @@ router.get("/dsl", async (req, res) => {
  *          500:
  *              description: An error occurred on the server, check the logs
  */
-router.get("/dsl/:id", async (req, res) => {
+router.get("/script/:id", async (req, res) => {
   try {
     const dsls = await Dsl.findById(req.params.id);
     if (dsls) {
@@ -1263,7 +1314,7 @@ router.get("/dsl/:id", async (req, res) => {
 // 4. Update dsl
 /**
  * @swagger
- * /store/artifact/dsl/{id}:
+ * /store/artifact/script/{id}:
  *  put:
  *      summary: Update a dsl by id
  *      tags: [Dsl]
@@ -1300,7 +1351,7 @@ router.get("/dsl/:id", async (req, res) => {
  *                                      "_id": "618ce5eef407bd284d39acf3"
  *                                      "type": "DSL"
  *                                      "size": 249
- *                                      "storageUrl": "http://localhost:5662/localStorage/artifacts/metamodel/DB-1636623854264.ecore"
+ *                                      "storageUrl": "http://base_url/files/metamodel/DB-1636623854264.ecore"
  *                                      "description": "We are updating the dsl ..."
  *                                      "createdAt": "2021-11-11T09:44:14.289Z"
  *                                      "updatedAt": "2021-11-11T09:44:14.289Z"
@@ -1310,7 +1361,7 @@ router.get("/dsl/:id", async (req, res) => {
  *              description: An error occurred on the server, check the logs
  *
  */
-router.put("/dsl/:id", async (req, res) => {
+router.put("/script/:id", async (req, res) => {
   let dsl = await Dsl.findById(req.params.id);
   upload = uploadFile("script");
 
@@ -1350,7 +1401,10 @@ router.put("/dsl/:id", async (req, res) => {
                 project: req.body.project,
                 type: "DSL",
                 size: req.file.size,
-                storageUrl: "http://localhost:5662/" + req.file.path,
+                storageUrl:
+                  `http://${req.headers.host}/` +
+                  "files/script/" +
+                  req.file.filename,
                 description: req.data
                   ? req.data.description
                   : req.body.description,
@@ -1359,7 +1413,8 @@ router.put("/dsl/:id", async (req, res) => {
               };
 
               await deleteFile(
-                "." + artifactFile.storageUrl.split("http://localhost:5662")[1]
+                "." +
+                  artifactFile.storageUrl.split(`http://${req.headers.host}`)[1]
               ).then(async () => {
                 await artifactFile.delete();
               });
@@ -1371,7 +1426,10 @@ router.put("/dsl/:id", async (req, res) => {
               const savedArtifact = await newArtifact.save();
 
               data.artifact = savedArtifact._id.toString();
-              data.storageUrl = "http://localhost:5662/" + req.file.path;
+              data.storageUrl =
+                `http://${req.headers.host}/` +
+                "files/script/" +
+                req.file.filename;
               data.name = req.file.filename;
             } else {
               logger.warn("File extension not supported!");
@@ -1424,7 +1482,7 @@ router.put("/dsl/:id", async (req, res) => {
 // 5. Delete dsl
 /**
  * @swagger
- * /store/artifact/dsl/{id}:
+ * /store/artifact/script/{id}:
  *  delete:
  *      summary: Delete a dsl by id
  *      tags: [Dsl]
@@ -1444,7 +1502,7 @@ router.put("/dsl/:id", async (req, res) => {
  *              description: An error occurred on the server, check the logs
  *
  */
-router.delete("/dsl/:id", async (req, res) => {
+router.delete("/script/:id", async (req, res) => {
   const dsl = await Dsl.findById(req.params.id);
 
   if (dsl) {
@@ -1452,7 +1510,7 @@ router.delete("/dsl/:id", async (req, res) => {
 
     try {
       await deleteFile(
-        "." + artifact.storageUrl.split("http://localhost:5662")[1]
+        "." + artifact.storageUrl.split(`http://${req.headers.host}`)[1]
       );
       await artifact.delete();
       await dsl.delete();

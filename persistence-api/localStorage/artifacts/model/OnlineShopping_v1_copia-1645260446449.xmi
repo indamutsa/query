@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="OnlineShopping">
+  <classes name="User">
+    <attributes
+        attrName="loginID"
+        attrType="EString"/>
+    <attributes
+        attrName="password"
+        attrType="EString"/>
+    <attributes
+        attrName="status"
+        attrType="EString"/>
+  </classes>
+  <classes name="Client">
+    <attributes
+        attrName="id"
+        attrType="EString"/>
+    <attributes
+        attrName="mobile"
+        attrType="EInt"/>
+    <attributes
+        attrName="email"
+        attrType="EString"/>
+  </classes>
+  <classes name="Account">
+    <attributes
+        attrName="id"
+        attrType="EString"/>
+    <attributes
+        attrName="billingAddress"
+        attrType="EString"/>
+    <attributes
+        attrName="open"
+        attrType="EDate"/>
+    <attributes
+        attrName="close"
+        attrType="EDate"/>
+    <attributes
+        attrName="shippingAddress"
+        attrType="EString"/>
+  </classes>
+  <classes name="Cart">
+    <attributes
+        attrName="date"
+        attrType="EDate"/>
+  </classes>
+  <classes name="Item">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="price"
+        attrType="EDouble"/>
+  </classes>
+  <classes name="Order">
+    <attributes
+        attrName="number"
+        attrType="EInt"/>
+    <attributes
+        attrName="date"
+        attrType="EDate"/>
+    <attributes
+        attrName="total"
+        attrType="EDouble"/>
+  </classes>
+  <classes name="Payment">
+    <attributes
+        attrName="id"
+        attrType="EString"/>
+    <attributes
+        attrName="total"
+        attrType="EDouble"/>
+  </classes>
+</oopl:Program>

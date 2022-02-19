@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="OrderProcessingSystem">
+  <classes name="Customer">
+    <attributes
+        attrName="customerID"
+        attrType="EInt"/>
+    <attributes
+        attrName="customerName"
+        attrType="EString"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="phone"
+        attrType="EInt"/>
+    <methods
+        name="newCustomer"
+        returnType="EInt"/>
+    <methods
+        name="deleteCustomer"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Order">
+    <attributes
+        attrName="orderId"
+        attrType="EInt"/>
+    <attributes
+        attrName="customerId"
+        attrType="EInt"/>
+    <attributes
+        attrName="customerName"
+        attrType="EString"/>
+    <attributes
+        attrName="productId"
+        attrType="EInt"/>
+    <attributes
+        attrName="amount"
+        attrType="EFloat"/>
+    <attributes
+        attrName="orderDate"
+        attrType="EDate"/>
+    <methods
+        name="CreateOrder"
+        returnType="EInt"/>
+    <methods
+        name="CancelOrder"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Stock">
+    <attributes
+        attrName="productId"
+        attrType="EInt"/>
+    <attributes
+        attrName="quality"
+        attrType="EInt"/>
+    <attributes
+        attrName="shopNo"
+        attrType="EInt"/>
+    <methods
+        name="addToStock"
+        returnType="EInt"/>
+    <methods
+        name="AutoReStock"
+        returnType="EString"/>
+  </classes>
+  <classes name="Product">
+    <attributes
+        attrName="productId"
+        attrType="EInt"/>
+    <attributes
+        attrName="productPrice"
+        attrType="EFloat"/>
+    <attributes
+        attrName="prodcutType"
+        attrType="EString"/>
+    <methods
+        name="addProduct"
+        returnType="EInt"/>
+  </classes>
+</oopl:Program>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="Webpage">
+  <classes name="WebPage"/>
+  <classes name="Header">
+    <attributes
+        attrName="title"
+        attrType="EString"/>
+  </classes>
+  <classes name="Body">
+    <attributes
+        attrName="color"
+        attrType="EString"/>
+  </classes>
+  <classes name="Footer">
+    <attributes
+        attrName="label"
+        attrType="EString"/>
+  </classes>
+  <classes name="HyperLabel">
+    <attributes
+        attrName="text"
+        attrType="EString"/>
+  </classes>
+  <classes name="URL">
+    <attributes
+        attrName="url"
+        attrType="EString"/>
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+  </classes>
+  <classes name="TextBox">
+    <attributes
+        attrName="text"
+        attrType="Estring"/>
+  </classes>
+  <classes name="Image">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+  </classes>
+  <classes name="Section"/>
+  <classes name="NavBar"/>
+  <classes name="Anchor"/>
+</oopl:Program>

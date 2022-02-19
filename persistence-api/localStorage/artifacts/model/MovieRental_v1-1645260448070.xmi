@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="Movies">
+  <classes name="Movie">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="title"
+        attrType="EString"/>
+    <attributes
+        attrName="language"
+        attrType="EString"/>
+    <attributes
+        attrName="year"
+        attrType="EInt"/>
+    <attributes
+        attrName="user_count"
+        attrType="Eint"/>
+    <attributes
+        attrName="normal_fee"
+        attrType="EFloat"/>
+    <attributes
+        attrName="weekend_fee"
+        attrType="EFloat"/>
+  </classes>
+  <classes name="Rental_Element">
+    <attributes
+        attrName="return_expected_on"
+        attrType="EDate"/>
+    <attributes
+        attrName="fee"
+        attrType="EFloat"/>
+  </classes>
+  <classes name="Rental">
+    <attributes
+        attrName="number"
+        attrType="EInt"/>
+    <attributes
+        attrName="rented_on"
+        attrType="EDate"/>
+    <attributes
+        attrName="discount"
+        attrType="EFloat"/>
+    <attributes
+        attrName="amount_paid"
+        attrType="EFloat"/>
+    <attributes
+        attrName="rent"
+        attrType="EInt"
+        isPublic="true"/>
+    <methods
+        name="days_rented"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Customer">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+  </classes>
+</oopl:Program>

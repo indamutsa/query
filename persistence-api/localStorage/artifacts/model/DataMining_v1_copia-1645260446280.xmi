@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="dataMining">
+  <classes name="Data_quality_criteria">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="details"
+        attrType="EString"/>
+    <attributes
+        attrName="computation_mode"
+        attrType="EString"/>
+    <attributes
+        attrName="measuring_unit"
+        attrType="EString"/>
+  </classes>
+  <classes name="Field">
+    <attributes
+        attrName="name"
+        attrType="Estring"/>
+    <attributes
+        attrName="style"
+        attrType="EString"/>
+  </classes>
+  <classes name="DataSetCategory">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="details"
+        attrType="EString"/>
+  </classes>
+  <classes name="Metadata">
+    <attributes
+        attrName="value"
+        attrType="EFloat"/>
+  </classes>
+  <classes name="Parameter">
+    <attributes
+        attrName="value"
+        attrType="EFloat"/>
+  </classes>
+  <classes name="Approach">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+  </classes>
+  <classes name="Dataset">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+  </classes>
+  <classes name="Algorithm">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+  </classes>
+</oopl:Program>

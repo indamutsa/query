@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="OnlineShopping">
+  <classes name="WebUser">
+    <attributes
+        attrName="login_id"
+        attrType="EString"/>
+    <attributes
+        attrName="password"
+        attrType="EString"/>
+    <attributes
+        attrName="state"
+        attrType="EString"/>
+  </classes>
+  <classes name="Customer">
+    <attributes
+        attrName="id"
+        attrType="EString"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="phone"
+        attrType="EInt"/>
+    <attributes
+        attrName="email"
+        attrType="EString"/>
+  </classes>
+  <classes name="Account">
+    <attributes
+        attrName="id"
+        attrType="EString"/>
+    <attributes
+        attrName="billing_address"
+        attrType="EString"/>
+    <attributes
+        attrName="isclosed"
+        attrType="EBoolean"/>
+    <attributes
+        attrName="open"
+        attrType="EDate"/>
+    <attributes
+        attrName="close"
+        attrType="EDate"/>
+  </classes>
+  <classes name="ShoppingCart">
+    <attributes
+        attrName="created"
+        attrType="EDate"/>
+  </classes>
+  <classes name="LineItem">
+    <attributes
+        attrName="quality"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Product">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="price"
+        attrType="EDouble"/>
+  </classes>
+  <classes name="Order">
+    <attributes
+        attrName="number"
+        attrType="EInt"/>
+    <attributes
+        attrName="ordered"
+        attrType="EDate"/>
+    <attributes
+        attrName="shipped"
+        attrType="EDate"/>
+    <attributes
+        attrName="ship_to"
+        attrType="EString"/>
+    <attributes
+        attrName="status"
+        attrType="EString"/>
+    <attributes
+        attrName="total"
+        attrType="EDouble"/>
+  </classes>
+  <classes name="Payment">
+    <attributes
+        attrName="id"
+        attrType="EString"/>
+    <attributes
+        attrName="paid"
+        attrType="EDate"/>
+    <attributes
+        attrName="total"
+        attrType="EDouble"/>
+    <attributes
+        attrName="details"
+        attrType="EString"/>
+  </classes>
+</oopl:Program>

@@ -32,7 +32,11 @@ const options = {
     servers: [
       {
         url: "http://localhost:3200",
+        description: "The local server",
+      },
+      {
         url: "http://34.67.33.7:3200",
+        description: "Cloud server",
       },
     ],
   },
@@ -99,11 +103,6 @@ module.exports = function (app) {
       }
     )
   );
-
-  // Setting up the api route and storage folder
-  app.use("/", express.static(path.join(__dirname, "/public")));
-
-  app.use("/files", express.static("localStorage/artifacts"));
 
   // Setting up swagger
   app.use("/store/api-docs", swaggerUI.serve, swaggerUI.setup(specs));

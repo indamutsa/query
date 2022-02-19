@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="OrderProcessingSystem">
+  <classes name="Client">
+    <attributes
+        attrName="clientID"
+        attrType="EInt"/>
+    <attributes
+        attrName="clientName"
+        attrType="EString"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="phone"
+        attrType="EInt"/>
+    <methods
+        name="newClient"
+        returnType="EInt"/>
+    <methods
+        name="deleteClient"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Order">
+    <attributes
+        attrName="orderId"
+        attrType="EInt"/>
+    <attributes
+        attrName="customerId"
+        attrType="EInt"/>
+    <attributes
+        attrName="customerName"
+        attrType="EString"/>
+    <attributes
+        attrName="amount"
+        attrType="EFloat"/>
+    <methods
+        name="CreateOrder"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Disponibility">
+    <attributes
+        attrName="productId"
+        attrType="EInt"/>
+    <attributes
+        attrName="quality"
+        attrType="EInt"/>
+    <methods
+        name="addToStock"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Product">
+    <attributes
+        attrName="productId"
+        attrType="EInt"/>
+    <methods
+        name="addProduct"
+        returnType="EInt"/>
+  </classes>
+</oopl:Program>

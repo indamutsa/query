@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="Library">
+  <classes name="Book">
+    <attributes
+        attrName="id"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="title"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="category"
+        attrType="EString"
+        isPublic="true"/>
+    <methods
+        name="check"
+        returnType="EBoolean"/>
+    <methods
+        name="put_on_shelf"
+        returnType="EBoolean"/>
+  </classes>
+  <classes name="Writer">
+    <attributes
+        attrName="id"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="full_name"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="publish_name"
+        attrType="EString"
+        isPublic="true"/>
+  </classes>
+  <classes name="Library">
+    <attributes
+        attrName="name"
+        attrType="EString"
+        isPublic="false"/>
+  </classes>
+  <classes name="Manuscript">
+    <attributes
+        attrName="id"
+        attrType="EString"
+        isPublic="true"/>
+  </classes>
+</oopl:Program>

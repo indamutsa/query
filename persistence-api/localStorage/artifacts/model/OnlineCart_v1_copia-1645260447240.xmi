@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="onlineCart">
+  <classes name="Customer">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="lastname"
+        attrType="EString"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="mobile"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Account">
+    <attributes
+        attrName="ID"
+        attrType="EString"/>
+    <attributes
+        attrName="billingAddress"
+        attrType="EString"/>
+    <attributes
+        attrName="isClosed"
+        attrType="EBoolean"/>
+  </classes>
+  <classes name="Order">
+    <attributes
+        attrName="number"
+        attrType="EInt"/>
+    <attributes
+        attrName="ordered"
+        attrType="EDate"/>
+    <attributes
+        attrName="shipped"
+        attrType="EDate"/>
+  </classes>
+  <classes name="Payment">
+    <attributes
+        attrName="ID"
+        attrType="EInt"/>
+    <attributes
+        attrName="amount"
+        attrType="EFloat"/>
+    <attributes
+        attrName="paid"
+        attrType="EDate"/>
+    <attributes
+        attrName="details"
+        attrType="EString"/>
+  </classes>
+  <classes name="Cash"/>
+  <classes name="Check">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+  </classes>
+  <classes name="Credit">
+    <attributes
+        attrName="type"
+        attrType="EString"/>
+  </classes>
+  <classes name="OrderDetail">
+    <attributes
+        attrName="quatity"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Item">
+    <attributes
+        attrName="ID"
+        attrType="EInt"/>
+  </classes>
+  <classes name="ShoppingCard">
+    <attributes
+        attrName="created"
+        attrType="EDate"/>
+    <methods
+        name="addItems"
+        returnType="EInt"/>
+  </classes>
+  <classes name="LineItem">
+    <attributes
+        attrName="quantity"
+        attrType="EInt"/>
+  </classes>
+</oopl:Program>

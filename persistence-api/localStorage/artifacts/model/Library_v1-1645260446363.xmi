@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="Library">
+  <classes name="Book">
+    <attributes
+        attrName="id"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="title"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="pages"
+        attrType="EInt"
+        isPublic="true"/>
+    <attributes
+        attrName="category"
+        attrType="EString"
+        isPublic="true"/>
+    <methods
+        name="check"
+        returnType="EBoolean"/>
+    <methods
+        name="find"
+        returnType="EInt"/>
+    <methods
+        name="lost"
+        returnType="EInt"/>
+    <methods
+        name="check"
+        returnType="EBoolean"/>
+    <methods
+        name="putOnShelf"
+        returnType="EBoolean"/>
+  </classes>
+  <classes name="Writer">
+    <attributes
+        attrName="id"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="name"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="lastname"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="birthday"
+        attrType="EDate"
+        isPublic="false"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="mobile"
+        attrType="EInt"
+        isPublic="false"/>
+    <attributes
+        attrName="publish_name"
+        attrType="EString"
+        isPublic="true"/>
+  </classes>
+  <classes name="Library">
+    <attributes
+        attrName="name"
+        attrType="EString"
+        isPublic="false"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+  </classes>
+  <classes name="Manuscript">
+    <attributes
+        attrName="state"
+        attrType="EInt"
+        isPublic="true"/>
+    <attributes
+        attrName="id"
+        attrType="EString"
+        isPublic="true"/>
+    <attributes
+        attrName="title"
+        attrType="EString"
+        isPublic="true"/>
+  </classes>
+</oopl:Program>

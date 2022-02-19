@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="Bar">
+  <classes name="Person"
+      isAbstract="true">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="lastname"
+        attrType="EString"/>
+    <attributes
+        attrName="gender"
+        attrType="EString"/>
+    <attributes
+        attrName="address"
+        attrType="EString"/>
+    <attributes
+        attrName="email"
+        attrType="EString"/>
+    <attributes
+        attrName="birthday"
+        attrType="EDate"/>
+  </classes>
+  <classes name="Bartender"
+      superClasses="//@classes.0">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <methods
+        name="bend"
+        returnType="EString"/>
+  </classes>
+  <classes name="Client"
+      superClasses="//@classes.0">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="regular"
+        attrType="EBoolean"/>
+  </classes>
+  <classes name="Cashier"
+      superClasses="//@classes.0">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <methods
+        name="openCashier"
+        returnType="EBoolean"/>
+    <methods
+        name="closeCashier"
+        returnType="EBoolean"/>
+    <methods
+        name="payment"
+        returnType="Eint"/>
+  </classes>
+  <classes name="Party">
+    <attributes
+        attrName="date"
+        attrType="EDate"/>
+    <attributes
+        attrName="startTime"
+        attrType="EDate"/>
+    <attributes
+        attrName="endTime"
+        attrType="EDate"/>
+    <attributes
+        attrName="noInvitations"
+        attrType="EInt"/>
+  </classes>
+  <classes name="Cocktail">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="ingredients"
+        attrType="EString"/>
+    <attributes
+        attrName="alcohol"
+        attrType="EBoolean"/>
+    <attributes
+        attrName="percentageAlcohol"
+        attrType="EFloat"/>
+  </classes>
+</oopl:Program>

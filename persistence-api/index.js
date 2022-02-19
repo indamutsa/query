@@ -18,6 +18,10 @@ const {
   ApolloServerPluginLandingPageDisabled,
 } = require("apollo-server-core");
 
+// Setting up the api route and storage folder
+app.use("/static", express.static(__dirname + "/public"));
+app.use("/files", express.static(__dirname + "/localStorage/artifacts"));
+
 async function runServer() {
   // Requiring auxiliary operations
   const logging = require("./startup/logging");

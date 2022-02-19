@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oopl:Program
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:oopl="http://SimpleOOPL/1.0"
+    xsi:schemaLocation="http://SimpleOOPL/1.0 SimpleOOP.ecore"
+    pName="GameTournament">
+  <classes name="League">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="noPlayers"
+        attrType="EInt"/>
+    <methods
+        name="newLeague"
+        returnType="EInt"/>
+    <methods
+        name="createMactch"
+        returnType="EString"/>
+  </classes>
+  <classes name="Player">
+    <attributes
+        attrName="name"
+        attrType="EString"/>
+    <attributes
+        attrName="dateOfBirth"
+        attrType="EDate"/>
+    <attributes
+        attrName="height"
+        attrType="EDouble"/>
+    <attributes
+        attrName="isProfessional"
+        attrType="EBoolean"/>
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <methods
+        name="newPlayer"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Tournament">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <attributes
+        attrName="type"
+        attrType="EString"/>
+    <methods
+        name="createTournament"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Matchup">
+    <attributes
+        attrName="id"
+        attrType="EInt"/>
+    <methods
+        name="createMatchup"
+        returnType="EInt"/>
+  </classes>
+  <classes name="Game">
+    <attributes
+        attrName="frames"
+        attrType="EInt"/>
+    <attributes
+        attrName="category"
+        attrType="EString"/>
+  </classes>
+</oopl:Program>
