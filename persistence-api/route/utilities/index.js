@@ -27,17 +27,25 @@ const readFile = async (type, path) => {
   const readData = fs.readFileSync(path, "utf8");
 
   if (type === "metamodel") {
-    const result = await xml2js.parseStringPromise(readData, {
+    let result = await xml2js.parseStringPromise(readData, {
       mergeAttrs: true,
     });
 
-    data.name = result["ecore:EPackage"].name[0];
-    data.nsURI = result["ecore:EPackage"].nsURI[0];
-    data.nsPrefix = result["ecore:EPackage"].nsPrefix[0];
+    if (result["xmi:XMI"]) {
+      result = result["xmi:XMI"]["ecore:EPackage"][1];
+      data.name = result.name[0];
+      result.eClassifiers.forEach((d) => {
+        data.eClassifiers.push(d.name[0]);
+      });
+    } else if (result["ecore:EPackage"]) {
+      data.name = result["ecore:EPackage"].name[0];
+      data.nsURI = result["ecore:EPackage"].nsURI[0];
+      data.nsPrefix = result["ecore:EPackage"].nsPrefix[0];
 
-    result["ecore:EPackage"].eClassifiers.forEach((d) => {
-      data.eClassifiers.push(d.name[0]);
-    });
+      result["ecore:EPackage"].eClassifiers.forEach((d) => {
+        data.eClassifiers.push(d.name[0]);
+      });
+    }
   }
 
   data.content = minify(readData);
@@ -65,11 +73,13 @@ const uploadFile = (destination) => {
       cb(null, "./localStorage/artifacts/" + destination);
     },
     filename: (req, file, cb) => {
-      let fileName = file.originalname.split(".")[0];
-      let ext = file.originalname.split(".")[1];
+      let datafile = file.originalname.match(/(.*)\.(.*)/);
+      let fileName = datafile[1];
+      let ext = datafile[2];
       cb(null, fileName + "-" + Date.now() + "." + ext);
     },
   });
+
   return storage;
   // var upload = multer({ storage: storage }).single("file");
   // return upload;

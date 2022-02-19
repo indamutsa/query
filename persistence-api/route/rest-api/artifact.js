@@ -158,16 +158,22 @@ router.post(
       logger.error("Missing project id");
       return { code: 500, message: "Missing project id" };
     }
+    // res.send(200);
   }
 );
 
 const uploadMetamodel = async (req) => {
-  let fileExt = req.file.filename.split(".")[1].toUpperCase();
+  extF = req.file.filename.match(/(.*)\.(.*)/)[2];
+
+  let fileExt = extF.toUpperCase();
+
   try {
     const modelExts = ["ECORE", "MPS"];
     const valid = modelExts.includes(fileExt);
+
     if (valid) {
       let data = await readFile("metamodel", req.file.path);
+
       let artifact = {
         type: "METAMODEL",
         storageUrl:
@@ -178,7 +184,7 @@ const uploadMetamodel = async (req) => {
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
         comment: req.body?.comment,
-        content: data.content,
+        content: data?.content,
       };
       // Save the artifact
       const newArtifact = await Artifact(artifact);
@@ -191,11 +197,11 @@ const uploadMetamodel = async (req) => {
         artifact: savedArtifact._id,
         // involvedOperations: ,
         ePackage: {
-          name: data.name,
-          nsURI: data.nsURI,
-          nsPrefix: data.nsPrefix,
+          name: data?.name,
+          nsURI: data?.nsURI,
+          nsPrefix: data?.nsPrefix,
         },
-        eClass: data.eClassifiers,
+        eClass: data?.eClassifiers,
       };
       const newMetamodel = await Metamodel(metamodel);
       const savedMetaModel = await newMetamodel.save();
@@ -221,6 +227,7 @@ const uploadMetamodel = async (req) => {
       const metamodelData = await Metamodel.findOne({
         _id: savedMetaModel._id,
       }).populate("artifact");
+
       logger.info("Metamodel uploaded successfully!");
       return {
         code: 200,

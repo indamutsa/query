@@ -1,9 +1,11 @@
 import requests
 import os
 
-path = '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ecore_memorec/'
+path = '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ZooATLAndMar/'
+# path = '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ecore_memorec/'
 # path = "/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/instances_xmi_ecore/"
 url = "http://34.67.33.7:3200/store/" #"http://localhost:3200/store/" 
+
 
 # Change the directory
 os.chdir(path)
@@ -44,7 +46,7 @@ def iloveLissette(filename):
     uri = url + "artifact/metamodel"
 
     # payload={'description': 'We are trying to save the model using the api','metamodel': '6210ba1415637c0013b2610c'}
-    payload={'description': 'We are trying to save the metamodel using the api','project': '6210b80015637c0013b260f6'}
+    payload={'description': 'We are trying to save the metamodel using the api','project': '6210c28cfcf2c00013eac4eb'}
 
     files=[('file',(filename,open(path + filename,'rb'),'application/octet-stream'))]
     headers = {}
@@ -56,14 +58,18 @@ def iloveLissette(filename):
 ##############################################################################
 
 # iterate through all file
+i = 0
 for f in os.listdir():
     #  print(f)
     # Check whether file is in text format or not
-    if f.endswith(".ecore"):
+    # if f.endswith(".ecore"):
         # file_path = f"{path}/{f}"
-        data = iloveLissette(f)
-        print("worked...", f)
-
+    data = iloveLissette(f)
+    print("worked...", f)
+    # i = i + 1
+    # if i == 3:
+    #    break
+        
 
         # call read text file function
         # read_text_file(file_path)
