@@ -191,7 +191,8 @@ const uploadMetamodel = async (req) => {
       const savedArtifact = await newArtifact.save();
       // Save metamodel
       const metamodel = {
-        name: req.file.filename,
+        name: req.file.originalname,
+        unique_name: req.file.filename,
         project: req.data ? req.data.project : req.body.project,
         type: fileExt,
         artifact: savedArtifact._id,
@@ -656,7 +657,8 @@ const uploadModel = async (req, res) => {
 
       // Save the model
       const model = {
-        name: req.file.filename,
+        name: req.file.originalname,
+        unique_name: req.file.filename,
         metamodel: metamodel._id,
         project: metamodel.project,
         type: fileExt,
@@ -1159,7 +1161,8 @@ const uploadScript = async (req, res) => {
 
       // Save dsl
       const dsl = {
-        name: req.file.filename,
+        name: req.file.originalname,
+        unique_name: req.file.filename,
         project: req.data ? req.data.project : req.body.project,
         type: fileExt,
         artifact: savedArtifact._id,

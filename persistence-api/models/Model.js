@@ -9,6 +9,11 @@ const modelSchema = new mongoose.Schema({
     // minlength: 2,
     // maxlength: 50,
   },
+  unique_name: {
+    type: String,
+    require: true,
+    unique: true,
+  },
   metamodel: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Metamodel",

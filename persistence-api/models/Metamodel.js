@@ -12,6 +12,11 @@ const metamodelSchema = new Schema({
     // minlength: 2,
     // maxlength: 50,
   },
+  unique_name: {
+    type: String,
+    require: true,
+    unique: true,
+  },
   project: {
     type: Schema.Types.ObjectId,
     ref: "Project",

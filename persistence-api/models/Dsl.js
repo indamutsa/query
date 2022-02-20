@@ -9,6 +9,11 @@ const dslSchema = new mongoose.Schema({
     // minlength: 2,
     // maxlength: 50,
   },
+  unique_name: {
+    type: String,
+    require: true,
+    unique: true,
+  },
   project: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Project",
