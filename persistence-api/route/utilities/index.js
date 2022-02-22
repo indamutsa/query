@@ -48,7 +48,8 @@ const readFile = async (type, path) => {
 
       if (result.eSubpackages) {
         result.eSubpackages.forEach((d) => {
-          populator(d, data);
+          let m = "yes";
+          populator(d, data, m);
         });
       } else {
         populator(result, data);
@@ -63,7 +64,7 @@ const readFile = async (type, path) => {
   }
 };
 
-const populator = (d, data) => {
+const populator = (d, data, m) => {
   console.log(d);
   let esub = {
     name: null,
@@ -72,9 +73,9 @@ const populator = (d, data) => {
     eClassifiers: [],
   };
 
-  esub.name = d.name ? d.name[0] : "";
-  esub.nsURI = d.nsURI ? d.nsURI[0] : "";
-  esub.nsPrefix = d.nsPrefix ? d.nsPrefix[0] : "";
+  esub.name = m ? d.name[0] : "";
+  esub.nsURI = m ? d.nsURI[0] : "";
+  esub.nsPrefix = m ? d.nsPrefix[0] : "";
 
   d.eClassifiers.forEach((eClass) => {
     esub.eClassifiers.push(eClass.name[0]);
