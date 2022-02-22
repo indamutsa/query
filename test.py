@@ -37,7 +37,7 @@ project_id = workspace_d['workspaces'][0]['projects'][0]
 query_w = { "id": project_id }
 response = requests.get(url + "project", params=query_w)
 project_d = response.json()
-print(project_d)
+# print(project_d)
 
 
 # -----------------------------------------------------------------------------
@@ -46,10 +46,10 @@ print(project_d)
 # res = requests.post( url + "user", json=w_user)
 # print(res.json())
 
-def iloveLissette(filename):
+def iloveLissette(filename, path):
     ## Uploading the metamodel
     # uri = url + "artifact/model"
-    uri = urls[int( sys.argv[1])] + "artifact/metamodel"
+    uri = url + "artifact/metamodel"
 
     # payload={'description': 'We are trying to save the model using the api','metamodel': '6210ba1415637c0013b2610c'}
     payload={'description': 'We are trying to save the metamodel using the api','project': project_id}
@@ -64,26 +64,25 @@ def iloveLissette(filename):
 
 
 ##############################################################################
-pdb.set_trace()
+# pdb.set_trace()
+# iterate through all file
+i = 0
+failed_entry = []
+total_execution = 0
+total_success = 0
+total_fail = 0
 
-# We will first iterate through folders
+
 for path in paths:
     # Change the directory
     os.chdir(path)
-    # iterate through all file
-    i = 0
-    failed_entry = []
-    total_execution = 0
-    total_success = 0
-    total_fail = 0
-
     for f in os.listdir():
         #  print(f)
         # Check whether file is in text format or not
-        if f.endswith(sys.argv[3]):
+        if f.endswith(sys.argv[2]):
             total_execution = total_execution + 1
             # file_path = f"{path}/{f}"
-            data = iloveLissette(f)
+            data = iloveLissette(f, path)
             
             if data.status_code != 200:
                 failed_entry.append(f)
@@ -92,9 +91,9 @@ for path in paths:
             print("Execution...", total_execution)
             total_success = total_success + 1
 
-            i = i + 1
-            if i == 3:
-                break
+            # i = i + 1
+            # if i == 3:
+            #     break
             
 
             # call read text file function
@@ -111,6 +110,8 @@ for path in paths:
     else:    
         for e in failed_entry:
             print("- ", e)
+
+    print("=========================================================================")
 
 
 

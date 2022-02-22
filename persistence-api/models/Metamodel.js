@@ -45,9 +45,11 @@ const metamodelSchema = new Schema({
   //   type: String,
   // },
   // Internal properties
+
   ePackage: {
     name: {
       type: String,
+      default: "default",
     },
     nsURI: {
       type: String,
@@ -55,8 +57,21 @@ const metamodelSchema = new Schema({
     nsPrefix: {
       type: String,
     },
+    eSubpackages: [
+      {
+        name: {
+          type: String,
+        },
+        nsURI: {
+          type: String,
+        },
+        nsPrefix: {
+          type: String,
+        },
+        eClassifiers: [],
+      },
+    ],
   },
-  eClass: [],
 });
 
 // Create the model

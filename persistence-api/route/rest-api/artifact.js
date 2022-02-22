@@ -198,11 +198,17 @@ const uploadMetamodel = async (req) => {
         artifact: savedArtifact._id,
         // involvedOperations: ,
         ePackage: {
-          name: data?.name,
-          nsURI: data?.nsURI,
-          nsPrefix: data?.nsPrefix,
+          name: data?.ePackage?.name,
+          nsURI: data?.ePackage?.nsURI,
+          nsPrefix: data?.ePackage?.nsPrefix,
+          eSubpackages: data?.ePackage?.eSubpackages,
+          // {
+          //   name: data?.name,
+          //   nsURI: data?.nsURI,
+          //   nsPrefix: data?.nsPrefix,
+          // },
+          // eClass: data?.eClassifiers,
         },
-        eClass: data?.eClassifiers,
       };
       const newMetamodel = await Metamodel(metamodel);
       const savedMetaModel = await newMetamodel.save();

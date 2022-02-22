@@ -12,45 +12,77 @@ const jsonQuery = require("json-query");
  */
 
 const readFile = async (type, path) => {
-  const data = {
-    name: "",
-    nsURI: "",
-    nsPrefix: "",
-    eClassifiers: [],
-    content: "",
-  };
-  // /home/arsene/Downloads/modelset/models/repo-genmymodel-uml/data/_1WJvkPsAEeirA44cXlgljA.xmi
-  // "localStorage/artifacts/metamodel/DB-1639678468581.ecore",
-  // /home/arsene/Downloads/org.eclipse.epsilon-7a3b2a3fff4206c58c94df1597bfc821830e551f/examples/org.eclipse.epsilon.examples.mergeoo/CopyOO.etl
-  // "localStorage/artifacts/metamodel/DB-1639678468581.ecore"
+  try {
+    const data = {
+      ePackage: {
+        name: "",
+        nsURI: "",
+        nsPrefix: "",
+        eSubpackages: [],
+      },
+      content: "",
+    };
+    // /home/arsene/Downloads/modelset/models/repo-genmymodel-uml/data/_1WJvkPsAEeirA44cXlgljA.xmi
+    // "localStorage/artifacts/metamodel/DB-1639678468581.ecore",
+    // /home/arsene/Downloads/org.eclipse.epsilon-7a3b2a3fff4206c58c94df1597bfc821830e551f/examples/org.eclipse.epsilon.examples.mergeoo/CopyOO.etl
+    // "localStorage/artifacts/metamodel/DB-1639678468581.ecore"
 
-  const readData = fs.readFileSync(path, "utf8");
+    const readData = fs.readFileSync(path, "utf8");
 
-  if (type === "metamodel") {
-    let result = await xml2js.parseStringPromise(readData, {
-      mergeAttrs: true,
-    });
-
-    if (result["xmi:XMI"]) {
-      result = result["xmi:XMI"]["ecore:EPackage"][1];
-      data.name = result.name[0];
-      result.eClassifiers.forEach((d) => {
-        data.eClassifiers.push(d.name[0]);
+    if (type === "metamodel") {
+      let result = await xml2js.parseStringPromise(readData, {
+        mergeAttrs: true,
       });
-    } else if (result["ecore:EPackage"]) {
-      data.name = result["ecore:EPackage"].name[0];
-      data.nsURI = result["ecore:EPackage"].nsURI[0];
-      data.nsPrefix = result["ecore:EPackage"].nsPrefix[0];
 
-      result["ecore:EPackage"].eClassifiers.forEach((d) => {
-        data.eClassifiers.push(d.name[0]);
-      });
+      if (result["xmi:XMI"]) {
+        if (result["xmi:XMI"]["ecore:EPackage"][0].name === "PrimitiveTypes")
+          result = result["xmi:XMI"]["ecore:EPackage"][1];
+        else result = result["xmi:XMI"]["ecore:EPackage"][0];
+      } else if (result["ecore:EPackage"]) {
+        result = result["ecore:EPackage"];
+      }
+
+      data.ePackage.name = result.name ? result.name[0] : "";
+      data.ePackage.nsURI = result.nsURI ? result.nsURI[0] : "";
+      data.ePackage.nsPrefix = result.nsPrefix ? result.nsPrefix[0] : "";
+
+      if (result.eSubpackages) {
+        result.eSubpackages.forEach((d) => {
+          populator(d, data);
+        });
+      } else {
+        populator(result, data);
+      }
     }
+
+    data.content = minify(readData);
+
+    return data;
+  } catch (err) {
+    console.log(err);
   }
+};
 
-  data.content = minify(readData);
+const populator = (d, data) => {
+  console.log(d);
+  let esub = {
+    name: null,
+    nsURI: null,
+    nsPrefix: null,
+    eClassifiers: [],
+  };
 
-  return data;
+  esub.name = d.name ? d.name[0] : "";
+  esub.nsURI = d.nsURI ? d.nsURI[0] : "";
+  esub.nsPrefix = d.nsPrefix ? d.nsPrefix[0] : "";
+
+  d.eClassifiers.forEach((eClass) => {
+    esub.eClassifiers.push(eClass.name[0]);
+  });
+
+  data.ePackage.eSubpackages.push(esub);
+
+  return esub;
 };
 
 const minify = (xmlText) => {
