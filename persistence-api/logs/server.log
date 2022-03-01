@@ -6357,3 +6357,124 @@ info: Mar-01-2022 12:05:27: 	Listening on port 3200...
 info: Mar-01-2022 12:05:27: 	Connected to database --> mdeforge ...
 info: Mar-01-2022 12:06:43: 	Listening on port 3200...
 info: Mar-01-2022 12:06:43: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:30:08: 	Listening on port 3200...
+info: Mar-01-2022 16:30:21: 	Listening on port 3200...
+info: Mar-01-2022 16:30:21: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:30:29: 	User retrieved successfully!
+info: Mar-01-2022 16:30:29: 	[01/Mar/2022:15:30:29 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 8.654 ms
+
+info: Mar-01-2022 16:30:29: 	Workspaces retrieved successfully!
+info: Mar-01-2022 16:30:29: 	[01/Mar/2022:15:30:29 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 320 '- python-requests/2.22.0' - 7.928 ms
+
+info: Mar-01-2022 16:30:29: 	Projects retrieved successfully!
+info: Mar-01-2022 16:30:29: 	[01/Mar/2022:15:30:29 +0000] 'GET /store/project?id=61fd21a78414c16f386450c8 HTTP/1.1' 200 306 '- python-requests/2.22.0' - 5.435 ms
+
+warn: Mar-01-2022 16:30:31: 	Model extension not supported or metamodel not found!
+info: Mar-01-2022 16:30:31: 	[01/Mar/2022:15:30:31 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 2244.754 ms
+
+warn: Mar-01-2022 16:30:33: 	Model extension not supported or metamodel not found!
+info: Mar-01-2022 16:30:33: 	[01/Mar/2022:15:30:33 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1485.709 ms
+
+info: Mar-01-2022 16:34:04: 	Listening on port 3200...
+info: Mar-01-2022 16:34:04: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:34:41: 	User retrieved successfully!
+info: Mar-01-2022 16:34:41: 	[01/Mar/2022:15:34:41 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 9.090 ms
+
+info: Mar-01-2022 16:34:41: 	Workspaces retrieved successfully!
+info: Mar-01-2022 16:34:41: 	[01/Mar/2022:15:34:41 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 320 '- python-requests/2.22.0' - 8.409 ms
+
+info: Mar-01-2022 16:34:41: 	Projects retrieved successfully!
+info: Mar-01-2022 16:34:41: 	[01/Mar/2022:15:34:41 +0000] 'GET /store/project?id=61fd21a78414c16f386450c8 HTTP/1.1' 200 306 '- python-requests/2.22.0' - 6.690 ms
+
+warn: Mar-01-2022 16:34:57: 	Model extension not supported or metamodel not found!
+info: Mar-01-2022 16:34:57: 	[01/Mar/2022:15:34:57 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1480.375 ms
+
+warn: Mar-01-2022 16:35:18: 	Model extension not supported or metamodel not found!
+info: Mar-01-2022 16:35:18: 	[01/Mar/2022:15:35:18 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1193.059 ms
+
+info: Mar-01-2022 16:35:47: 	User retrieved successfully!
+info: Mar-01-2022 16:35:47: 	[01/Mar/2022:15:35:47 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 2.510 ms
+
+info: Mar-01-2022 16:35:47: 	Workspaces retrieved successfully!
+info: Mar-01-2022 16:35:47: 	[01/Mar/2022:15:35:47 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 320 '- python-requests/2.22.0' - 6.667 ms
+
+info: Mar-01-2022 16:35:47: 	Projects retrieved successfully!
+info: Mar-01-2022 16:35:47: 	[01/Mar/2022:15:35:47 +0000] 'GET /store/project?id=61fd21a78414c16f386450c8 HTTP/1.1' 200 306 '- python-requests/2.22.0' - 5.694 ms
+
+warn: Mar-01-2022 16:36:04: 	Model extension not supported or metamodel not found!
+info: Mar-01-2022 16:36:04: 	[01/Mar/2022:15:36:04 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1225.402 ms
+
+info: Mar-01-2022 16:39:08: 	User retrieved successfully!
+info: Mar-01-2022 16:39:08: 	[01/Mar/2022:15:39:08 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 2.512 ms
+
+info: Mar-01-2022 16:39:08: 	Workspaces retrieved successfully!
+info: Mar-01-2022 16:39:08: 	[01/Mar/2022:15:39:08 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 320 '- python-requests/2.22.0' - 4.833 ms
+
+info: Mar-01-2022 16:39:08: 	Projects retrieved successfully!
+info: Mar-01-2022 16:39:08: 	[01/Mar/2022:15:39:08 +0000] 'GET /store/project?id=61fd21a78414c16f386450c8 HTTP/1.1' 200 306 '- python-requests/2.22.0' - 5.650 ms
+
+warn: Mar-01-2022 16:39:42: 	Model extension not supported or metamodel not found!
+info: Mar-01-2022 16:39:42: 	[01/Mar/2022:15:39:42 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1351.418 ms
+
+info: Mar-01-2022 16:41:38: 	Listening on port 3200...
+info: Mar-01-2022 16:41:38: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:42:51: 	Listening on port 3200...
+info: Mar-01-2022 16:42:51: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:42:53: 	User retrieved successfully!
+info: Mar-01-2022 16:42:53: 	[01/Mar/2022:15:42:53 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 9.778 ms
+
+info: Mar-01-2022 16:42:53: 	Workspaces retrieved successfully!
+info: Mar-01-2022 16:42:53: 	[01/Mar/2022:15:42:53 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 320 '- python-requests/2.22.0' - 10.070 ms
+
+info: Mar-01-2022 16:42:53: 	Projects retrieved successfully!
+info: Mar-01-2022 16:42:53: 	[01/Mar/2022:15:42:53 +0000] 'GET /store/project?id=61fd21a78414c16f386450c8 HTTP/1.1' 200 306 '- python-requests/2.22.0' - 8.520 ms
+
+info: Mar-01-2022 16:43:11: 	Metamodel uploaded successfully!
+info: Mar-01-2022 16:43:11: 	[01/Mar/2022:15:43:11 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 5682 '- python-requests/2.22.0' - 1543.553 ms
+
+info: Mar-01-2022 16:44:01: 	Listening on port 3200...
+info: Mar-01-2022 16:44:01: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:44:05: 	User retrieved successfully!
+info: Mar-01-2022 16:44:05: 	[01/Mar/2022:15:44:05 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 6.760 ms
+
+info: Mar-01-2022 16:44:05: 	Workspaces retrieved successfully!
+info: Mar-01-2022 16:44:05: 	[01/Mar/2022:15:44:05 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 320 '- python-requests/2.22.0' - 7.074 ms
+
+info: Mar-01-2022 16:44:05: 	Projects retrieved successfully!
+info: Mar-01-2022 16:44:05: 	[01/Mar/2022:15:44:05 +0000] 'GET /store/project?id=61fd21a78414c16f386450c8 HTTP/1.1' 200 306 '- python-requests/2.22.0' - 6.781 ms
+
+info: Mar-01-2022 16:44:22: 	Metamodel uploaded successfully!
+info: Mar-01-2022 16:44:22: 	[01/Mar/2022:15:44:22 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 5682 '- python-requests/2.22.0' - 1567.552 ms
+
+info: Mar-01-2022 16:44:54: 	Listening on port 3200...
+info: Mar-01-2022 16:44:54: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:45:08: 	User retrieved successfully!
+info: Mar-01-2022 16:45:08: 	[01/Mar/2022:15:45:08 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 8.074 ms
+
+info: Mar-01-2022 16:45:08: 	Workspaces retrieved successfully!
+info: Mar-01-2022 16:45:08: 	[01/Mar/2022:15:45:08 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 320 '- python-requests/2.22.0' - 7.541 ms
+
+info: Mar-01-2022 16:45:08: 	Projects retrieved successfully!
+info: Mar-01-2022 16:45:08: 	[01/Mar/2022:15:45:08 +0000] 'GET /store/project?id=61fd21a78414c16f386450c8 HTTP/1.1' 200 306 '- python-requests/2.22.0' - 6.589 ms
+
+info: Mar-01-2022 16:45:20: 	Metamodel uploaded successfully!
+info: Mar-01-2022 16:45:20: 	[01/Mar/2022:15:45:20 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 5682 '- python-requests/2.22.0' - 1507.381 ms
+
+info: Mar-01-2022 16:46:05: 	Listening on port 3200...
+info: Mar-01-2022 16:46:05: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:46:26: 	Listening on port 3200...
+info: Mar-01-2022 16:46:26: 	Connected to database --> mdeforge ...
+info: Mar-01-2022 16:46:31: 	User retrieved successfully!
+info: Mar-01-2022 16:46:31: 	[01/Mar/2022:15:46:31 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 7.385 ms
+
+info: Mar-01-2022 16:46:31: 	Workspaces retrieved successfully!
+info: Mar-01-2022 16:46:31: 	[01/Mar/2022:15:46:31 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 320 '- python-requests/2.22.0' - 7.404 ms
+
+info: Mar-01-2022 16:46:31: 	Projects retrieved successfully!
+info: Mar-01-2022 16:46:31: 	[01/Mar/2022:15:46:31 +0000] 'GET /store/project?id=61fd21a78414c16f386450c8 HTTP/1.1' 200 306 '- python-requests/2.22.0' - 6.502 ms
+
+info: Mar-01-2022 16:46:50: 	Metamodel uploaded successfully!
+info: Mar-01-2022 16:46:50: 	[01/Mar/2022:15:46:50 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 5683 '- python-requests/2.22.0' - 1551.458 ms
+
+info: Mar-01-2022 16:47:14: 	Listening on port 3200...
+info: Mar-01-2022 16:47:14: 	Connected to database --> mdeforge ...

@@ -48,11 +48,11 @@ project_d = response.json()
 
 def iloveLissette(filename, path):
     ## Uploading the metamodel
-    uri = url + "artifact/model"
-    # uri = url + "artifact/metamodel"
+    #uri = url + "artifact/model"
+    uri = url + "artifact/metamodel"
 
-    payload={'description': 'We are trying to save the model using the api','metamodel': '621dc15f8a88190014f9b951'}
-    # payload={'description': 'We are trying to save the metamodel using the api','project': project_id}
+    # payload={'description': 'We are trying to save the model using the api','metamodel': '621e38e97db82200130dddd7'}
+    payload={'description': 'We are trying to save the metamodel using the api','project': project_id}
 
     files=[('file',(filename,open(path + filename,'rb'),'application/octet-stream'))]
     headers = {}
@@ -88,14 +88,14 @@ for path in paths:
             if data.status_code != 200:
                 failed_entry.append(f)
                 total_fail = total_fail + 1
-            
+            else:
+                total_success = total_success + 1
+        
             print("Execution...", total_execution)
-            total_success = total_success + 1
-
-
-        # i = i + 1
-        # if i == 1:
-        #    break
+        
+        i = i + 1
+        if i == 1:
+            break
             
         # call read text file function
         # read_text_file(file_path)

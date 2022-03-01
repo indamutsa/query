@@ -144,7 +144,7 @@ router.post(
   "/metamodel",
   upload("metamodel").single("file"),
   async (req, res) => {
-    let folder = req.baseUrl.split("/").pop();
+    let folder = req.originalUrl.split("/").pop();
     req.folder = folder;
 
     try {
@@ -657,7 +657,7 @@ router.post("/model", upload("model").single("file"), async (req, res) => {
   //   logger.error("Missing metamodel id");
   //   return { code: 500, message: "Missing metamodel id" };
   // }
-  let folder = req.baseUrl.split("/").pop();
+  let folder = req.originalUrl.split("/").pop();
   req.folder = folder;
 
   try {
@@ -1206,7 +1206,7 @@ router.post("/script", upload("script").single("file"), async (req, res) => {
   //   logger.error("Missing project id");
   //   return { code: 500, message: "Missing project id" };
   // }
-  let folder = req.baseUrl.split("/").pop();
+  let folder = req.originalUrl.split("/").pop();
   req.folder = folder;
 
   try {

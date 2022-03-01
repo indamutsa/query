@@ -126,7 +126,7 @@ const upload = (dest) => {
  *              description: An error occurred on the server, check the logs!
  */
 router.post("/", upload("operation").array("file", 4), async (req, res) => {
-  let folder = req.baseUrl.split("/").pop();
+  let folder = req.originalUrl.split("/").pop();
   req.folder = folder;
 
   const ModelOperation = operationFactory(req.body.type);
