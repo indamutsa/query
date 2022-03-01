@@ -166,9 +166,6 @@ router.post(
 
       req.publicUrl = url;
       const data = await uploadMetamodel(req);
-      await deleteFile(
-        "./localStorage/artifacts/metamodel/" + req.file.filename
-      );
 
       return res
         .status(data.code)
@@ -646,16 +643,40 @@ router.delete("/metamodel/:id", async (req, res) => {
  *              description: An error occurred on the server, check the logs!
  */
 router.post("/model", upload("model").single("file"), async (req, res) => {
-  const m_id = req.body.metamodel;
-  if (m_id) {
+  // const m_id = req.body.metamodel;
+  // if (m_id) {
+  //   const data = await uploadModel(req);
+
+  //   return res
+  //     .status(data.code)
+  //     .json({ message: data.message, data: data.modelData });
+  // } else {
+  //   logger.error("Missing metamodel id");
+  //   return { code: 500, message: "Missing metamodel id" };
+  // }
+
+  try {
+    const url = await uploadOnCloud("models", req.file.path, req.file.filename);
+
+    const m_id = req.body.metamodel;
+
+    if (!m_id) {
+      logger.error("Missing metamodel id");
+
+      await deleteFile("./localStorage/artifacts/model/" + req.file.filename);
+      return { code: 500, message: "Missing metamodel id" };
+    }
+
+    req.publicUrl = url;
     const data = await uploadModel(req);
 
     return res
       .status(data.code)
       .json({ message: data.message, data: data.modelData });
-  } else {
-    logger.error("Missing metamodel id");
-    return { code: 500, message: "Missing metamodel id" };
+  } catch (err) {
+    logger.error(err.message);
+    await deleteFile("./localStorage/artifacts/model/" + req.file.filename);
+    return { code: 500, message: err.message };
   }
 });
 
@@ -676,8 +697,8 @@ const uploadModel = async (req, res) => {
 
       let artifact = {
         type: "MODEL",
-        storageUrl:
-          `http://${req.headers.host}/` + "files/model/" + req.file.filename,
+        storageUrl: req.publicUrl,
+        // `http://${req.headers.host}/` + "files/model/" + req.file.filename,
         size: req.file.size,
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
@@ -736,6 +757,12 @@ const uploadModel = async (req, res) => {
       const modelData = await Model.findOne({
         _id: savedModel._id,
       }).populate("artifact");
+
+      // We are deleting data because after processing it
+      // we dont persist it locally, we save it on the cloud!
+      await deleteFile(
+        "." + "/localStorage/artifacts/model/" + req.file.filename
+      );
 
       logger.info("Model uploaded successfully!");
       return {
