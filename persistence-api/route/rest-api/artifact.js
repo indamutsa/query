@@ -144,19 +144,16 @@ router.post(
   "/metamodel",
   upload("metamodel").single("file"),
   async (req, res) => {
-    try {
-      const url = await uploadOnCloud(
-        "metamodels",
-        req.file.path,
-        req.file.filename
-      );
+    let folder = req.baseUrl.split("/").pop();
+    req.folder = folder;
 
+    try {
       const p_id = req.data ? req.data.project : req.body.project;
 
       if (!p_id) {
         logger.error("Missing project id");
         await deleteFile(
-          "./localStorage/artifacts/metamodel/" + req.file.filename
+          `./localStorage/artifacts/${req.folder}/` + req.file.filename
         );
         return {
           code: 500,
@@ -164,7 +161,6 @@ router.post(
         };
       }
 
-      req.publicUrl = url;
       const data = await uploadMetamodel(req);
 
       return res
@@ -173,7 +169,7 @@ router.post(
     } catch (err) {
       logger.error(err.message);
       await deleteFile(
-        "./localStorage/artifacts/metamodel/" + req.file.filename
+        `./localStorage/artifacts/${req.folder}/` + req.file.filename
       );
       return { code: 500, message: err.message };
     }
@@ -185,6 +181,13 @@ const uploadMetamodel = async (req) => {
   extF = req.file.originalname.match(/(.*)\.(.*)/)[2];
 
   let fileExt = extF.toUpperCase();
+
+  const url = await uploadOnCloud(
+    req.folder + "s",
+    req.file.path,
+    req.file.filename
+  );
+  req.publicUrl = url;
 
   try {
     const modelExts = ["ECORE", "MPS"];
@@ -257,7 +260,7 @@ const uploadMetamodel = async (req) => {
       // We are deleting data because after processing it
       // we dont persist it locally, we save it on the cloud!
       await deleteFile(
-        "." + "/localStorage/artifacts/metamodel/" + req.file.filename
+        `./localStorage/artifacts/${req.folder}/` + req.file.filename
       );
 
       logger.info("Metamodel uploaded successfully!");
@@ -654,20 +657,21 @@ router.post("/model", upload("model").single("file"), async (req, res) => {
   //   logger.error("Missing metamodel id");
   //   return { code: 500, message: "Missing metamodel id" };
   // }
+  let folder = req.baseUrl.split("/").pop();
+  req.folder = folder;
 
   try {
-    const url = await uploadOnCloud("models", req.file.path, req.file.filename);
-
     const m_id = req.body.metamodel;
 
     if (!m_id) {
       logger.error("Missing metamodel id");
 
-      await deleteFile("./localStorage/artifacts/model/" + req.file.filename);
+      await deleteFile(
+        `./localStorage/artifacts/${req.folder}/` + req.file.filename
+      );
       return { code: 500, message: "Missing metamodel id" };
     }
 
-    req.publicUrl = url;
     const data = await uploadModel(req);
 
     return res
@@ -675,13 +679,22 @@ router.post("/model", upload("model").single("file"), async (req, res) => {
       .json({ message: data.message, data: data.modelData });
   } catch (err) {
     logger.error(err.message);
-    await deleteFile("./localStorage/artifacts/model/" + req.file.filename);
+    await deleteFile(
+      `./localStorage/artifacts/${req.folder}/` + req.file.filename
+    );
     return { code: 500, message: err.message };
   }
 });
 
 const uploadModel = async (req, res) => {
   let fileExt = req.file.filename.split(".")[1].toUpperCase();
+
+  const url = await uploadOnCloud(
+    req.folder + "s",
+    req.file.path,
+    req.file.filename
+  );
+  req.publicUrl = url;
 
   try {
     let modelExts = ["XMI", "XML", "MODEL"];
@@ -761,7 +774,7 @@ const uploadModel = async (req, res) => {
       // We are deleting data because after processing it
       // we dont persist it locally, we save it on the cloud!
       await deleteFile(
-        "." + "/localStorage/artifacts/model/" + req.file.filename
+        `./localStorage/artifacts/${req.folder}/` + req.file.filename
       );
 
       logger.info("Model uploaded successfully!");
@@ -1182,21 +1195,56 @@ router.delete("/model/:id", async (req, res) => {
  *              description: An error occurred on the server, check the logs!
  */
 router.post("/script", upload("script").single("file"), async (req, res) => {
-  const p_id = req.data ? req.data.project : req.body.project;
-  if (p_id) {
+  // const p_id = req.data ? req.data.project : req.body.project;
+  // if (p_id) {
+  //   const data = await uploadScript(req);
+
+  //   return res
+  //     .status(data.code)
+  //     .json({ message: data.message, data: data.dslData });
+  // } else {
+  //   logger.error("Missing project id");
+  //   return { code: 500, message: "Missing project id" };
+  // }
+  let folder = req.baseUrl.split("/").pop();
+  req.folder = folder;
+
+  try {
+    const p_id = req.data ? req.data.project : req.body.project;
+
+    if (!p_id) {
+      logger.error("Missing project id");
+      await deleteFile(
+        `./localStorage/artifacts/${req.folder}/` + req.file.filename
+      );
+
+      return { code: 500, message: "Missing project id" };
+    }
+
     const data = await uploadScript(req);
 
     return res
       .status(data.code)
       .json({ message: data.message, data: data.dslData });
-  } else {
-    logger.error("Missing project id");
-    return { code: 500, message: "Missing project id" };
+  } catch (err) {
+    logger.error(err.message);
+    await deleteFile(
+      `./localStorage/artifacts/${req.folder}/` + req.file.filename
+    );
+    return { code: 500, message: err.message };
   }
 });
 
 const uploadScript = async (req, res) => {
   let fileExt = req.file.filename.split(".")[1].toUpperCase();
+
+  const url = await uploadOnCloud(
+    req.folder + "s",
+    req.file.path,
+    req.file.filename
+  );
+
+  req.publicUrl = url;
 
   try {
     const dslExts = ["ETL", "EOL", "EML", "ECL", "EVL", "ATL"];
@@ -1207,8 +1255,8 @@ const uploadScript = async (req, res) => {
 
       let artifact = {
         type: "DSL",
-        storageUrl:
-          `http://${req.headers.host}/` + "files/script/" + req.file.filename,
+        storageUrl: req.publicUrl,
+        // `http://${req.headers.host}/` + "files/script/" + req.file.filename,
         size: req.file.size,
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
@@ -1253,6 +1301,10 @@ const uploadScript = async (req, res) => {
       const dslData = await Dsl.findOne({
         _id: savedDsl._id,
       }).populate("artifact");
+
+      await deleteFile(
+        `./localStorage/artifacts/${req.folder}/` + req.file.filename
+      );
 
       logger.info("Dsl was uploaded successfully!");
       return {

@@ -126,13 +126,16 @@ const upload = (dest) => {
  *              description: An error occurred on the server, check the logs!
  */
 router.post("/", upload("operation").array("file", 4), async (req, res) => {
+  let folder = req.baseUrl.split("/").pop();
+  req.folder = folder;
+
   const ModelOperation = operationFactory(req.body.type);
   let transformationName = "transformation" + "-" + Date.now();
+
   try {
     const user = await User.findOne({ username: "arsene" });
     const workspace = await Workspace.findOne({ owner: user._id });
     const project = await Project.findOne({ workspace: workspace._id });
-
     req.data = {
       description: "",
     };
@@ -159,7 +162,6 @@ router.post("/", upload("operation").array("file", 4), async (req, res) => {
     const mData = await uploadModel(mReq);
 
     // res.send("worked!");
-
     const transformationData = {
       name: transformationName,
       sourceModel: mData.modelData.name,
@@ -170,7 +172,6 @@ router.post("/", upload("operation").array("file", 4), async (req, res) => {
 
     const operation = await ModelOperation(transformationData);
     const persistedOperation = await operation.save();
-
     logger.info("The operation was successful logged!");
     res.status(200).json({
       message: "The operation was successful logged!",

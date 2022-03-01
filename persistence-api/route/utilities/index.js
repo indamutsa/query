@@ -109,7 +109,16 @@ const uploadFile = (destination) => {
       let datafile = file.originalname.match(/(.*)\.(.*)/);
       let fileName = datafile[1];
       let ext = datafile[2];
-      cb(null, fileName + "-" + Date.now() + "." + ext);
+      cb(
+        null,
+        fileName +
+          "-" +
+          Date.now() +
+          "-" +
+          Math.round(Math.random() * 100).toString() +
+          "." +
+          ext
+      );
     },
   });
 
