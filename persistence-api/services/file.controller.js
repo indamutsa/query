@@ -76,9 +76,9 @@ const uploadOnCloud = async (folder, filepath, filename) => {
   // const url = res[0].metadata.mediaLink;
 
   // Need to make the file public before you can access it.
-  await bucket.file("metamodels/" + filename).makePublic();
+  await bucket.file(folder + "/" + filename).makePublic();
   const publicUrl = format(
-    `https://storage.googleapis.com/${bucket.name}/${path}}`
+    `https://storage.googleapis.com/${bucket.name}/${path}`
   );
   return publicUrl;
 };
