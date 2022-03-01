@@ -3,13 +3,14 @@ const Joi = require("joi");
 const router = express.Router();
 const { Artifact } = require("../../models/Artifact");
 const multer = require("multer");
-const { User } = require("../../models/User");
+const { uploadOnCloud } = require("../../services/file.controller");
 const { Model } = require("../../models/Model");
 const { Metamodel } = require("../../models/Metamodel");
 const { Dsl } = require("../../models/Dsl");
 const { Project } = require("../../models/Project");
 const logger = require("../../middleware/logger");
 const { deleteFile, uploadFile, readFile } = require("../utilities");
+const processFile = require("../../middleware/upload");
 // var fs = require("fs");
 
 router.get("/test", async (req, res) => {
@@ -143,27 +144,45 @@ router.post(
   "/metamodel",
   upload("metamodel").single("file"),
   async (req, res) => {
-    const p_id = req.data ? req.data.project : req.body.project;
-    if (p_id) {
-      const data = await uploadMetamodel(req);
+    try {
+      const url = await uploadOnCloud(
+        "metamodels",
+        req.file.path,
+        req.file.filename
+      );
 
-      return res
-        .status(data.code)
-        .json({ message: data.message, data: data.metamodelData });
-    } else {
+      const p_id = req.data ? req.data.project : req.body.project;
+
+      if (!p_id) {
+        logger.error("Missing project id");
+        await deleteFile(
+          "./localStorage/artifacts/metamodel/" + req.file.filename
+        );
+        return { code: 500, message: "Missing project id" };
+      }
+
+      req.publicUrl = url;
+      const data = await uploadMetamodel(req);
       await deleteFile(
         "./localStorage/artifacts/metamodel/" + req.file.filename
       );
 
-      logger.error("Missing project id");
-      return { code: 500, message: "Missing project id" };
+      return res
+        .status(data.code)
+        .json({ message: data.message, data: data.metamodelData });
+    } catch (err) {
+      logger.error(err.message);
+      await deleteFile(
+        "./localStorage/artifacts/metamodel/" + req.file.filename
+      );
+      return { code: 500, message: err.message };
     }
-    // res.send(200);
   }
 );
 
 const uploadMetamodel = async (req) => {
-  extF = req.file.filename.match(/(.*)\.(.*)/)[2];
+  // extF = req.file.filename.match(/(.*)\.(.*)/)[2];
+  extF = req.file.originalname.match(/(.*)\.(.*)/)[2];
 
   let fileExt = extF.toUpperCase();
 
@@ -176,10 +195,10 @@ const uploadMetamodel = async (req) => {
 
       let artifact = {
         type: "METAMODEL",
-        storageUrl:
-          `http://${req.headers.host}/` +
-          "files/metamodel/" +
-          req.file.filename,
+        storageUrl: req.publicUrl,
+        // `http://${req.headers.host}/` +
+        // "files/metamodel/" +
+        // req.file.filename,
         size: req.file.size,
         description: req.data ? req.data.description : req.body.description,
         accessControl: req.body?.accessControl,
@@ -234,6 +253,12 @@ const uploadMetamodel = async (req) => {
       const metamodelData = await Metamodel.findOne({
         _id: savedMetaModel._id,
       }).populate("artifact");
+
+      // We are deleting data because after processing it
+      // we dont persist it locally, we save it on the cloud!
+      await deleteFile(
+        "." + "/localStorage/artifacts/metamodel/" + req.file.filename
+      );
 
       logger.info("Metamodel uploaded successfully!");
       return {

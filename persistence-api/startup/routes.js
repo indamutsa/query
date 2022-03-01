@@ -113,7 +113,7 @@ module.exports = function (app) {
   app.use("/store/project", project);
   app.use("/store/artifact", artifactRouter);
   app.use("/store/operation", operation);
-  // app.use("/api/upload", fileUpload);
+  app.use("/store/files", fileUpload);
 
   // app.use(
   //   "/graphql",

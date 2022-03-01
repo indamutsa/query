@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const multer = require("multer");
+const controller = require("../../services/file.controller");
 
 // Uploading files to the disk rather into the database
 const storage = multer.diskStorage({
@@ -20,5 +21,9 @@ router.post("/api/upload", upload.single("file"), (req, res) => {
     console.error(err);
   }
 });
+
+router.post("/cloud-upload", controller.upload);
+router.get("/", controller.getListFiles);
+router.get("/:name", controller.download);
 
 module.exports = router;

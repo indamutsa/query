@@ -76,6 +76,7 @@ total_fail = 0
 for path in paths:
     # Change the directory
     os.chdir(path)
+    i = 0
     for f in os.listdir():
         #  print(f)
         # Check whether file is in text format or not
@@ -91,13 +92,13 @@ for path in paths:
             print("Execution...", total_execution)
             total_success = total_success + 1
 
-            # i = i + 1
-            # if i == 3:
-            #     break
-            
 
-            # call read text file function
-            # read_text_file(file_path)
+        # i = i + 1
+        # if i == 1:
+        #    break
+            
+        # call read text file function
+        # read_text_file(file_path)
 
     print("Total execution: ", total_execution)
     print("Total success: ", total_success)
@@ -114,6 +115,7 @@ for path in paths:
     print("=========================================================================")
 
 
+            
 
 
 ##############################################################################

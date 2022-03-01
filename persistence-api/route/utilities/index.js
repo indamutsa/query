@@ -65,7 +65,7 @@ const readFile = async (type, path) => {
 };
 
 const populator = (d, data, m) => {
-  console.log(d);
+  // console.log(d);
   let esub = {
     name: null,
     nsURI: null,
