@@ -93,9 +93,9 @@ for path in paths:
         
             print("Execution...", total_execution)
         
-        i = i + 1
-        if i == 1:
-            break
+        # i = i + 1
+        # if i == 1:
+        #     break
             
         # call read text file function
         # read_text_file(file_path)
