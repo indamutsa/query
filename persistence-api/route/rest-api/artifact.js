@@ -158,7 +158,10 @@ router.post(
         await deleteFile(
           "./localStorage/artifacts/metamodel/" + req.file.filename
         );
-        return { code: 500, message: "Missing project id" };
+        return {
+          code: 500,
+          message: "Missing project id, please include it and try again!",
+        };
       }
 
       req.publicUrl = url;
