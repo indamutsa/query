@@ -89,7 +89,7 @@ for path in paths:
             else:
                 total_success = total_success + 1
         
-            print("Execution...", total_execution)
+            print("Execution...:", total_execution)
         
         # i = i + 1
         # if i == 10:
