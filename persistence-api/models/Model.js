@@ -2,44 +2,77 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 
 // Create a schema
-const modelSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    // minlength: 2,
-    // maxlength: 50,
-  },
-  unique_name: {
-    type: String,
-    require: true,
-    unique: true,
-  },
-  metamodel: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Metamodel",
-  },
-  project: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Project",
-  },
-  type: {
-    type: String,
-    enum: ["XMI", "XML", "MODEL"],
-  },
-  artifact: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Artifact",
-  },
-  involvedOperations: [
-    {
+const modelSchema = new mongoose.Schema(
+  {
+    name: {
       type: String,
-      ref: "Transformation",
+      required: true,
+      // minlength: 2,
+      // maxlength: 50,
     },
-  ],
-  // content: {
-  //   type: String,
-  // },
-});
+    unique_name: {
+      type: String,
+      require: true,
+      unique: true,
+    },
+    metamodel: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Metamodel",
+    },
+    project: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Project",
+    },
+    ext: {
+      type: String,
+      enum: ["XMI", "XML", "MODEL"],
+    },
+    type: {
+      type: String,
+      default: "MODEL",
+    },
+    // artifact: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "Artifact",
+    // },
+    involvedOperations: [
+      {
+        type: String,
+        ref: "Transformation",
+      },
+    ],
+    storageUrl: {
+      type: String,
+      required: true,
+      // minlength: 5,
+      // maxlength: 200,
+    },
+    size: {
+      type: Number,
+      required: true,
+    },
+    description: {
+      type: String,
+    },
+    accessControl: {
+      type: String,
+      enum: ["PRIVATE", "PUBLIC"],
+      default: "PUBLIC",
+    },
+    comment: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "COMMENT",
+    },
+    // artifactId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "METAMODEL" || "MODEL" || "DSL",
+    // },
+    content: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
 // Create the model
 const Model = mongoose.model("Model", modelSchema);

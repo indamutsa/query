@@ -5,74 +5,106 @@ require("mongoose-double")(mongoose);
 const { Schema } = mongoose;
 
 // Create a schema
-const metamodelSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    // minlength: 2,
-    // maxlength: 50,
-  },
-  unique_name: {
-    type: String,
-    require: true,
-    unique: true,
-  },
-  project: {
-    type: Schema.Types.ObjectId,
-    ref: "Project",
-  },
-  type: {
-    type: String,
-    enum: ["ECORE", "MPS"],
-  },
-  models: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Model",
-    },
-  ],
-  artifact: {
-    type: Schema.Types.ObjectId,
-    ref: "Artifact",
-  },
-  involvedOperations: [
-    {
-      type: String,
-      ref: "Transformation",
-    },
-  ],
-  // content: {
-  //   type: String,
-  // },
-  // Internal properties
-
-  ePackage: {
+const metamodelSchema = new Schema(
+  {
     name: {
       type: String,
-      default: "default",
+      required: true,
+      // minlength: 2,
+      // maxlength: 50,
     },
-    nsURI: {
+
+    unique_name: {
       type: String,
+      require: true,
+      unique: true,
     },
-    nsPrefix: {
+
+    type: {
       type: String,
+      default: "MODEL",
     },
-    eSubpackages: [
+
+    ext: {
+      type: String,
+      enum: ["ECORE", "MPS"],
+    },
+
+    project: {
+      type: Schema.Types.ObjectId,
+      ref: "Project",
+    },
+
+    models: [
       {
-        name: {
-          type: String,
-        },
-        nsURI: {
-          type: String,
-        },
-        nsPrefix: {
-          type: String,
-        },
-        eClassifiers: [],
+        type: Schema.Types.ObjectId,
+        ref: "Model",
       },
     ],
+
+    involvedOperations: [
+      {
+        type: String,
+        ref: "Transformation",
+      },
+    ],
+
+    storageUrl: {
+      type: String,
+      required: true,
+      // minlength: 5,
+      // maxlength: 200,
+    },
+    size: {
+      type: Number,
+      required: true,
+    },
+    description: {
+      type: String,
+    },
+    accessControl: {
+      type: String,
+      enum: ["PRIVATE", "PUBLIC"],
+      default: "PUBLIC",
+    },
+    comment: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "COMMENT",
+    },
+
+    content: {
+      type: String,
+    },
+
+    ePackage: {
+      name: {
+        type: String,
+        default: "default",
+      },
+      nsURI: {
+        type: String,
+      },
+      nsPrefix: {
+        type: String,
+      },
+      eSubpackages: [
+        {
+          name: {
+            type: String,
+          },
+          nsURI: {
+            type: String,
+          },
+          nsPrefix: {
+            type: String,
+          },
+          eClassifiers: [],
+        },
+      ],
+    },
   },
-});
+  { timestamps: true }
+);
 
 // Create the model
 const Metamodel = mongoose.model("Metamodel", metamodelSchema);

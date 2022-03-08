@@ -196,49 +196,49 @@ const uploadMetamodel = async (req) => {
     if (valid) {
       let data = await readFile("metamodel", req.file.path);
 
-      let artifact = {
-        type: "METAMODEL",
-        storageUrl: req.publicUrl,
-        // `http://${req.headers.host}/` +
-        // "files/metamodel/" +
-        // req.file.filename,
-        size: req.file.size,
-        description: req.data ? req.data.description : req.body.description,
-        accessControl: req.body?.accessControl,
-        comment: req.body?.comment,
-        content: data?.content,
-      };
+      // let artifact = {
+      //   type: "METAMODEL",
+      //   storageUrl: req.publicUrl,
+      //   // `http://${req.headers.host}/` +
+      //   // "files/metamodel/" +
+      //   // req.file.filename,
+      //   size: req.file.size,
+      //   description: req.data ? req.data.description : req.body.description,
+      //   accessControl: req.body?.accessControl,
+      //   comment: req.body?.comment,
+      //   content: data?.content,
+      // };
+
       // Save the artifact
-      const newArtifact = await Artifact(artifact);
-      const savedArtifact = await newArtifact.save();
+      // const newArtifact = await Artifact(artifact);
+      // const savedArtifact = await newArtifact.save();
       // Save metamodel
       const metamodel = {
         name: req.file.originalname,
         unique_name: req.file.filename,
         project: req.data ? req.data.project : req.body.project,
-        type: fileExt,
-        artifact: savedArtifact._id,
-        // involvedOperations: ,
+        ext: fileExt,
+        // type: "METAMODEL",
+        storageUrl: req.publicUrl,
+        size: req.file.size,
+        description: req.data ? req.data.description : req.body.description,
+        accessControl: req.body?.accessControl,
+        comment: req.body?.comment,
+        content: data?.content,
         ePackage: {
           name: data?.ePackage?.name,
           nsURI: data?.ePackage?.nsURI,
           nsPrefix: data?.ePackage?.nsPrefix,
           eSubpackages: data?.ePackage?.eSubpackages,
-          // {
-          //   name: data?.name,
-          //   nsURI: data?.nsURI,
-          //   nsPrefix: data?.nsPrefix,
-          // },
-          // eClass: data?.eClassifiers,
         },
       };
       const newMetamodel = await Metamodel(metamodel);
       const savedMetaModel = await newMetamodel.save();
 
-      if (!savedMetaModel) {
-        await savedArtifact.delete();
-        return;
-      }
+      // if (!savedMetaModel) {
+      //   await savedArtifact.delete();
+      //   return;
+      // }
 
       if (req.data) {
         await Metamodel.findByIdAndUpdate(
@@ -255,7 +255,8 @@ const uploadMetamodel = async (req) => {
       }
       const metamodelData = await Metamodel.findOne({
         _id: savedMetaModel._id,
-      }).populate("artifact");
+      });
+      // .populate("artifact");
 
       // We are deleting data because after processing it
       // we dont persist it locally, we save it on the cloud!
@@ -729,17 +730,25 @@ const uploadModel = async (req, res) => {
         unique_name: req.file.filename,
         metamodel: metamodel._id,
         project: metamodel.project,
-        type: fileExt,
-        artifact: savedArtifact._id,
+        ext: fileExt,
+        // artifact: savedArtifact._id,
+        // type: "MODEL",
+        storageUrl: req.publicUrl,
+        // `http://${req.headers.host}/` + "files/model/" + req.file.filename,
+        size: req.file.size,
+        description: req.data ? req.data.description : req.body.description,
+        accessControl: req.body?.accessControl,
+        comment: req.body?.comment,
+        content: data.content,
       };
 
       const newModel = await Model(model);
       const savedModel = await newModel.save();
 
-      if (!savedModel) {
-        await savedArtifact.delete();
-        return;
-      }
+      // if (!savedModel) {
+      //   await savedArtifact.delete();
+      //   return;
+      // }
 
       // We also update the metamodel the model conforms to
       await Metamodel.findByIdAndUpdate(
@@ -769,7 +778,8 @@ const uploadModel = async (req, res) => {
 
       const modelData = await Model.findOne({
         _id: savedModel._id,
-      }).populate("artifact");
+      });
+      //.populate("artifact");
 
       // We are deleting data because after processing it
       // we dont persist it locally, we save it on the cloud!
@@ -1253,8 +1263,29 @@ const uploadScript = async (req, res) => {
     if (valid) {
       let data = await readFile("dsl", req.file.path);
 
-      let artifact = {
-        type: "DSL",
+      // let artifact = {
+      //   type: "DSL",
+      //   storageUrl: req.publicUrl,
+      //   // `http://${req.headers.host}/` + "files/script/" + req.file.filename,
+      //   size: req.file.size,
+      //   description: req.data ? req.data.description : req.body.description,
+      //   accessControl: req.body?.accessControl,
+      //   comment: req.body?.comment,
+      //   content: data.content,
+      // };
+
+      // Save the artifact
+      // const newArtifact = await Artifact(artifact);
+      // const savedArtifact = await newArtifact.save();
+
+      // Save dsl
+      const dsl = {
+        name: req.file.originalname,
+        unique_name: req.file.filename,
+        project: req.data ? req.data.project : req.body.project,
+        ext: fileExt,
+        // artifact: savedArtifact._id,
+        // type: "DSL",
         storageUrl: req.publicUrl,
         // `http://${req.headers.host}/` + "files/script/" + req.file.filename,
         size: req.file.size,
@@ -1264,26 +1295,13 @@ const uploadScript = async (req, res) => {
         content: data.content,
       };
 
-      // Save the artifact
-      const newArtifact = await Artifact(artifact);
-      const savedArtifact = await newArtifact.save();
-
-      // Save dsl
-      const dsl = {
-        name: req.file.originalname,
-        unique_name: req.file.filename,
-        project: req.data ? req.data.project : req.body.project,
-        type: fileExt,
-        artifact: savedArtifact._id,
-      };
-
       const newDsl = await Dsl(dsl);
       const savedDsl = await newDsl.save();
 
-      if (!savedDsl) {
-        await savedArtifact.delete();
-        return;
-      }
+      // if (!savedDsl) {
+      //   await savedArtifact.delete();
+      //   return;
+      // }
 
       if (req.data)
         await Dsl.findByIdAndUpdate(
@@ -1300,7 +1318,8 @@ const uploadScript = async (req, res) => {
 
       const dslData = await Dsl.findOne({
         _id: savedDsl._id,
-      }).populate("artifact");
+      });
+      // .populate("artifact");
 
       await deleteFile(
         `./localStorage/artifacts/${req.folder}/` + req.file.filename

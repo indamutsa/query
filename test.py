@@ -14,10 +14,7 @@ paths = ['/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/e
 urls = ["http://localhost:3200/store/", "http://34.67.33.7:3200/store/"]
 url = urls[int( sys.argv[1])]
 
-
-
 ##############################################################################
-
 
 query = { "username": "arsene"}
 response = requests.get(url + "user", params=query)
@@ -48,11 +45,11 @@ project_d = response.json()
 
 def iloveLissette(filename, path):
     ## Uploading the metamodel
-    #uri = url + "artifact/model"
-    uri = url + "artifact/metamodel"
+    uri = url + "artifact/model"
+    # uri = url + "artifact/metamodel"
 
-    # payload={'description': 'We are trying to save the model using the api','metamodel': '621e38e97db82200130dddd7'}
-    payload={'description': 'We are trying to save the metamodel using the api','project': project_id}
+    payload={'description': 'We are trying to save the model using the api','metamodel': '621e474e311c8a00143f85e5'}
+    # payload={'description': 'We are trying to save the metamodel using the api','project': project_id}
 
     files=[('file',(filename,open(path + filename,'rb'),'application/octet-stream'))]
     headers = {}
@@ -113,10 +110,6 @@ for path in paths:
             print("- ", e)
 
     print("=========================================================================")
-
-
-            
-
-
+    
 ##############################################################################
 
