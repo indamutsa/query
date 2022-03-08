@@ -127,7 +127,7 @@ const upload = (dest) => {
  */
 router.post("/", upload("operation").array("file", 4), async (req, res) => {
   let folder = req.originalUrl.split("/").pop();
-  req.folder = folder;
+  req.folder = "operations";
 
   const ModelOperation = operationFactory(req.body.type);
   let transformationName = "transformation" + "-" + Date.now();

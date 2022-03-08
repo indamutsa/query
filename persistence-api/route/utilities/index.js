@@ -35,11 +35,22 @@ const readFile = async (type, path) => {
       });
 
       if (result["xmi:XMI"]) {
-        if (result["xmi:XMI"]["ecore:EPackage"][0].name === "PrimitiveTypes")
-          result = result["xmi:XMI"]["ecore:EPackage"][1];
-        else result = result["xmi:XMI"]["ecore:EPackage"][0];
+        if (Array.isArray(result["xmi:XMI"]["ecore:EPackage"])) {
+          if (result["xmi:XMI"]["ecore:EPackage"][0].name === "PrimitiveTypes")
+            result = result["xmi:XMI"]["ecore:EPackage"][1];
+          else {
+            result = result["xmi:XMI"]["ecore:EPackage"][0];
+          }
+        } else {
+          data.content = minify(readData);
+          return data;
+        }
       } else if (result["ecore:EPackage"]) {
         result = result["ecore:EPackage"];
+      } else {
+        data.content = minify(readData);
+
+        return data;
       }
 
       data.ePackage.name = result.name ? result.name[0] : "";
@@ -73,9 +84,9 @@ const populator = (d, data, m) => {
     eClassifiers: [],
   };
 
-  esub.name = m ? d.name[0] : "";
-  esub.nsURI = m ? d.nsURI[0] : "";
-  esub.nsPrefix = m ? d.nsPrefix[0] : "";
+  if (Array.isArray(d.name)) esub.name = m ? d?.name[0] : "";
+  if (Array.isArray(d.nsURI)) esub.nsURI = m ? d?.nsURI[0] : "";
+  if (Array.isArray(d.nsPrefix)) esub.nsPrefix = m ? d?.nsPrefix[0] : "";
 
   d.eClassifiers.forEach((eClass) => {
     esub.eClassifiers.push(eClass.name[0]);

@@ -183,7 +183,7 @@ const uploadMetamodel = async (req) => {
   let fileExt = extF.toUpperCase();
 
   const url = await uploadOnCloud(
-    req.folder + "s",
+    "metamodels",
     req.file.path,
     req.file.filename
   );
@@ -690,11 +690,7 @@ router.post("/model", upload("model").single("file"), async (req, res) => {
 const uploadModel = async (req, res) => {
   let fileExt = req.file.filename.split(".")[1].toUpperCase();
 
-  const url = await uploadOnCloud(
-    req.folder + "s",
-    req.file.path,
-    req.file.filename
-  );
+  const url = await uploadOnCloud("models", req.file.path, req.file.filename);
   req.publicUrl = url;
 
   try {
@@ -1248,11 +1244,7 @@ router.post("/script", upload("script").single("file"), async (req, res) => {
 const uploadScript = async (req, res) => {
   let fileExt = req.file.filename.split(".")[1].toUpperCase();
 
-  const url = await uploadOnCloud(
-    req.folder + "s",
-    req.file.path,
-    req.file.filename
-  );
+  const url = await uploadOnCloud("dsls", req.file.path, req.file.filename);
 
   req.publicUrl = url;
 
