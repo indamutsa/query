@@ -88,9 +88,10 @@ const populator = (d, data, m) => {
   if (Array.isArray(d.nsURI)) esub.nsURI = m ? d?.nsURI[0] : "";
   if (Array.isArray(d.nsPrefix)) esub.nsPrefix = m ? d?.nsPrefix[0] : "";
 
-  d.eClassifiers.forEach((eClass) => {
-    esub.eClassifiers.push(eClass.name[0]);
-  });
+  if (Array.isArray(d.eClassifiers))
+    d.eClassifiers.forEach((eClass) => {
+      esub.eClassifiers.push(eClass.name[0]);
+    });
 
   data.ePackage.eSubpackages.push(esub);
 
