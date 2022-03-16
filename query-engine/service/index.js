@@ -36,17 +36,19 @@ module.exports = {
   async getUser(username, userId) {
     let requestBody = null;
 
-    if (username) {
-      requestBody = esb
-        .requestBodySearch()
-        .query(
-          esb.boolQuery().must(esb.matchPhraseQuery("username", username))
-        );
-    } else if (userId) {
-      requestBody = esb
-        .requestBodySearch()
-        .query(esb.matchPhraseQuery("_id", userId));
-    }
+    if (!username) username = "nothing";
+    if (!userId) userId = "nothing";
+
+    requestBody = esb
+      .requestBodySearch()
+      .query(
+        esb
+          .boolQuery()
+          .should([
+            esb.matchPhraseQuery("username", username),
+            esb.matchPhraseQuery("_id", userId),
+          ])
+      );
 
     const data = await client.search({
       index: index + "users",
@@ -102,14 +104,22 @@ module.exports = {
 
   async getProjectsBy(workspace, userId) {
     let requestBody = null;
+    if (!userId) userId = "nothing";
+    if (!workspace) workspace = "nothing";
+
     requestBody = esb
       .requestBodySearch()
       .query(
-        esb.boolQuery().must(esb.matchPhraseQuery("workspace", workspace))
+        esb
+          .boolQuery()
+          .should([
+            esb.matchPhraseQuery("workspace", workspace),
+            esb.matchPhraseQuery("user", userId),
+          ])
       );
 
     const data = await client.search({
-      index: index + "workspaces",
+      index: index + "projects",
       body: requestBody.toJSON(),
     });
 

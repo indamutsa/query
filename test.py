@@ -48,7 +48,7 @@ def iloveLissette(filename, path):
     uri = url + "artifact/model"
     # uri = url + "artifact/metamodel"
 
-    payload={'description': 'We are trying to save the model using the api','metamodel': '622770a42420ff0013637a03'}
+    payload={'description': 'We are trying to save the model using the api','metamodel': '6231c756185f1e00140eec50'}
     # payload={'description': 'We are trying to save the metamodel using the api','project': project_id}
 
     files=[('file',(filename,open(path + filename,'rb'),'application/octet-stream'))]
@@ -92,7 +92,7 @@ for path in paths:
             print("Execution...:", total_execution)
         
         # i = i + 1
-        # if i == 10:
+        # if i == 1:
         #     break
             
         # call read text file function

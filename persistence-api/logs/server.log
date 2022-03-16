@@ -7347,3 +7347,89 @@ info: Mar-16-2022 11:09:28: 	Listening on port 3200...
 info: Mar-16-2022 11:09:28: 	Connected to database --> mdeforge ...
 info: Mar-16-2022 11:13:14: 	Listening on port 3200...
 info: Mar-16-2022 11:13:14: 	Connected to database --> mdeforge ...
+info: Mar-16-2022 11:42:53: 	Listening on port 3200...
+info: Mar-16-2022 11:43:07: 	Listening on port 3200...
+info: Mar-16-2022 11:43:07: 	Connected to database --> mdeforge ...
+info: Mar-16-2022 11:43:22: 	[16/Mar/2022:10:43:22 +0000] 'GET /store/api-docs/ HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 6.182 ms
+
+info: Mar-16-2022 11:43:22: 	[16/Mar/2022:10:43:22 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 2.838 ms
+
+info: Mar-16-2022 11:43:22: 	[16/Mar/2022:10:43:22 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 2.894 ms
+
+info: Mar-16-2022 11:43:22: 	[16/Mar/2022:10:43:22 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 9.230 ms
+
+info: Mar-16-2022 11:43:22: 	[16/Mar/2022:10:43:22 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 0.586 ms
+
+info: Mar-16-2022 11:43:23: 	[16/Mar/2022:10:43:23 +0000] 'GET /store/api-docs/favicon-32x32.png HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 0.764 ms
+
+warn: Mar-16-2022 11:43:43: 	The user specified not found!
+info: Mar-16-2022 11:43:43: 	[16/Mar/2022:10:43:43 +0000] 'GET /store/workspace?username=username HTTP/1.1' 404 31 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 7.416 ms
+
+info: Mar-16-2022 11:43:51: 	Workspaces retrieved successfully!
+info: Mar-16-2022 11:43:51: 	[16/Mar/2022:10:43:51 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 16.578 ms
+
+info: Mar-16-2022 11:44:11: 	Metamodels retrieved successfully!
+info: Mar-16-2022 11:44:11: 	[16/Mar/2022:10:44:11 +0000] 'GET /store/artifact/project?projectId=62307d0fc42deb89ab78cfd9 HTTP/1.1' 200 64 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 19.858 ms
+
+info: Mar-16-2022 11:45:12: 	Listening on port 3200...
+info: Mar-16-2022 11:45:12: 	Connected to database --> mdeforge ...
+info: Mar-16-2022 11:45:14: 	Metamodels retrieved successfully!
+info: Mar-16-2022 11:45:14: 	[16/Mar/2022:10:45:14 +0000] 'GET /store/artifact/project?projectId=62307d0fc42deb89ab78cfd9 HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 23.937 ms
+
+info: Mar-16-2022 11:45:34: 	Listening on port 3200...
+info: Mar-16-2022 11:45:34: 	Connected to database --> mdeforge ...
+info: Mar-16-2022 11:45:44: 	Metamodels retrieved successfully!
+info: Mar-16-2022 11:45:44: 	[16/Mar/2022:10:45:44 +0000] 'GET /store/artifact/project?projectId=62307d0fc42deb89ab78cfd9 HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 23.351 ms
+
+info: Mar-16-2022 11:47:04: 	Metamodel uploaded successfully!
+info: Mar-16-2022 11:47:04: 	[16/Mar/2022:10:47:04 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 5951 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 1770.856 ms
+
+info: Mar-16-2022 11:47:26: 	Metamodels retrieved successfully!
+info: Mar-16-2022 11:47:26: 	[16/Mar/2022:10:47:26 +0000] 'GET /store/artifact/project?projectId=62307d0fc42deb89ab78cfd9 HTTP/1.1' 200 5961 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 11.442 ms
+
+info: Mar-16-2022 11:48:08: 	Metamodel uploaded successfully!
+info: Mar-16-2022 11:48:08: 	[16/Mar/2022:10:48:08 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 3020 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 1427.880 ms
+
+info: Mar-16-2022 11:48:14: 	Metamodels retrieved successfully!
+info: Mar-16-2022 11:48:14: 	[16/Mar/2022:10:48:14 +0000] 'GET /store/artifact/project?projectId=62307d0fc42deb89ab78cfd9 HTTP/1.1' 200 8928 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 11.897 ms
+
+info: Mar-16-2022 11:48:34: 	Listening on port 3200...
+info: Mar-16-2022 11:48:34: 	Connected to database --> mdeforge ...
+info: Mar-16-2022 11:50:57: 	User retrieved successfully!
+info: Mar-16-2022 11:50:57: 	[16/Mar/2022:10:50:57 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 7.241 ms
+
+info: Mar-16-2022 11:50:57: 	Workspaces retrieved successfully!
+info: Mar-16-2022 11:50:57: 	[16/Mar/2022:10:50:57 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 633 '- python-requests/2.22.0' - 11.986 ms
+
+info: Mar-16-2022 11:50:57: 	Projects retrieved successfully!
+info: Mar-16-2022 11:50:57: 	[16/Mar/2022:10:50:57 +0000] 'GET /store/project?id=62307d0fc42deb89ab78cfd9 HTTP/1.1' 200 618 '- python-requests/2.22.0' - 6.668 ms
+
+warn: Mar-16-2022 11:50:58: 	Model extension not supported or metamodel not found!
+info: Mar-16-2022 11:50:58: 	[16/Mar/2022:10:50:58 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1568.889 ms
+
+warn: Mar-16-2022 11:50:59: 	Model extension not supported or metamodel not found!
+info: Mar-16-2022 11:50:59: 	[16/Mar/2022:10:50:59 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1219.162 ms
+
+warn: Mar-16-2022 11:51:01: 	Model extension not supported or metamodel not found!
+info: Mar-16-2022 11:51:01: 	[16/Mar/2022:10:51:01 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1283.309 ms
+
+warn: Mar-16-2022 11:51:02: 	Model extension not supported or metamodel not found!
+info: Mar-16-2022 11:51:02: 	[16/Mar/2022:10:51:02 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1203.871 ms
+
+info: Mar-16-2022 11:52:04: 	Listening on port 3200...
+info: Mar-16-2022 11:52:04: 	Connected to database --> mdeforge ...
+info: Mar-16-2022 11:53:03: 	User retrieved successfully!
+info: Mar-16-2022 11:53:03: 	[16/Mar/2022:10:53:03 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 7.795 ms
+
+info: Mar-16-2022 11:53:03: 	Workspaces retrieved successfully!
+info: Mar-16-2022 11:53:03: 	[16/Mar/2022:10:53:03 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 633 '- python-requests/2.22.0' - 9.734 ms
+
+info: Mar-16-2022 11:53:03: 	Projects retrieved successfully!
+info: Mar-16-2022 11:53:03: 	[16/Mar/2022:10:53:03 +0000] 'GET /store/project?id=62307d0fc42deb89ab78cfd9 HTTP/1.1' 200 618 '- python-requests/2.22.0' - 7.194 ms
+
+warn: Mar-16-2022 11:53:05: 	Model extension not supported or metamodel not found!
+info: Mar-16-2022 11:53:05: 	[16/Mar/2022:10:53:05 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1647.446 ms
+
+warn: Mar-16-2022 11:53:06: 	Model extension not supported or metamodel not found!
+info: Mar-16-2022 11:53:06: 	[16/Mar/2022:10:53:06 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1263.284 ms
+

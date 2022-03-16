@@ -369,6 +369,7 @@ router.get("/project", async (req, res) => {
   if (project) {
     try {
       const metamodels = await Metamodel.find({ project: project._id });
+
       logger.info("Metamodels retrieved successfully!");
       res
         .status(200)

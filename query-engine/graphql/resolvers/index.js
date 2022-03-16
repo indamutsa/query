@@ -5,7 +5,7 @@ const resolvers = {
   // mutations,
   RetObj: {
     __resolveType(obj) {
-      console.log(obj);
+      // console.log(obj);
       if (obj.username) return "User";
       if (obj.owner) return "Workspace";
       if (obj.workspace) return "Project";
