@@ -5,6 +5,11 @@ require("dotenv").config();
 const app = express();
 
 const { ApolloServer } = require("apollo-server-express");
+const {
+  ApolloServerPluginLandingPageGraphQLPlayground,
+  ApolloServerPluginLandingPageDisabled,
+} = require("apollo-server-core");
+
 const esconfig = require("./config/esConfig");
 const client = esconfig.esClient;
 const router = require("./router");
@@ -26,6 +31,12 @@ async function runServer() {
     typeDefs,
     resolvers,
     introspection: true,
+    plugins: [
+      ApolloServerPluginLandingPageGraphQLPlayground({
+        settings: { "schema.polling.enable": true },
+      }),
+      // ApolloServerPluginLandingPageDisabled(),
+    ],
     context: ({ req }) => {
       return { name: "Indamutsa", req };
     },
