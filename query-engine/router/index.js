@@ -8,5 +8,6 @@ router.route("/search-by-name").get(controller.filterCarsByName);
 router.route("/search-by-name-single").get(controller.filterCarByName);
 router.route("/search-by-multiple").get(controller.fetchMatchMultipleQuery);
 router.route("/seach-avg-query").get(controller.aggregateQuery);
+router.route("/droid").get(controller.getArtifactsDroid);
 
 module.exports = router;

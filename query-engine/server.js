@@ -7,7 +7,7 @@ const app = express();
 const { ApolloServer } = require("apollo-server-express");
 const {
   ApolloServerPluginLandingPageGraphQLPlayground,
-  ApolloServerPluginLandingPageDisabled,
+  // ApolloServerPluginLandingPageDisabled,
 } = require("apollo-server-core");
 
 const esconfig = require("./config/esConfig");

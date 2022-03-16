@@ -126,6 +126,31 @@ module.exports = {
     return data;
   },
 
+  // Get artifacts with the size, the type and the keywords
+  async getTypeSizeKeyword(size, ext, keyword) {
+    let requestBody = null;
+    if (!size) size = -1;
+
+    requestBody = esb
+      .requestBodySearch()
+      .query(
+        esb
+          .boolQuery()
+          .should([
+            esb.matchPhraseQuery("ext", ext),
+            esb.matchQuery("content", keyword),
+          ])
+      )
+      .size(size);
+
+    const data = await client.search({
+      index: index + "*",
+      body: requestBody.toJSON(),
+    });
+
+    return data;
+  },
+
   // async filterCarsByYearMade(param1, param2) {
   //   // console.log(param1, param2);
   //   const requestBody = esb

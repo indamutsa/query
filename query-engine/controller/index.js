@@ -21,6 +21,30 @@ module.exports = {
     }
   },
 
+  async getArtifactsDroid(req, res) {
+    try {
+      const { ext, keyword, size } = req.body;
+
+      let result = await Services.getTypeSizeKeyword(size, ext, keyword);
+
+      // const result = await Services.search();
+      const data = result.hits.hits.map((car) => {
+        return {
+          id: car._id,
+          data: car._source,
+        };
+      });
+      res.json({
+        status_code: 200,
+        success: true,
+        data: data,
+        message: "Data successfully fetched!",
+      });
+    } catch (err) {
+      res.json({ status_code: 500, success: false, data: [], message: err });
+    }
+  },
+
   async filterCarsByYearMade(req, res) {
     let { year1, year2 } = req.query;
 
