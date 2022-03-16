@@ -105,6 +105,7 @@ router.post("/", async (req, res) => {
   if (workspace) {
     try {
       const project = new Project(req.body);
+      project.user = workspace.owner;
 
       const newProject = await project.save();
 

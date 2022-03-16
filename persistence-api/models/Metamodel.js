@@ -22,7 +22,7 @@ const metamodelSchema = new Schema(
 
     type: {
       type: String,
-      default: "MODEL",
+      default: "METAMODEL",
     },
 
     ext: {
@@ -30,10 +30,12 @@ const metamodelSchema = new Schema(
       enum: ["ECORE", "MPS"],
     },
 
-    project: {
-      type: Schema.Types.ObjectId,
-      ref: "Project",
-    },
+    project: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Project",
+      },
+    ],
 
     models: [
       {
@@ -48,7 +50,13 @@ const metamodelSchema = new Schema(
         ref: "Transformation",
       },
     ],
-
+    license: {
+      type: String,
+      default: "MIT License",
+      url: {
+        type: String,
+      },
+    },
     storageUrl: {
       type: String,
       required: true,
@@ -71,9 +79,22 @@ const metamodelSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "COMMENT",
     },
-
+    metrics: [
+      {
+        id: {
+          type: Number,
+        },
+        name: {
+          type: String,
+        },
+        value: {
+          type: Number,
+        },
+      },
+    ],
     content: {
       type: String,
+      unique: true,
     },
 
     ePackage: {

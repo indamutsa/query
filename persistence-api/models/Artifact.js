@@ -22,6 +22,10 @@ const artifactSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    license: {
+      type: String,
+      default: "MIT License",
+    },
     accessControl: {
       type: String,
       enum: ["PRIVATE", "PUBLIC"],

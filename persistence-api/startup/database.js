@@ -1,9 +1,7 @@
 const winston = require("winston");
 const mongoose = require("mongoose");
 const config = require("config");
-
 const logger = require("../middleware/logger");
-const loadInitData = require("./loadInitData");
 
 const connectDb = async () => {
   const db = config.get("db");
@@ -18,7 +16,6 @@ const connectDb = async () => {
       })
       .then(() => {
         logger.info(`Connected to database --> ${db} ...`);
-        loadInitData();
       })
       .catch((err) => {
         logger.error(`Error connecting to the database. \n${err}`);

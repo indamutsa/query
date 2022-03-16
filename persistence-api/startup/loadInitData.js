@@ -2,14 +2,12 @@ const { User } = require("../models/User");
 const { Workspace } = require("../models/Workspace");
 const { Project } = require("../models/Project");
 
-async function loadInitData() {
-  await saveDefaultData();
-}
+const loadInitData = async () => {
+  let user = await User.findOne({ username: "arsene" });
 
-const saveDefaultData = async () => {
-  let user = await User.find({ username: "arsene" });
-
-  if (user.length === 0) {
+  if (user) {
+    return;
+  } else {
     try {
       let newUser = await User({
         username: "arsene",
@@ -18,15 +16,11 @@ const saveDefaultData = async () => {
 
       const savedUser = await newUser.save();
 
-      //   console.log(savedUser);
-
       const workspace = await saveDefaultWorkspace(savedUser);
       await saveDefaultProject(workspace);
     } catch (error) {
       console.log(error);
     }
-  } else {
-    return;
   }
 };
 
@@ -38,7 +32,6 @@ const saveDefaultWorkspace = async (user) => {
       description: "Default workspace",
     });
     const savedWorkspace = await workspace.save();
-    // console.log(savedWorkspace);
 
     return savedWorkspace;
   } catch (error) {
@@ -51,6 +44,7 @@ const saveDefaultProject = async (workspace) => {
     const project = await Project({
       name: "Default-project",
       workspace: workspace._id,
+      user: workspace.owner,
       description: "Default Project",
     });
     const savedProject = await project.save();
@@ -66,11 +60,9 @@ const saveDefaultProject = async (workspace) => {
         new: true, //To return the updated value
       }
     );
-
-    // console.log(savedProject);
   } catch (error) {
     console.log(error);
   }
 };
 
-module.exports = loadInitData;
+module.exports = { loadInitData };

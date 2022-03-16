@@ -157,8 +157,59 @@ const deleteFile = async (url) => {
   });
 };
 
+const uploadLicense = (filePath, licenseName) => {
+  try {
+    const blob = bucket.file(filePath);
+
+    const blobStream = blob.createWriteStream({
+      resumable: false,
+      gzip: true,
+      public: true,
+    });
+
+    blobStream.on("error", (err) => {
+      return { message: err.message };
+    });
+
+    blobStream.on("finish", async (data) => {
+      const publicUrl = format(
+        `https://storage.googleapis.com/${bucket.name}/${blob.name}`
+      );
+
+      try {
+        await bucket.file(licenseName).makePublic();
+      } catch {
+        return {
+          message: `Uploaded the file successfully: ${licenseName}, but public access is denied!`,
+          url: publicUrl,
+        };
+      }
+
+      return {
+        message: `Uploaded the file successfully: ${licenseName}`,
+        url: publicUrl,
+      };
+    });
+
+    blobStream.end(req.file.buffer);
+  } catch (err) {
+    console.log(err);
+
+    if (err.code == "LIMIT_FILE_SIZE") {
+      return {
+        message: "File size cannot be larger than 2MB!",
+      };
+    }
+
+    return {
+      message: `Could not upload the file: ${licenseName}. ${err}`,
+    };
+  }
+};
+
 module.exports = {
   uploadFile,
   deleteFile,
   readFile,
+  uploadLicense,
 };

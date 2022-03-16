@@ -27,6 +27,10 @@ const dslSchema = new mongoose.Schema(
       type: String,
       default: "DSL",
     },
+    license: {
+      type: String,
+      default: "MIT License",
+    },
     // artifact: {
     //   type: mongoose.Schema.Types.ObjectId,
     //   ref: "Artifact",
@@ -61,6 +65,7 @@ const dslSchema = new mongoose.Schema(
     },
     content: {
       type: String,
+      unique: true,
     },
   },
   { timestamps: true }

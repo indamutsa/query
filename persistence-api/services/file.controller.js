@@ -77,7 +77,6 @@ const uploadOnCloud = async (folder, filepath, filename) => {
 
   // Need to make the file public before you can access it.
   await bucket.file(folder + "/" + filename).makePublic();
-  console.log(path);
 
   const publicUrl = format(
     `https://storage.googleapis.com/${bucket.name}/${path}`

@@ -192,31 +192,47 @@ const uploadMetamodel = async (req) => {
   try {
     const modelExts = ["ECORE", "MPS"];
     const valid = modelExts.includes(fileExt);
+    const project = await Project.findById(
+      req.data ? req.data.project : req.body.project
+    );
 
-    if (valid) {
+    if (valid && project) {
       let data = await readFile("metamodel", req.file.path);
+      let metamodelData = null;
 
-      // let artifact = {
-      //   type: "METAMODEL",
-      //   storageUrl: req.publicUrl,
-      //   // `http://${req.headers.host}/` +
-      //   // "files/metamodel/" +
-      //   // req.file.filename,
-      //   size: req.file.size,
-      //   description: req.data ? req.data.description : req.body.description,
-      //   accessControl: req.body?.accessControl,
-      //   comment: req.body?.comment,
-      //   content: data?.content,
-      // };
+      metamodelData = await Metamodel.findOne({ content: data.content });
 
-      // Save the artifact
-      // const newArtifact = await Artifact(artifact);
-      // const savedArtifact = await newArtifact.save();
+      if (metamodelData) {
+        if (
+          !metamodelData.project.includes(
+            req.data ? req.data.project : req.body.project
+          )
+        ) {
+          metamodelData = await Metamodel.findByIdAndUpdate(
+            metamodelData._id,
+            {
+              $push: {
+                project: req.data ? req.data.project : req.body.project,
+              },
+            },
+            {
+              new: true, //To return the updated value
+            }
+          );
+        }
+
+        return {
+          code: 200,
+          message: "Metamodel already exists!",
+          metamodelData,
+        };
+      }
+
       // Save metamodel
       const metamodel = {
         name: req.file.originalname,
         unique_name: req.file.filename,
-        project: req.data ? req.data.project : req.body.project,
+        // project: req.data ? req.data.project : req.body.project,
         ext: fileExt,
         // type: "METAMODEL",
         storageUrl: req.publicUrl,
@@ -235,10 +251,32 @@ const uploadMetamodel = async (req) => {
       const newMetamodel = await Metamodel(metamodel);
       const savedMetaModel = await newMetamodel.save();
 
-      // if (!savedMetaModel) {
-      //   await savedArtifact.delete();
-      //   return;
-      // }
+      //   if (!metamodelData.workspace.includes(project.workspace))
+      //     await Metamodel.findByIdAndUpdate(
+      //       savedMetaModel._id,
+      //       {
+      //         $push: {
+      //           workspace: project.workspace,
+      //         },
+      //       },
+      //       {
+      //         new: true, //To return the updated value
+      //       }
+      //     );
+
+      /// I need to iteratively update the workspace, and the user if the user is different
+
+      await Metamodel.findByIdAndUpdate(
+        savedMetaModel._id,
+        {
+          $push: {
+            project: req.data ? req.data.project : req.body.project,
+          },
+        },
+        {
+          new: true, //To return the updated value
+        }
+      );
 
       if (req.data) {
         await Metamodel.findByIdAndUpdate(
@@ -253,7 +291,7 @@ const uploadMetamodel = async (req) => {
           }
         );
       }
-      const metamodelData = await Metamodel.findOne({
+      metamodelData = await Metamodel.findOne({
         _id: savedMetaModel._id,
       });
       // .populate("artifact");
@@ -265,20 +303,22 @@ const uploadMetamodel = async (req) => {
       );
 
       logger.info("Metamodel uploaded successfully!");
+
       return {
         code: 200,
         message: "Metamodel uploaded successfully!",
         metamodelData,
       };
     } else {
-      logger.warn("Metamodel extension not supported!");
-      return { code: 404, message: "Metamodel extension not supported!" };
-      // return res.status(404).json("Metamodel extension not supported!");
+      logger.warn("Metamodel extension not supported or no project found!");
+      return {
+        code: 404,
+        message: "Metamodel extension not supported or no project found!",
+      };
     }
   } catch (err) {
     logger.error(err.toString());
     return { code: 500, message: err.message };
-    // return res.status(500).json(err.toString());
   }
 };
 
@@ -647,17 +687,6 @@ router.delete("/metamodel/:id", async (req, res) => {
  *              description: An error occurred on the server, check the logs!
  */
 router.post("/model", upload("model").single("file"), async (req, res) => {
-  // const m_id = req.body.metamodel;
-  // if (m_id) {
-  //   const data = await uploadModel(req);
-
-  //   return res
-  //     .status(data.code)
-  //     .json({ message: data.message, data: data.modelData });
-  // } else {
-  //   logger.error("Missing metamodel id");
-  //   return { code: 500, message: "Missing metamodel id" };
-  // }
   let folder = req.originalUrl.split("/").pop();
   req.folder = folder;
 
@@ -1663,3 +1692,20 @@ router.delete("/script/:id", async (req, res) => {
 
 const artifactRouter = router;
 module.exports = { artifactRouter, uploadMetamodel, uploadModel, uploadScript };
+
+// let metaMMa = await Metamodel.find({
+//   project: { $in: [req.data ? req.data.project : req.body.project] },
+// });
+
+//   if (!metamodelData.workspace.includes(project.workspace))
+//     await Metamodel.findByIdAndUpdate(
+//       savedMetaModel._id,
+//       {
+//         $push: {
+//           workspace: project.workspace,
+//         },
+//       },
+//       {
+//         new: true, //To return the updated value
+//       }
+//     );

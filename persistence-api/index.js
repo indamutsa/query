@@ -10,8 +10,8 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-const { success, error } = require("consola");
-const loadInitData = require("./startup/loadInitData");
+const { loadInitData } = require("./startup/loadInitData");
+const { runMetricsInInterval } = require("./startup/batchExecution");
 const { ApolloServer, gql } = require("apollo-server-express");
 const {
   ApolloServerPluginLandingPageGraphQLPlayground,
@@ -64,7 +64,8 @@ async function runServer() {
 
   init_app(app);
   validate();
-  // loadInitData();
+  loadInitData();
+  // runMetricsInInterval();
 
   await server.start();
   server.applyMiddleware({ app });

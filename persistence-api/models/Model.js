@@ -27,6 +27,10 @@ const modelSchema = new mongoose.Schema(
       type: String,
       enum: ["XMI", "XML", "MODEL"],
     },
+    license: {
+      type: String,
+      default: "MIT License",
+    },
     type: {
       type: String,
       default: "MODEL",
@@ -69,6 +73,7 @@ const modelSchema = new mongoose.Schema(
     // },
     content: {
       type: String,
+      unique: true,
     },
   },
   { timestamps: true }
