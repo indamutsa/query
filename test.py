@@ -65,6 +65,7 @@ def iloveLissette(filename, path):
 # iterate through all file
 i = 0
 failed_entry = []
+already_entry = []
 total_execution = 0
 total_success = 0
 total_fail = 0
@@ -86,6 +87,9 @@ for path in paths:
             if data.status_code != 200:
                 failed_entry.append(f)
                 total_fail = total_fail + 1
+            elif data.status_code == 409:
+                already_exist = already_exist + 1
+                already_entry.append(f)
             else:
                 total_success = total_success + 1
         
@@ -101,6 +105,7 @@ for path in paths:
     print("Total execution: ", total_execution)
     print("Total success: ", total_success)
     print("Total fail: ", total_fail)
+    print("already exists entry: ", already_exist)
 
     print("Failed entry: ")
 
@@ -109,6 +114,10 @@ for path in paths:
     else:    
         for e in failed_entry:
             print("- ", e)
+        if len(already_entry) >= 0:
+            print("Already existing entries: ")
+            for n in already_entry:
+                print("- ", n)
 
     print("=========================================================================")
     

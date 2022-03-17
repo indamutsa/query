@@ -108,6 +108,48 @@ cluster-name = 'arsene-elasticsearch'
 exit-after-direct-reads = false
 
 
-# [[mapping]]
-# namespace = "test.student"
-# index = "students"
+[[mapping]]
+namespace = "mdeforge.users"
+index = "mdeforge"
+type = "users"
+
+[[mapping]]
+namespace = "mdeforge.workspaces"
+index = "mdeforge"
+type = "workspaces"
+
+[[mapping]]
+namespace = "mdeforge.projects"
+index = "mdeforge"
+type = "projects"
+
+[[mapping]]
+namespace = "mdeforge.dsls"
+index = "mdeforge"
+type = "dsls"
+
+[[mapping]]
+namespace = "mdeforge.models"
+index = "mdeforge"
+type = "models"
+
+[[mapping]]
+namespace = "mdeforge.metamodels"
+index = "mdeforge"
+type = "metamodels"
+
+[[mapping]]
+namespace = "mdeforge.transformations"
+index = "mdeforge"
+type = "transformations"
+
+
+[[mapping]]
+namespace = "testDb.kittens"
+index = "testDb"
+type = "kittens"
+
+
+
+
+

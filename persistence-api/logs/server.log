@@ -7433,3 +7433,37 @@ info: Mar-16-2022 11:53:05: 	[16/Mar/2022:10:53:05 +0000] 'POST /store/artifact/
 warn: Mar-16-2022 11:53:06: 	Model extension not supported or metamodel not found!
 info: Mar-16-2022 11:53:06: 	[16/Mar/2022:10:53:06 +0000] 'POST /store/artifact/model HTTP/1.1' 404 67 '- python-requests/2.22.0' - 1263.284 ms
 
+info: Mar-17-2022 10:09:34: 	Listening on port 3200...
+info: Mar-17-2022 10:09:34: 	Connected to database --> mdeforge ...
+info: Mar-17-2022 10:20:20: 	Listening on port 3200...
+info: Mar-17-2022 10:20:34: 	Listening on port 3200...
+info: Mar-17-2022 10:20:34: 	Connected to database --> mdeforge ...
+info: Mar-17-2022 10:21:16: 	[17/Mar/2022:09:21:16 +0000] 'GET /store/api-docs/swagger-ui.css HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 19.543 ms
+
+info: Mar-17-2022 10:21:16: 	[17/Mar/2022:09:21:16 +0000] 'GET /store/api-docs/swagger-ui-bundle.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 36.070 ms
+
+info: Mar-17-2022 10:21:16: 	[17/Mar/2022:09:21:16 +0000] 'GET /store/api-docs/swagger-ui-standalone-preset.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 1.918 ms
+
+info: Mar-17-2022 10:21:16: 	[17/Mar/2022:09:21:16 +0000] 'GET /store/api-docs/swagger-ui-init.js HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 5.583 ms
+
+info: Mar-17-2022 10:25:59: 	Workspaces retrieved successfully!
+info: Mar-17-2022 10:25:59: 	[17/Mar/2022:09:25:59 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 304 - '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 23.530 ms
+
+info: Mar-17-2022 10:29:19: 	Metamodel uploaded successfully!
+info: Mar-17-2022 10:29:19: 	[17/Mar/2022:09:29:19 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 1511 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 2005.397 ms
+
+info: Mar-17-2022 10:31:13: 	[17/Mar/2022:09:31:13 +0000] 'POST /store/artifact/metamodel HTTP/1.1' 200 1504 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 25.724 ms
+
+info: Mar-17-2022 10:33:31: 	Model uploaded successfully!
+info: Mar-17-2022 10:33:31: 	[17/Mar/2022:09:33:31 +0000] 'POST /store/artifact/model HTTP/1.1' 200 877 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 1590.297 ms
+
+error: Mar-17-2022 10:33:49: 	TypeError: dataModel.metamodel.includes is not a function
+info: Mar-17-2022 10:33:49: 	[17/Mar/2022:09:33:49 +0000] 'POST /store/artifact/model HTTP/1.1' 500 60 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 20.300 ms
+
+info: Mar-17-2022 10:34:28: 	Listening on port 3200...
+info: Mar-17-2022 10:34:28: 	Connected to database --> mdeforge ...
+error: Mar-17-2022 10:34:31: 	TypeError: dataModel.metamodel.includes is not a function
+info: Mar-17-2022 10:34:31: 	[17/Mar/2022:09:34:31 +0000] 'POST /store/artifact/model HTTP/1.1' 500 60 '- Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36' - 72.842 ms
+
+info: Mar-17-2022 10:36:15: 	Listening on port 3200...
+info: Mar-17-2022 10:36:15: 	Connected to database --> mdeforge ...

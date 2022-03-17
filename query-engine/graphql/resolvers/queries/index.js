@@ -270,6 +270,106 @@ const Query = {
     }
   },
 
+  // ================================================================
+  // Artifact by id
+  // ================================================================
+  // - Get model by id
+  modelById: async (parent, args, context, info) => {
+    try {
+      const { modelId } = args;
+      const result = await Services.getModelById(modelId);
+
+      const _data = result.hits.hits[0];
+      let id = _data._id;
+      let model = _data._source;
+      model.id = id;
+
+      const data = {
+        status_code: 200,
+        success: true,
+        data: model,
+        message: "Model data successfully fetched!",
+      };
+
+      return data;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  metamodelById: async (parent, args, context, info) => {
+    try {
+      const { metamodelId } = args;
+      const result = await Services.getMetamodelById(metamodelId);
+
+      const _data = result.hits.hits[0];
+      let id = _data._id;
+      let model = _data._source;
+      model.id = id;
+
+      const data = {
+        status_code: 200,
+        success: true,
+        data: model,
+        message: "Model data successfully fetched!",
+      };
+
+      return data;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  dslById: async (parent, args, context, info) => {
+    try {
+      const { dslId } = args;
+      const result = await Services.getDslById(dslId);
+
+      const _data = result.hits.hits[0];
+      let id = _data._id;
+      let dsl = _data._source;
+      dsl.id = id;
+
+      const data = {
+        status_code: 200,
+        success: true,
+        data: dsl,
+        message: "Dsl data successfully fetched!",
+      };
+
+      return data;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+  // ================================================================
+  // Artifact level queries
+  // ================================================================
+  // - Get metamodel from a model
+  metamodelByValue: async (parent, args, context, info) => {
+    try {
+      const { field, value, size } = args;
+      const result = await Services.getMetamodelByValue(field, value, size);
+
+      const _data = result.hits.hits.map((metamodel) => {
+        let id = metamodel._id;
+        metamodel = metamodel._source;
+        metamodel.id = id;
+        return metamodel;
+      });
+
+      const data = {
+        status_code: 200,
+        success: true,
+        total_hits: result.hits.total.value,
+        data: _data,
+        message: "Metamodel data successfully fetched!",
+      };
+
+      return data;
+    } catch (err) {
+      console.log(err.message);
+    }
+  },
+
   // workspace: async (parent, args, context, info) => {
   //   try {
 

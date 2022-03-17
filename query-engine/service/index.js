@@ -127,7 +127,7 @@ module.exports = {
   },
 
   // Get artifacts with the size, the type and the keywords
-  async getTypeSizeKeyword(size, ext, keyword) {
+  async getDroidData(size, ext, keyword) {
     let requestBody = null;
     if (!size) size = -1;
 
@@ -145,6 +145,67 @@ module.exports = {
 
     const data = await client.search({
       index: index + "*",
+      body: requestBody.toJSON(),
+    });
+
+    return data;
+  },
+
+  // ================================================================
+  // Artifact level queries
+  // ================================================================
+  // Get artifact by Id
+  async getModelById(id) {
+    let requestBody = null;
+
+    requestBody = esb
+      .requestBodySearch()
+      .query(esb.matchPhraseQuery("_id", id));
+
+    const data = await client.search({
+      index: index + "models",
+      body: requestBody.toJSON(),
+    });
+
+    return data;
+  },
+  async getMetamodelById(id) {
+    let requestBody = null;
+
+    requestBody = esb
+      .requestBodySearch()
+      .query(esb.matchPhraseQuery("_id", id));
+
+    const data = await client.search({
+      index: index + "metamodels",
+      body: requestBody.toJSON(),
+    });
+
+    return data;
+  },
+  async getDslById(id) {
+    let requestBody = null;
+
+    requestBody = esb
+      .requestBodySearch()
+      .query(esb.matchPhraseQuery("_id", id));
+
+    const data = await client.search({
+      index: index + "dsls",
+      body: requestBody.toJSON(),
+    });
+    return data;
+  },
+
+  // - Get metamodel from a model
+  async getMetamodelByValue(field, value, size) {
+    let requestBody = esb
+      .requestBodySearch()
+      .query(esb.matchPhraseQuery(field, value))
+      .size(size);
+
+    const data = await client.search({
+      index: index + "metamodels",
       body: requestBody.toJSON(),
     });
 

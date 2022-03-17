@@ -25,7 +25,7 @@ module.exports = {
     try {
       const { ext, keyword, size } = req.body;
 
-      let result = await Services.getTypeSizeKeyword(size, ext, keyword);
+      let result = await Services.getDroidData(size, ext, keyword);
 
       // const result = await Services.search();
       const data = result.hits.hits.map((car) => {

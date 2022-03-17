@@ -18,6 +18,12 @@ const typeDefs = gql`
     workspace(workspaceId: String): collData!
     project(projectId: String): collData!
     projectsBy(workspaceId: String, username: String, userId: String): Data!
+    # ===================================
+    modelById(modelId: String): collData!
+    metamodelById(metamodelId: String): collData!
+    dslById(dslId: String): collData!
+    # ===================================
+    metamodelByValue(field: String, value: String, size: Int = 5): Data!
   }
 
   """
@@ -110,7 +116,7 @@ const typeDefs = gql`
     involvedOperations: [String]
     models: [String]
     name: String
-    project: String
+    project: [String]
     storageUrl: String
     type: String
     size: Int
@@ -150,6 +156,7 @@ const typeDefs = gql`
     status_code: Int
     message: String
     success: Boolean
+    total_hits: Int
     data: [RetObj]
   }
 

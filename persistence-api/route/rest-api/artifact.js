@@ -182,13 +182,6 @@ const uploadMetamodel = async (req) => {
 
   let fileExt = extF.toUpperCase();
 
-  const url = await uploadOnCloud(
-    "metamodels",
-    req.file.path,
-    req.file.filename
-  );
-  req.publicUrl = url;
-
   try {
     const modelExts = ["ECORE", "MPS"];
     const valid = modelExts.includes(fileExt);
@@ -222,11 +215,18 @@ const uploadMetamodel = async (req) => {
         }
 
         return {
-          code: 200,
+          code: 409,
           message: "Metamodel already exists!",
           metamodelData,
         };
       }
+
+      const url = await uploadOnCloud(
+        "metamodels",
+        req.file.path,
+        req.file.filename
+      );
+      req.publicUrl = url;
 
       // Save metamodel
       const metamodel = {
@@ -720,9 +720,6 @@ router.post("/model", upload("model").single("file"), async (req, res) => {
 const uploadModel = async (req, res) => {
   let fileExt = req.file.filename.split(".")[1].toUpperCase();
 
-  const url = await uploadOnCloud("models", req.file.path, req.file.filename);
-  req.publicUrl = url;
-
   try {
     let modelExts = ["XMI", "XML", "MODEL"];
     let valid = modelExts.includes(fileExt);
@@ -735,20 +732,27 @@ const uploadModel = async (req, res) => {
     if (valid && metamodel) {
       let data = await readFile("model", req.file.path);
 
-      let artifact = {
-        type: "MODEL",
-        storageUrl: req.publicUrl,
-        // `http://${req.headers.host}/` + "files/model/" + req.file.filename,
-        size: req.file.size,
-        description: req.data ? req.data.description : req.body.description,
-        accessControl: req.body?.accessControl,
-        comment: req.body?.comment,
-        content: data.content,
-      };
+      // let artifact = {
+      //   type: "MODEL",
+      //   storageUrl: req.publicUrl,
+      //   // `http://${req.headers.host}/` + "files/model/" + req.file.filename,
+      //   size: req.file.size,
+      //   description: req.data ? req.data.description : req.body.description,
+      //   accessControl: req.body?.accessControl,
+      //   comment: req.body?.comment,
+      //   content: data.content,
+      // };
 
-      // Save the artifact
-      const newArtifact = await Artifact(artifact);
-      const savedArtifact = await newArtifact.save();
+      // // Save the artifact
+      // const newArtifact = await Artifact(artifact);
+      // const savedArtifact = await newArtifact.save();
+
+      const url = await uploadOnCloud(
+        "models",
+        req.file.path,
+        req.file.filename
+      );
+      req.publicUrl = url;
 
       // Save the model
       const model = {
