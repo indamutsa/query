@@ -38,6 +38,7 @@ module.exports = {
         status_code: 200,
         success: true,
         data: data,
+        total_hits: result.hits.total.value,
         message: "Data successfully fetched!",
       });
     } catch (err) {
