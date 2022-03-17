@@ -115,6 +115,8 @@ services:
     container_name: query_container
     build:
       context: ./query-engine
+    depends_on:
+      - "setup-rs"
 
     ports:
       - "3300:3300"
