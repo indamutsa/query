@@ -127,25 +127,47 @@ module.exports = {
   },
 
   // Get artifacts with the size, the type and the keywords
-  async getDroidData(size, ext, keyword) {
+  async getDroidData(size, ext, keywords) {
     let requestBody = null;
     if (!size) size = -1;
 
-    requestBody = esb
-      .requestBodySearch()
-      .query(
-        esb
-          .boolQuery()
-          .should([
-            esb.matchPhraseQuery("ext", ext),
-            esb.matchQuery("content", keyword),
-          ])
-      )
-      .size(size);
+    // requestBody = esb
+    //   .requestBodySearch()
+    //   .query(
+    //     esb
+    //       .matchQuery("content": )
+    //       // .boolQuery()
+    //       // .should([
+    //       //   esb.matchPhraseQuery("ext", ext),
+    //       //   esb.matchQuery("content", keyword),
+    //       // ])
+    //   )
+    //   .size(size);
 
     const data = await client.search({
       index: index + "*",
-      body: requestBody.toJSON(),
+      body: {
+        size: size,
+        query: {
+          bool: {
+            must: [
+              {
+                match_phrase: {
+                  ext: ext,
+                },
+              },
+              {
+                match: {
+                  content: {
+                    query: keywords,
+                    minimum_should_match: 1,
+                  },
+                },
+              },
+            ],
+          },
+        },
+      },
     });
 
     return data;

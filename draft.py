@@ -1,12 +1,184 @@
-The main search query is included within the query object. As we will see later, we can add different types of search queries to this object. For each query, we add a key with the query type (match_all in this example), with the value being an object containing the search options. There are no options in this example as we want to return all of the documents in the index.
+# The main search query is included within the query object. 
+# As we will see later, we can add different types of search queries 
+# to this object. For each query, we add a key with the query type 
+# (match_all in this example), with the value being an object containing 
+# the search options. There are no options in this example as we want to 
+# return all of the documents in the index.
 
-In addition to the query object, the search body can contain other optional properties, including size and from. The size property determines the number of documents to be included in the response. If this value is not present, by default ten documents are returned. The from property determines the starting index of the returned documents. This is useful for pagination.
-body = {
-    "size": 20,
-    "from": 0,
-    "query": {
-      "match_all": {}
-}
+# In addition to the query object, the search body can contain other optional
+# properties, including size and from. The size property determines the number 
+# of documents to be included in the response. If this value is not present, 
+# by default ten documents are returned. 
+# The from property determines the starting index of the returned documents. 
+# This is useful for pagination.
+
+# {
+#     "size": 20,
+#     "from": 0,
+#     "query": {
+#       "match_all": {}
+# }
+
+
+# Match documents that contain specific values in a field
+# The above search query returns documents whose title field matches any words in the queryproperty. 
+# We can set a minimum number of matched terms as follows.
+
+# -------------------------------------------------------
+# {
+#   query: {
+#     match: {
+#       title: {
+#         query: 'search terms go here',
+#       }
+#     }
+#   }
+# }
+
+# The above search query returns documents whose title field matches any words in the queryproperty. 
+# We can set a minimum number of matched terms as follows.
+# -------------------------------------------------------
+# {
+#   query: {
+#     match: {
+#       title: {
+#           query: 'search terms go here',
+#           minimum_should_match: 3
+#       }
+#     }
+#   }
+# }
+
+# This query matches documents that have at least three of the specified words 
+# in their title. If there are less than three words in the query, 
+# all must be present in the title for the document to be matched. 
+# Another useful feature to add to search queries is fuzziness. 
+# This is useful if the user makes a typo in writing the query, 
+# as fuzzy matching will find closely spelled terms. 
+# -------------------------------------------------------
+# {
+#   query: {
+#       match: {
+#           title: {
+#               query: 'search tems go here',
+#               minimum_should_match: 3,
+#               fuzziness: 2
+#           }
+#       } 
+#   }
+# }
+
+# Search within multiple fields
+# -------------------------------
+# If you want to search within multiple fields, 
+# the multi_match search type can be used. 
+# It is similar to match, except instead of having the field as a 
+# key in the search query object, we add a fields key, which is an 
+# array of fields to be searched. Here, we search within the title, 
+# authors.firstname, and authors.lastname fields
+
+# The multi_match query supports other search properties such as 
+# minimum_should_match and fuzziness. Elasticsearch supports 
+# wildcards (e.g., *) for matching multiple fields, 
+# so we can shorten the above example to ['title', 'authors.*name'].
+
+# multi_match: {
+#   query: 'search terms go here',
+#   fields: ['title', 'authors.firstname',  'authors.lastname']
+# }
+
+
+
+# Matching a complete phrase
+# ----------------------------------------------------------------------
+# Elasticsearch can also match a phrase exactly as entered, 
+# without matching at term level. This query is an extension 
+# to the regular match query, called match_phrase. 
+# Below is an example of a match_phrase. (link to source)
+# match: {
+#   title: {
+#     query: 'search phrase goes here',
+#     type: 'phrase'
+#   }
+# }
+
+# Combining multiple queries
+#  ----------------------------------------------------------
+# So far, in the examples we have only used a single query per request. 
+# Elasticsearch however, allows you to combine multiple queries. 
+# The most common compound query is bool. The bool query accepts four types 
+# of keys: must, should, must_not, and filter. As their names imply, documents 
+# in the results must match queries within must, must not match queries 
+# within must_not, and will get a higher score if they match queries within 
+# should. Each one of the mentioned elements can receive multiple search 
+# queries in the form of an array of queries.
+
+# Below, we use bool query along with a new query type called query_string. 
+# This allows you to write more advanced queries using keywords such as AND 
+# and OR. The complete documentation for the query_string syntax can be found 
+# here. In addition, we use the range query (documentation here), which allows 
+# us to restrict a field to a given range.
+
+# {
+#   bool: {
+#     must: [
+#       {
+#         query_string: {
+#           query: '(authors.firstname:term1 OR authors.lastname:term2) AND (title:term3)'
+#         }
+#       }
+#     ],
+#     should: [
+#       {
+#         match: {
+#           body: {
+#             query: 'search phrase goes here',
+#             type: 'phrase'
+#           }
+#         }
+#       }
+#     ],
+#     must_not: [
+#       {
+#         range: {
+#           year: {
+#             gte: 2011,
+#             lte: 2013
+#           }
+#         }
+#       }
+#     ]
+#   }
+# }
+
+# Filters
+# Staying with the example above, imagine that we want to limit the 
+# results of our search to articles published between 2011 and 2015. 
+# To do this, we only need to add a range query to the filter section 
+# of the original search query. This will remove any unmatched documents 
+# from the results. 
+
+# {
+#   bool: {
+#     must: [
+#       {
+#         match: {
+#           title: 'search terms go here'
+#         }
+#       }
+#     ],
+#     filter: [
+#       {
+#         range: {
+#           year: {
+#             gte: 2011,
+#             lte: 2015
+#           }
+#         }
+#       }
+#     ]
+#   }
+# }
 
 
 # ----------------------------------------------------------------------

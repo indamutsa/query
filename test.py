@@ -66,6 +66,7 @@ def iloveLissette(filename, path):
 i = 0
 failed_entry = []
 already_entry = []
+already_exist = 0
 total_execution = 0
 total_success = 0
 total_fail = 0
