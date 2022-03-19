@@ -1,6 +1,10 @@
 const Services = require("../service");
 
 module.exports = {
+  async test(req, res) {
+    console.log(req.body);
+    res.json({ hello: "Hello, world! " });
+  },
   async search(req, res) {
     try {
       const result = await Services.search();
@@ -24,6 +28,7 @@ module.exports = {
   async getArtifactsDroid(req, res) {
     try {
       const { ext, keyword, size } = req.body;
+      console.log(req.body);
 
       let result = await Services.getDroidData(size, ext, keyword);
 

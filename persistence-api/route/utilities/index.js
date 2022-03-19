@@ -141,12 +141,12 @@ const uploadFile = (destination) => {
 
 //---------------------------------------------------------------------------------
 // Deleting the file
-const deleteFile = async (url) => {
-  fs.access(url, fs.F_OK, async (err, ac) => {
+const deleteFile = async (path) => {
+  fs.access(path, fs.F_OK, async (err, ac) => {
     if (err) {
       return "Error occurred";
     } else {
-      await fs.unlink(url, (ferr, fc) => {
+      await fs.unlink(path, (ferr, fc) => {
         if (ferr) {
           return "Error Occurred On File Deletion!";
         } else {
