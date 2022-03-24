@@ -48,7 +48,7 @@ def iloveLissette(filename, path):
     uri = url + "artifact/model"
     # uri = url + "artifact/metamodel"
 
-    payload={'description': 'We are trying to save the model using the api','metamodel': '62340ab6a98e0b0014e9effc'}
+    payload={'description': 'We are trying to save the model using the api','metamodel': '623af41f6b39020014e001f6'}
     # payload={'description': 'We are trying to save the metamodel using the api','project': project_id}
 
     files=[('file',(filename,open(path + filename,'rb'),'application/octet-stream'))]
@@ -85,7 +85,7 @@ for path in paths:
             data = iloveLissette(f, path)
             
             # print(data.status_code)
-            if data.status_code != 200:
+            if data.status_code != 200 and data.status_code != 409:
                 failed_entry.append(f)
                 total_fail = total_fail + 1
             elif data.status_code == 409:
@@ -126,3 +126,9 @@ for path in paths:
     print("=========================================================================")
     
 ##############################################################################
+
+
+
+# The match_phrase_prefix query is similar to the match_phrase query, but here the last term of the search keyword 
+# is considered as a prefix and is used to match any term starting with that prefix term.
+# First, let’s insert a document into our index to better understand the match_phrase_prefix query:
