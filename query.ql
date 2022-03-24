@@ -6,7 +6,7 @@ QueryModel:
 	elements+=AbstractElement*;
 
 AbstractElement:
-	Variable | User  | Workspace | Project; // | Artifact;
+	Variable | User  | Workspace | Project | Metamodel | Model | Dsl;
 
 User:
 	'Query' 'User' '(' uservar=UserVar (',' uservars+=UserVar)* ')'
@@ -23,59 +23,71 @@ Project:
 		'return' '[' field=ProjectField (',' fields+=ProjectField)*']'	
 ;
 
-Artifact:
-	'Query' 'Artifact' '(' 'type' ':' type=ArtifactType (',' artifactVars+=ArtifactVar)* ')'
-//	('=>' (syntx=MicroSyntax | textSearch=FullTextSearch | filter=Filter | qm=QualityMetric | transfo=Transformable)?)*
+Metamodel:
+	'Query' 'Metamodel' '(' metamodelVar=MetamodelVar (',' metamodelVars+=MetamodelVar)* ')'
+	('=>' (syntax=MicroSyntax | textSearch=FullTextSearch | filter=Filter | qm=QualityMetric | transfo=Transformable))*
 ;
 
-//MicroSyntax:
-//	exp=Expression
-//;
-//
-//FullTextSearch:
-//	'(' exp=Expression (',' exps+=Expression)* (',' 'min_match' ':' INT)? (',' op=Operator)? ')'
-//;
-//
-//QualityMetric:
-//	qExp=QExp (operator=Operator qExps=QExp )*
-//;
-//
-//Transformable:
-//	'(' ( param=TransParam ':' exp=Expression) (',' param=TransParam ':' exp=Expression)?
-//;
-//
-//TransParam:
-//	type=('id' | 'name')
-//;
-//
-//QExp:
-//	qAttr=Qattribute comp=Comparison n=INT 
-//;
-//
-//Qattribute:
-//	type=('qa' | 'qb' | 'qc' | 'qd' | 'qe' | 'qf' | 'qg' | 'qh' | 'qi' | 'qj' | 'qk' | 'ql' | 'qm' | 'qn' | 'qo' | 'qp' | 'qq' | 'qr' | 'qs' | 'qt' | 'qu' | 'qv' )
-//;
-//
-//Operator:
-//	op=('AND' | 'OR')
-//;
-//
-//Filter:
-//	(filterExp=FilterExp)+ (',' 'size' ':' comp=Comparison exp=Expression)
-//;
-//
-//
-//FilterExp:
-//	filterkey=FilterKeyword ':' exp=Expression
-//;
-//
-//Comparison:
-//	type=('==' | '>=' | '<=' | '<' | '>')
-//;
-//
-//FilterKeyword:
-//	type=('gte'| 'lte' | 'lt' | 'gt')
-//;
+Model:
+	'Query' 'Model' '(' modelVar=ModelVar (',' modelVars+=ModelVar)* ')'
+	('=>' (syntax=MicroSyntax | textSearch=FullTextSearch | filter=Filter))*
+;
+
+Dsl:
+	'Query' 'Dsl' '(' dslVar=DslVar (',' dslVars+=DslVar)* ')'
+	('=>' (syntax=MicroSyntax | textSearch=FullTextSearch | filter=Filter))*
+;
+
+//	('=>' (syntx=MicroSyntax | textSearch=FullTextSearch | filter=Filter | qm=QualityMetric | transfo=Transformable)?)*
+
+MicroSyntax:
+	exp=Expression
+;
+
+FullTextSearch:
+	'(' exp=Expression (',' exps+=Expression)* (',' 'min_match' ':' INT)? (',' op=Operator)? ')'
+;
+
+QualityMetric:
+	qExp=QExp (operator=Operator qExps=QExp )*
+;
+
+Transformable:
+	'(' ( param=TransParam ':' exp=Expression) (',' param=TransParam ':' exp=Expression)?
+;
+
+TransParam:
+	type=('id' | 'name')
+;
+
+QExp:
+	qAttr=Qattribute comp=Comparison n=INT 
+;
+
+Qattribute:
+	type=('qa' | 'qb' | 'qc' | 'qd' | 'qe' | 'qf' | 'qg' | 'qh' | 'qi' | 'qj' | 'qk' | 'ql' | 'qm' | 'qn' | 'qo' | 'qp' | 'qq' | 'qr' | 'qs' | 'qt' | 'qu' | 'qv' )
+;
+
+Operator:
+	op=('AND' | 'OR')
+;
+
+Filter:
+	(filterExp=FilterExp)+ (',' 'size' ':' comp=Comparison exp=Expression)
+;
+
+
+FilterExp:
+	filterkey=FilterKeyword ':' exp=Expression
+;
+
+Comparison:
+	type=('==' | '>=' | '<=' | '<' | '>')
+;
+
+FilterKeyword:
+	type=('gte'| 'lte' | 'lt' | 'gt')
+;
 // ------------------------------------------------------------
 
 ArtifactType:
@@ -92,8 +104,14 @@ WorkspaceVar:
 ProjectVar:
 	ProjectParam ':' exp=Expression;	
 	
-ArtifactVar:
-	ArtifactParam ':' exp=Expression;			
+MetamodelVar:
+	MetamodelParam ':' exp=Expression;	
+	
+ModelVar:
+	Param ':' exp=Expression;	
+	
+DslVar:
+	Param ':' exp=Expression;					
 
 
 // Object fields
@@ -112,18 +130,18 @@ ProjectField:
 //ArtifactField:
 //	MetamodelField | ModelField | DslField
 //	;
-//
-//MetamodelField:
-//	typeName=( 'id'|'accessControl' | 'description' | 'ePackage' |'ext' | 'involvedOperations'| 'metrics'| 'models' | 'license' | 'metamodel' |'name' | 'project' | 'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' | 'updatedAt')
-//;
-//
-//ModelField:
-//	typeName=( 'id'|'accessControl' | 'description' | 'ext' | 'involvedOperations' | 'license' | 'metamodel' |'name' | 'project' | 'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' | 'updatedAt')
-//;
-//
-//DslField:
-//	typeName=( 'id'|'accessControl' | 'description' | 'ext' | 'involvedOperations' | 'license' |'name' | 'project' | 'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' | 'updatedAt')
-//;
+
+MetamodelField:
+	typeName=( 'id'|'accessControl' | 'description' | 'ePackage' |'ext' | 'involvedOperations'| 'metrics'| 'models' | 'license' | 'metamodel' |'name' | 'project' | 'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' | 'updatedAt')
+;
+
+ModelField:
+	typeName=( 'id'|'accessControl' | 'description' | 'ext' | 'involvedOperations' | 'license' | 'metamodel' |'name' | 'project' | 'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' | 'updatedAt')
+;
+
+DslField:
+	typeName=( 'id'|'accessControl' | 'description' | 'ext' | 'involvedOperations' | 'license' |'name' | 'project' | 'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' | 'updatedAt')
+;
 
 // Object Params 
 UserParam:
@@ -135,15 +153,20 @@ WorkspaceParam:
 ProjectParam:
 	typeName=('username' | 'userId' | 'workspaceId' | 'projectId');	
 	
-ArtifactParam:
-	MetamodelParam; // | ModelParam | DslParam;	
+//ArtifactParam:
+//	MetamodelParam ; // | DslParam;	
 	
 MetamodelParam:
-	typeName=('id' | 'accessControl' | 'description' | 'eClassifier' | 'ePackageName'| 'ePackageNsURI'| 'ePackageNsPrefix' | 'ext' | 'operation' |'quality-metric'|'model'| 'name'| 'unique-name' | 'project'| 'size' );		
+	MetaParam | Param
+;	
 
-//ModelParam:
-//	typeName=('id' | 'accessControl' | 'description' | 'ext' | 'operation' | 'name'| 'unique-name' | 'project'| 'size' );		
-//
+	
+MetaParam:
+	'eClassifier' | 'ePackageName'| 'ePackageNsURI'| 'ePackageNsPrefix' |'quality-metric'|'model';		
+
+Param:
+	'id' | 'accessControl' | 'description' | 'extension' | 'operation' | 'name'| 'unique-name' | 'project'| 'size';		
+
 //DslParam:
 //	typeName=('id' | 'accessControl' | 'description' | 'ext' | 'operation' | 'name'| 'unique-name' | 'project'| 'size' );	
 
@@ -156,6 +179,10 @@ Expression:
 	{StringConstant} value=STRING |
 	{BoolConstant} value=('true' | 'false') |
 	{VariableRef} variable=[Variable];
+	
+	
+	
+	
 	
 	
 	
