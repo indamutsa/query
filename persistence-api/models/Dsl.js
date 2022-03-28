@@ -15,10 +15,12 @@ const dslSchema = new mongoose.Schema(
       require: true,
       unique: true,
     },
-    project: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Project",
-    },
+    project: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project",
+      },
+    ],
     ext: {
       type: String,
       enum: ["ETL", "EOL", "EML", "ECL", "EVL", "ATL"],

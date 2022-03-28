@@ -19,13 +19,15 @@ const modelSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Metamodel",
     },
-    project: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Project",
-    },
+    project: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project",
+      },
+    ],
     ext: {
       type: String,
-      enum: ["XMI", "XML", "MODEL"],
+      enum: ["XMI", "XML", "MODEL", "UML"],
     },
     license: {
       type: String,
