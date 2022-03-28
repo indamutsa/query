@@ -142,7 +142,7 @@ const upload = (dest) => {
  */
 router.post(
   "/metamodel",
-  upload("metamodel").single("file"),
+  upload("metamodels").single("file"),
   async (req, res) => {
     let folder = req.originalUrl.split("/").pop();
     req.folder = folder;
@@ -178,6 +178,7 @@ router.post(
 
 const uploadMetamodel = async (req) => {
   // extF = req.file.filename.match(/(.*)\.(.*)/)[2];
+
   extF = req.file.originalname.match(/(.*)\.(.*)/)[2];
 
   let fileExt = extF.toUpperCase();
@@ -223,8 +224,9 @@ const uploadMetamodel = async (req) => {
 
       const url = await uploadOnCloud(
         "metamodels",
-        req.file.path,
-        req.file.filename
+        req
+        // req.file.path,
+        // req.file.filename
       );
       req.publicUrl = url;
 
@@ -297,10 +299,10 @@ const uploadMetamodel = async (req) => {
       // .populate("artifact");
 
       // We are deleting data because after processing it
-      // we dont persist it locally, we save it on the cloud!
-      await deleteFile(
-        `./localStorage/artifacts/${req.folder}/` + req.file.filename
-      );
+      // we dont persist it locally, we save it on the cloud! -- UNCOMMENT THIS IF YOU WANT TO PERSIST THE DATA ON THE cloud
+      // await deleteFile(
+      //   `./localStorage/artifacts/${req.folder}/` + req.file.filename
+      // );
 
       logger.info("Metamodel uploaded successfully!");
 
@@ -311,6 +313,9 @@ const uploadMetamodel = async (req) => {
       };
     } else {
       logger.warn("Metamodel extension not supported or no project found!");
+      await deleteFile(
+        `./localStorage/artifacts/${req.folder}/` + req.file.filename
+      );
       return {
         code: 404,
         message: "Metamodel extension not supported or no project found!",
@@ -318,6 +323,9 @@ const uploadMetamodel = async (req) => {
     }
   } catch (err) {
     logger.error(err.toString());
+    await deleteFile(
+      `./localStorage/artifacts/${req.folder}/` + req.file.filename
+    );
     return { code: 500, message: err.message };
   }
 };
@@ -687,7 +695,7 @@ router.delete("/metamodel/:id", async (req, res) => {
  *          500:
  *              description: An error occurred on the server, check the logs!
  */
-router.post("/model", upload("model").single("file"), async (req, res) => {
+router.post("/model", upload("models").single("file"), async (req, res) => {
   let folder = req.originalUrl.split("/").pop();
   req.folder = folder;
 
@@ -749,8 +757,9 @@ const uploadModel = async (req, res) => {
 
       const url = await uploadOnCloud(
         "models",
-        req.file.path,
-        req.file.filename
+        req
+        // req.file.path,
+        // req.file.filename
       );
       req.publicUrl = url;
 
@@ -1234,7 +1243,7 @@ router.delete("/model/:id", async (req, res) => {
  *          500:
  *              description: An error occurred on the server, check the logs!
  */
-router.post("/script", upload("script").single("file"), async (req, res) => {
+router.post("/script", upload("scripts").single("file"), async (req, res) => {
   // const p_id = req.data ? req.data.project : req.body.project;
   // if (p_id) {
   //   const data = await uploadScript(req);
@@ -1278,7 +1287,12 @@ router.post("/script", upload("script").single("file"), async (req, res) => {
 const uploadScript = async (req, res) => {
   let fileExt = req.file.filename.split(".")[1].toUpperCase();
 
-  const url = await uploadOnCloud("dsls", req.file.path, req.file.filename);
+  const url = await uploadOnCloud(
+    "dsls",
+    req
+    // req.file.path,
+    // req.file.filename
+  );
 
   req.publicUrl = url;
 

@@ -1408,3 +1408,227 @@
 # }
 
 # GET netflix/_mapping
+
+#-----------------------------------------------------
+
+
+# /**
+#  * MDEForgeQL is a powerful domain specific language used for querying models 
+#  * in a cloud-based model repository. MDEForgeQL can be used to access quality assessment metrics, 
+#  * chain transformation services and object model query services from third party providers. 
+#  * This allows developers to create sophisticated queries that take advantage of 
+#  * the best available services. 
+#  * 
+#  * This approach offers several benefits over traditional approaches to querying models. 
+#  * First, it is more flexible and allows developers to select the most appropriate 
+#  * quality assessment metric for their needs. This allows them to select the most appropriate metric for  their needs. 
+#  * Second, it enables developers to access chain transformation services that can be used 
+#  * to optimize their models. 
+#  * Finally, it provides access to object model query services that can improve the efficiency of model 
+#  * retrieval operations.
+#  */
+
+# Query User(username: "Value", userId: "Value")
+# 	return [id, username, email, createdAt, updatedAt]
+	
+# Query Workspace(owner: "Value", workspaceId: "Value")
+# 	return [id, name, owner, description, projects, createdAt, updatedAt]
+	
+# Query Project(username: "Value", userId:"Value", workspaceId:"Value", projectId:"Value")
+# 	return [id, name, description, workspace, sharedUser, user, comments, createdAt, updatedAt]
+	
+# Query Metamodel(id:"Value", name: "Value", accessControl: 'value', operation: "value", ePackageName: "value")
+# 	=> microSyntax('(roots heuristic systems) OR (enigneer~) OR (size:(>=10000 AND <=52000))')
+# 	=> fullTextSearch('keyword keyword2' , operator: AND )
+# 	=> filter( gte: 2000, lte: 2022, size: <= 2332)
+# 	=> qualityMetrics(qa == 2 AND qb <= 2)
+# 	=> transformable ( id: "value", name: "value")
+# 	return [id, name, license, description]
+	
+# Query Model(id: "value")
+# 	=> microSyntax('(roots heuristic systems) OR (enigneer~) OR (size:(>=10000 AND <=52000))')
+# 	=> modelQuery(type: EOL, 'for (t in Tree.all) 
+# 				{ t.label.println(); } 
+# 				"We are printing in eshagdjas ol file".println(); 
+# 				//Model.modelFile.println(); 
+# 				doQuery().println(); 
+# 				"I am talking with you".println(); 
+# 				operation doQuery()
+# 				{ return "HELLO WORLD"; }')
+# 	=> filter( gte: 2000, lte: 2022, size: <= 2332)
+# 	=> fullTextSearch('word1 word2' , min_match : 2 )
+# 	return [id, name, license]
+	
+# Query Dsl(id: "value")
+# 	=> microSyntax('(roots heuristic systems) OR (enigneer~) OR (size:(>=10000 AND <=52000))')
+# 	=> filter( gte: 2000, lte: 2022, size: <= 2332)
+# 	=> fullTextSearch('word1 word2' , operator: EXACT )
+# 	return [id, name, license]	
+
+
+# ---------------------------------------------------------------------
+
+# grammar com.arsene.query.QueryDsl with org.eclipse.xtext.common.Terminals
+
+# generate queryDsl "http://www.arsene.com/query/QueryDsl"
+
+# QueryModel:
+# 	elements+=AbstractElement*;
+
+# AbstractElement:
+# 	Variable | User | Workspace | Project | Metamodel | Model | Dsl;
+
+# User:
+# 	'Query' 'User' '(' uservar=UserVar (',' uservars+=UserVar)* ')'
+# 	'return' '[' field=UserField (',' fields+=UserField)*']';
+
+# Workspace:
+# 	'Query' 'Workspace' '(' spacevar=WorkspaceVar (',' spacevars+=WorkspaceVar)* ')'
+# 	'return' '[' field=WorkspaceField (',' fields+=WorkspaceField)*']';
+
+# Project:
+# 	'Query' 'Project' '(' projectvar=ProjectVar (',' projectvars+=ProjectVar)* ')'
+# 	'return' '[' field=ProjectField (',' fields+=ProjectField)*']';
+
+# Metamodel:
+# 	'Query' 'Metamodel' '(' metamodelVar=MetamodelVar (',' metamodelVars+=MetamodelVar)* ')'
+# 	('=>' (syntax=MicroSyntax | textSearch=FullTextSearch | filter=Filter | qm=QualityMetric | transfo=Transformable))*
+# 	'return' '[' field=MetamodelField (',' fields+=MetamodelField)* ']';
+
+# Model:
+# 	'Query' 'Model' '(' modelVar=ModelVar (',' modelVars+=ModelVar)* ')'
+# 	('=>' (syntax=MicroSyntax | textSearch=FullTextSearch | filter=Filter | q=ModelQuery))*
+# 	'return' '[' field=ModelField (',' fields+=ModelField)* ']';
+
+# Dsl:
+# 	'Query' 'Dsl' '(' dslVar=DslVar (',' dslVars+=DslVar)* ')'
+# 	('=>' (syntax=MicroSyntax | textSearch=FullTextSearch | filter=Filter))*
+# 	'return' '[' field=DslField (',' fields+=DslField)* ']';
+
+# //	('=>' (syntx=MicroSyntax | textSearch=FullTextSearch | filter=Filter | qm=QualityMetric | transfo=Transformable)?)*
+# MicroSyntax:
+# 	'microSyntax' '(' exp=Expression ')';
+
+# ModelQuery:
+# 	'modelQuery' '(' 'type' ':' QueryLang ',' expr=Expression ')';
+
+# QueryLang:
+# 	'EOL' | 'OCL';
+
+# FullTextSearch:
+# 	'fullTextSearch' '(' exp=Expression (',' exps+=Expression)* (',' 'min_match' ':' INT | ',' 'operator' ':'
+# 	op=Operator)? ')';
+
+# QualityMetric:
+# 	'qualityMetrics' '(' qExp=QExp (operator=Operator qExps=QExp)* ')';
+
+# Transformable:
+# 	'transformable' '(' (param=TransParam ':' exp=Expression) (',' param=TransParam ':' exp=Expression)? ')';
+
+# TransParam:
+# 	type=('id' | 'name');
+
+# QExp:
+# 	qAttr=Qattribute comp=Comparison n=INT;
+
+# Qattribute:
+# 	type=('qa' | 'qb' | 'qc' | 'qd' | 'qe' | 'qf' | 'qg' | 'qh' | 'qi' | 'qj' | 'qk' | 'ql' | 'qm' | 'qn' | 'qo' | 'qp'
+# 	| 'qq' | 'qr' | 'qs' | 'qt' | 'qu' | 'qv');
+
+# Operator:
+# 	op=('AND' | 'OR'| 'EXACT');
+
+# Filter:
+# 	'filter' '(' (filterExp=FilterExp)? (',' filterExps=FilterExp)? (',' 'size' ':' comp=Comparison exp=Expression) ')';
+
+# FilterExp:
+# 	filterkey=FilterKeyword ':' exp=Expression;
+
+# Comparison:
+# 	type=('==' | '>=' | '<=' | '<' | '>');
+
+# FilterKeyword:
+# 	type=('gte' | 'lte' | 'lt' | 'gt');
+
+# // ------------------------------------------------------------
+# ArtifactType:
+# 	typeName=('Model' | 'Metamodel' | 'Dsl');
+
+# // Object vars
+# UserVar:
+# 	UserParam ':' exp=Expression;
+
+# WorkspaceVar:
+# 	WorkspaceParam ':' exp=Expression;
+
+# ProjectVar:
+# 	ProjectParam ':' exp=Expression;
+
+# MetamodelVar:
+# 	MetamodelParam ':' exp=Expression;
+
+# ModelVar:
+# 	Param ':' exp=Expression;
+
+# DslVar:
+# 	Param ':' exp=Expression;
+
+# // Object fields
+# UserField:
+# 	typeName=('id' | 'username' | 'email' | 'createdAt' | 'updatedAt');
+
+# WorkspaceField:
+# 	typeName=('id' | 'name' | 'description' | 'owner' | 'projects' | 'createdAt' | 'updatedAt');
+
+# ProjectField:
+# 	typeName=('id' | 'name' | 'description' | 'user' | 'workspace' | 'sharedUser' | 'comments' | 'createdAt' |
+# 	'updatedAt');
+
+# //ArtifactField:
+# //	MetamodelField | ModelField | DslField
+# //	;
+# MetamodelField:
+# 	typeName=('id' | 'accessControl' | 'description' | 'ePackage' | 'ext' | 'involvedOperations' | 'metrics' | 'models'
+# 	| 'license' | 'metamodel' | 'name' | 'project' | 'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' |
+# 	'updatedAt');
+
+# ModelField:
+# 	typeName=('id' | 'accessControl' | 'description' | 'ext' | 'involvedOperations' | 'license' | 'metamodel' | 'name' |
+# 	'project' | 'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' | 'updatedAt');
+
+# DslField:
+# 	typeName=('id' | 'accessControl' | 'description' | 'ext' | 'involvedOperations' | 'license' | 'name' | 'project' |
+# 	'size' | 'storageUrl' | 'type' | 'unique_name' | 'createdAt' | 'updatedAt');
+
+# // Object Params 
+# UserParam:
+# 	typeName=('username' | 'userId' | 'email');
+
+# WorkspaceParam:
+# 	typeName=('owner' | 'workspaceId');
+
+# ProjectParam:
+# 	typeName=('username' | 'userId' | 'workspaceId' | 'projectId');
+
+# //ArtifactParam:
+# //	MetamodelParam ; // | DslParam;	
+# MetamodelParam:
+# 	MetaParam | Param;
+
+# MetaParam:
+# 	'eClassifier' | 'ePackageName' | 'ePackageNsURI' | 'ePackageNsPrefix' | 'quality-metric' | 'model';
+
+# Param:
+# 	'id' | 'accessControl' | 'description' | 'extension' | 'operation' | 'name' | 'unique-name' | 'project' | 'size';
+
+# //DslParam:
+# //	typeName=('id' | 'accessControl' | 'description' | 'ext' | 'operation' | 'name'| 'unique-name' | 'project'| 'size' );	
+# //--------------------------------------------
+# Variable:
+# 	'var' name=ID '=' expression=Expression;
+
+# Expression:
+# 	{IntConstant} value=INT |
+# 	{StringConstant} value=STRING |
+# 	{BoolConstant} value=('true' | 'false') |
+# 	{VariableRef} variable=[Variable];

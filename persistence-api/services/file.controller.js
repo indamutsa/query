@@ -62,25 +62,31 @@ const upload = async (req, res) => {
   }
 };
 
-const uploadOnCloud = async (folder, filepath, filename) => {
+const uploadOnCloud = async (folder, req) => {
+  const filename = req.file.filename;
+  const filepath = req.file.path;
+
   const path = `${folder}/${filename}`;
-  var options = {
-    destination: path,
-    gzip: true,
-    resumable: true,
-  };
+  const publicUrl = `http://${req.get("host")}/files/${path}`;
 
-  await bucket.upload("./" + filepath, options);
+  // var options = {
+  //   destination: path,
+  //   gzip: true,
+  //   resumable: true,
+  // };
 
-  // `mediaLink` is the URL for the raw contents of the file.
-  // const url = res[0].metadata.mediaLink;
+  // await bucket.upload("./" + filepath, options);
 
-  // Need to make the file public before you can access it.
-  await bucket.file(folder + "/" + filename).makePublic();
+  // // `mediaLink` is the URL for the raw contents of the file.
+  // // const url = res[0].metadata.mediaLink;
 
-  const publicUrl = format(
-    `https://storage.googleapis.com/${bucket.name}/${path}`
-  );
+  // // Need to make the file public before you can access it.
+  // await bucket.file(folder + "/" + filename).makePublic();
+
+  // const publicUrl = format(
+  //   `https://storage.googleapis.com/${bucket.name}/${path}`
+  // );
+
   return publicUrl;
 };
 

@@ -11,7 +11,7 @@ paths = ['/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/e
 # path = '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ecore_memorec/'
 # path = "/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/instances_xmi_ecore/"
 # url = "http://localhost:3200/store/" #"http://34.67.33.7:3200/store/" 
-urls = ["http://localhost:3200/store/", "http://34.67.33.7:3200/store/"]
+urls = ["http://localhost:3200/store/", "http://178.238.238.209:3200/store/","http://34.67.33.7:3200/store/"]
 url = urls[int( sys.argv[1])]
 
 ##############################################################################
@@ -123,7 +123,7 @@ for path in paths:
         for n in already_entry:
             print("- ", n)
 
-    print("=========================================================================")
+    print("==================================--=======================================")
     
 ##############################################################################
 
