@@ -4,7 +4,7 @@ import sys
 import pdb
 
 
-paths = ['/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ecore_memorec/', '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ZooATLAndMar/', '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/instances_xmi_ecore/']
+paths = ['/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ecore_memorec/', '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ZooATLAndMar/', '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/instances_xmi_ecore/', '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/dataUML_good_ALL/']
 
 # path = paths[int(sys.argv[2])]
 # path = '/home/arsene/Project/school-projects/mdeforge/data/models-metamodels/ZooATLAndMar/'
@@ -48,7 +48,7 @@ def iloveLissette(filename, path):
     uri = url + "artifact/model"
     # uri = url + "artifact/metamodel"
 
-    payload={'description': 'We are trying to save the model using the api','metamodel': '623af41f6b39020014e001f6', 'project': project_id}
+    payload={'description': 'We are trying to save the model using the api','metamodel': '6241ca97ba13260013c9898d', 'project': project_id}
     # payload={'description': 'We are trying to save the metamodel using the api','project': project_id}
 
     files=[('file',(filename,open(path + filename,'rb'),'application/octet-stream'))]
