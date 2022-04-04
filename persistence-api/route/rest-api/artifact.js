@@ -806,7 +806,7 @@ const uploadModel = async (req, res) => {
       const model = {
         name: req.file.originalname,
         unique_name: req.file.filename,
-        metamodel: metamodel?._id,
+        metamodel: metamodel ? metamodel?._id : "orphan",
         project: req.body.project,
         ext: fileExt,
         // artifact: savedArtifact._id,

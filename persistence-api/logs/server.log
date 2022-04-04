@@ -8055,3 +8055,236 @@ info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/
 info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
 info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 11741 '- python-requests/2.22.0' - 42.131 ms
 
+info: Apr-04-2022 10:44:32: 	Listening on port 3200...
+info: Apr-04-2022 10:44:32: 	Connected to database --> mdeforge ...
+info: Apr-04-2022 10:45:19: 	User retrieved successfully!
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 7.614 ms
+
+info: Apr-04-2022 10:45:19: 	Workspaces retrieved successfully!
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 633 '- python-requests/2.22.0' - 10.326 ms
+
+info: Apr-04-2022 10:45:19: 	Projects retrieved successfully!
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'GET /store/project?id=62307d0fc42deb89ab78cfd9 HTTP/1.1' 200 618 '- python-requests/2.22.0' - 8.629 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 54.020 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 23.847 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 45.702 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 35.064 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 11.629 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 27.896 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 21.235 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 17.604 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 20.922 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 21.807 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 15.241 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 66.905 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 15.118 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 22.846 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 21.430 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 34.151 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 34.300 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 19.991 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 121.156 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 36.092 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 15.558 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 16.911 ms
+
+error: Apr-04-2022 10:45:19: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:19: 	[04/Apr/2022:08:45:19 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 16.628 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 27.217 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 22.111 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 65.877 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 102.214 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 35.814 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 19.080 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 14.958 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 51.164 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 20.168 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 16.968 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 14.972 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 26.129 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 50.338 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 12.643 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 10.602 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 77.334 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 14.295 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 36.799 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 61.318 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 26.161 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 13.440 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 10.838 ms
+
+error: Apr-04-2022 10:45:20: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:20: 	[04/Apr/2022:08:45:20 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 57.480 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 71.210 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 24.677 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 71.545 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 14.891 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 15.709 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 63.379 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 13.035 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 27.329 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 25.370 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 9.698 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 84.962 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 23.389 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 185.955 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 47.474 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 21.140 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 50.403 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 57.697 ms
+
+error: Apr-04-2022 10:45:21: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:21: 	[04/Apr/2022:08:45:21 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 8.964 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 62.748 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 13.920 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 14.668 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 18.720 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 57.515 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 22.092 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 41.411 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 31.777 ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' 500 130 '- python-requests/2.22.0' - 28.351 ms
+
+info: Apr-04-2022 10:45:22: 	[04/Apr/2022:08:45:22 +0000] 'POST /store/artifact/model HTTP/1.1' - - '- python-requests/2.22.0' - - ms
+
+error: Apr-04-2022 10:45:22: 	ValidationError: metamodel: Cast to ObjectId failed for value "orphan" (type string) at path "metamodel"
