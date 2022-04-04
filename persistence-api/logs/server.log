@@ -7884,3 +7884,174 @@ info: Apr-04-2022 10:10:53: 	[04/Apr/2022:08:10:53 +0000] 'POST /store/artifact/
 info: Apr-04-2022 10:10:53: 	Model uploaded successfully!
 info: Apr-04-2022 10:19:04: 	Listening on port 3200...
 info: Apr-04-2022 10:19:04: 	Connected to database --> mdeforge ...
+info: Apr-04-2022 10:40:37: 	Listening on port 3200...
+info: Apr-04-2022 10:40:55: 	Listening on port 3200...
+info: Apr-04-2022 10:40:55: 	Connected to database --> mdeforge ...
+info: Apr-04-2022 10:41:04: 	User retrieved successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'GET /store/user?username=arsene HTTP/1.1' 200 217 '- python-requests/2.22.0' - 7.622 ms
+
+info: Apr-04-2022 10:41:04: 	Workspaces retrieved successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'GET /store/workspace?username=arsene HTTP/1.1' 200 633 '- python-requests/2.22.0' - 11.579 ms
+
+info: Apr-04-2022 10:41:04: 	Projects retrieved successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'GET /store/project?id=62307d0fc42deb89ab78cfd9 HTTP/1.1' 200 618 '- python-requests/2.22.0' - 6.973 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 17185 '- python-requests/2.22.0' - 55.163 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 11973 '- python-requests/2.22.0' - 31.241 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 43361 '- python-requests/2.22.0' - 50.961 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 39389 '- python-requests/2.22.0' - 59.976 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 4481 '- python-requests/2.22.0' - 21.649 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 27586 '- python-requests/2.22.0' - 40.445 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 25907 '- python-requests/2.22.0' - 46.885 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 10534 '- python-requests/2.22.0' - 24.573 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 20237 '- python-requests/2.22.0' - 28.832 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 19910 '- python-requests/2.22.0' - 35.574 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 4581 '- python-requests/2.22.0' - 21.399 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 55066 '- python-requests/2.22.0' - 80.595 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 14102 '- python-requests/2.22.0' - 38.164 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 18635 '- python-requests/2.22.0' - 22.541 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 25000 '- python-requests/2.22.0' - 37.482 ms
+
+info: Apr-04-2022 10:41:04: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:04: 	[04/Apr/2022:08:41:04 +0000] 'POST /store/artifact/model HTTP/1.1' 200 36343 '- python-requests/2.22.0' - 44.859 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 31944 '- python-requests/2.22.0' - 47.206 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 25117 '- python-requests/2.22.0' - 41.333 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 85057 '- python-requests/2.22.0' - 122.325 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 30802 '- python-requests/2.22.0' - 37.617 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 21514 '- python-requests/2.22.0' - 23.852 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 25070 '- python-requests/2.22.0' - 41.024 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 9729 '- python-requests/2.22.0' - 37.849 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 11685 '- python-requests/2.22.0' - 31.017 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 15022 '- python-requests/2.22.0' - 25.204 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 56151 '- python-requests/2.22.0' - 90.134 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 47156 '- python-requests/2.22.0' - 49.276 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 30839 '- python-requests/2.22.0' - 38.505 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 21710 '- python-requests/2.22.0' - 25.231 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 7100 '- python-requests/2.22.0' - 23.209 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 39237 '- python-requests/2.22.0' - 45.880 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 21394 '- python-requests/2.22.0' - 38.663 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 25907 '- python-requests/2.22.0' - 26.498 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 15115 '- python-requests/2.22.0' - 22.944 ms
+
+info: Apr-04-2022 10:41:05: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:05: 	[04/Apr/2022:08:41:05 +0000] 'POST /store/artifact/model HTTP/1.1' 200 23749 '- python-requests/2.22.0' - 27.194 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 63419 '- python-requests/2.22.0' - 78.054 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 3319 '- python-requests/2.22.0' - 19.971 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 14871 '- python-requests/2.22.0' - 18.664 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 64393 '- python-requests/2.22.0' - 81.366 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 11409 '- python-requests/2.22.0' - 23.382 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 16693 '- python-requests/2.22.0' - 25.630 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 58533 '- python-requests/2.22.0' - 50.769 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 27475 '- python-requests/2.22.0' - 31.853 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 18549 '- python-requests/2.22.0' - 18.852 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 7283 '- python-requests/2.22.0' - 22.914 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 27177 '- python-requests/2.22.0' - 59.903 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 55910 '- python-requests/2.22.0' - 67.305 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 29879 '- python-requests/2.22.0' - 38.463 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 44482 '- python-requests/2.22.0' - 92.469 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 10100 '- python-requests/2.22.0' - 25.454 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 16207 '- python-requests/2.22.0' - 22.805 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 29608 '- python-requests/2.22.0' - 72.047 ms
+
+info: Apr-04-2022 10:41:06: 	Model uploaded successfully!
+info: Apr-04-2022 10:41:06: 	[04/Apr/2022:08:41:06 +0000] 'POST /store/artifact/model HTTP/1.1' 200 11741 '- python-requests/2.22.0' - 42.131 ms
+
