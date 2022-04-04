@@ -708,10 +708,10 @@ router.post("/model", upload("models").single("file"), async (req, res) => {
   req.folder = folder;
 
   try {
-    const m_id = req.body.metamodel;
+    const p_id = req.body.project;
 
-    if (!m_id) {
-      logger.error("Missing metamodel id");
+    if (!p_id) {
+      logger.error("Project metamodel id");
 
       await deleteFile(
         `./localStorage/artifacts/${req.folder}/` + req.file.filename
@@ -740,12 +740,11 @@ const uploadModel = async (req, res) => {
     let modelExts = ["XMI", "XML", "MODEL", "UML"];
     let valid = modelExts.includes(fileExt);
     let metamodel_id = null;
-    if (req.data) metamodel_id = req.data.metamodel;
-    else metamodel_id = req.body.metamodel;
-
-    const metamodel = await Metamodel.findById(metamodel_id);
+    if (req.data) metamodel_id = req.data?.metamodel;
+    else metamodel_id = req.body?.metamodel;
 
     if (valid && req.body.project) {
+      let metamodel = await Metamodel.findById(metamodel_id);
       let data = await readFile("model", req.file.path);
 
       let modelData = await Model.findOne({ content: data.content });
@@ -807,7 +806,7 @@ const uploadModel = async (req, res) => {
       const model = {
         name: req.file.originalname,
         unique_name: req.file.filename,
-        metamodel: metamodel._id,
+        metamodel: metamodel?._id,
         project: req.body.project,
         ext: fileExt,
         // artifact: savedArtifact._id,
